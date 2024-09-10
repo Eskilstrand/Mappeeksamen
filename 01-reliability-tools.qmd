@@ -1,4 +1,8 @@
-
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 
 # Assignment 1: Reliability and tools for reproducible data science {#assignment1}
 
@@ -8,7 +12,65 @@ The purpose of this assignment is to present estimates of reliability of measure
 
 **Importantly, the report should contain:**
 
-- At least one table (created from your data)
-- At least one figure (created from your data), and
-- data presented in the text.
-- The report should use a bibliography file to manage references.
+-   At least one table (created from your data)
+-   At least one figure (created from your data), and
+-   data presented in the text.
+-   The report should use a bibliography file to manage references.
+
+## **Starten av rapport**
+
+```{r}
+#| code-fold: true
+#| message: false
+
+library(readxl)
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(magrittr)
+library(gt)
+df <- read_xlsx("data/o2-test.xlsx")
+
+```
+
+
+
+### Tabell over o2-tester med utvalgt data
+```{r}
+#| code-fold: true
+
+df %>% 
+  select(id, 
+         age, 
+         weight,
+         w.max, 
+         vo2.max, 
+         hr.max, 
+         la.max, 
+         borg.max) %>% 
+  mutate(rel.vo2max = vo2.max / weight) %>% 
+  mutate(w.max.kg = w.max / weight) %>% 
+  arrange(w.max) %>% 
+  gt(auto_align = TRUE) %>% 
+  fmt_number(decimals = 1)
+    
+  
+
+
+
+```
+
+
+### Figur fra o2-test
+
+
+```{r}
+#| code-fold: true
+
+ ggplot(data = df, aes(x = vo2.max, y = w.max)) +
+   geom_point()
+
+
+
+```
+
