@@ -1,0 +1,65 @@
+---
+title: "Data wrangling workshop"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+## `dplyr` and pipes
+
+why pipes
+
+```{r}
+#| code-fold: true
+
+
+library(exscidata)
+library(tidyverse)
+library(magrittr)
+
+glimpse(exscidata::cyclingstudy)
+
+cyclingstudy %>% 
+  select(age, subject, VO2.max, weight.T1, HF.max) %>% 
+  mutate(Rel.vo2max = VO2.max / weight.T1) %>% 
+  filter(age > 40) %>% 
+  arrange(-Rel.vo2max) %>% 
+  print()
+
+# Ta datasettet cyclingstudy
+
+# Velg variablene alder, subject, vo2max, vekt, hfmax
+
+# Lag ny variabel som viser relativ vo2max
+
+# filtrer etter alder, kun ta med dem over 40 år
+
+# Arranger i synkende rekkefølge (gjøres ved å legge inn - foran verdien det skal arrangeres etter) basert på vo2max
+
+# Print resultatene
+
+```
+
+
+Funksjoner og argumenter
+
+Pipe operator fungerer med å sette data først i neste argument
+Eksempel nedenfor, trenger ikke skrive data som første argument siden jeg piper det før jeg skriver neste steg
+
+```{r}
+#| eval: false
+
+data %>% 
+  my_function(arg1 = "A",
+            arg2= 3) %>% 
+  my_function2()
+
+
+
+```
+
+
+
+
+
+
