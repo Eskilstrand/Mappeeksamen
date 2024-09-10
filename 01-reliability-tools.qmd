@@ -19,8 +19,40 @@ The purpose of this assignment is to present estimates of reliability of measure
 
 ## **Starten av rapport**
 
+## **Protokoll for vo2maks testing**
+
+
+### Forberedelser før test
+- Gjennomfør samme type trening dagen før test 
+- Standardiser siste måltid før test (frokost) 
+- Innta normal mengde (for deg) med koffein før test 
+- Unngå alkohol/nikotin/tobakk siste 72t før test 
+
+### Arbeidsflyt
+
+1. Skru på BIOSEN
+2. Finne frem slange
+3. Starte kalibrering (gass) av Vyntus
+4. Skru sammen munnstykke mens kalibrering pågår
+5. Ta volumkalibrering (Vyntus)
+6. Ta vekt på personen
+7. Legg inn deltagerprofil på LODE
+8. Stille inn sykkel og montere riktige pedaler
+9. Kalibrer krank
+10. Zeroing av Vyntus
+
+
+### Test protocol
+
+Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland) kalibreres før test, og brukes til å måle oksygenopptak. Gassanalysator kalibreres til < 2,0% differanse og luftvolum kalibreres til < 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra.  
+  
+Sykkeltesten gjennomføres på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. 
+  
+Test av det maksimale oksygenopptaket (VO2maks) gjennomføres etter 5 min standarisert oppvarming 2min på 11-12 i Borg, deretter 2 min på 15 i Borg før 1 min på 11-12 i Borg. Testen starter på en watt bestemt utfra deltagerens nivå i samråd med deltager og testleder. Det viktigste er at videre tester starter på samme watt. Det er individuelt om testen øker med 20W eller 25W hvert minutt frem til utmattelse. Testleder gjør verbal oppmuntring og sekundering. Oksygenmålinger hvert 30 sek, og snittet av de to høyeste etterfølgende målingene er det som brukes som det maksimale oksygenopptaket. Deltager er på forhånd informert om at testen stopper når kadens er under 60 rpm. Umiddelbart ved utmattelse blir deltaker spurt om Borg skala. Ett minutt etter endt VO2maks-test stikker vi på fingertupp og måler [bLa-]. 
+
+
 ```{r}
-#| code-fold: true
+#| echo: false
 #| message: false
 
 library(readxl)
@@ -36,23 +68,35 @@ df <- read_xlsx("data/o2-test.xlsx")
 
 
 ### Tabell over o2-tester med utvalgt data
+
 ```{r}
 #| code-fold: true
+#| warning: false
 
 df %>% 
-  select(id, 
-         age, 
-         weight,
-         w.max, 
-         vo2.max, 
-         hr.max, 
-         la.max, 
-         borg.max) %>% 
+  select(id, age, weight, w.max, vo2.max, hr.max, la.max, borg.max) %>% 
   mutate(rel.vo2max = vo2.max / weight) %>% 
-  mutate(w.max.kg = w.max / weight) %>% 
   arrange(w.max) %>% 
   gt(auto_align = TRUE) %>% 
-  fmt_number(decimals = 1)
+  fmt_number(columns = w.max,
+             decimals = 0) %>% 
+  fmt_number(columns = vo2.max,
+             decimals = 0) %>% 
+  fmt_number(columns = rel.vo2max,
+             decimals = 1) %>% 
+  fmt_number(columns = age,
+             decimals = 0) %>% 
+  cols_label(id = "ID",
+             age = "Alder",
+             weight = "Vekt",
+             w.max = md("Watt<sub>maks</sub>"),
+             vo2.max = md("VO<sub>2maks</sub><br><small>(ml/min)</br></small>"),
+             hr.max = md("HF<sub>maks</sub>"),
+             la.max = md("Lak<sub>maks</sub>"),
+             borg.max ="Borg",
+             rel.vo2max = md("VO<sub>2maks</sub><br><small>(ml/kg/min)</br></small>"))
+  
+
     
   
 
@@ -63,14 +107,21 @@ df %>%
 
 ### Figur fra o2-test
 
-
 ```{r}
 #| code-fold: true
-
- ggplot(data = df, aes(x = w.max,
+#| fig-cap: "Sammenheng mellom wattmaks og vo2maks"
+ 
+ggplot(data = df, aes(x = w.max,
                        y = vo2.max,
-                       color = id)) +
-   geom_point()
+                       color = id,
+                       shape = timepoint)) +
+   geom_point() +
+   labs(x = "Wattmaks",
+        y = "Vo2maks") +
+   facet_wrap(~timepoint)
+                      
+
+
 
 
 
