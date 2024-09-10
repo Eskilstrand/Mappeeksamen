@@ -67,7 +67,9 @@ df %>%
 ```{r}
 #| code-fold: true
 
- ggplot(data = df, aes(x = vo2.max, y = w.max)) +
+ ggplot(data = df, aes(x = w.max,
+                       y = vo2.max,
+                       color = id)) +
    geom_point()
 
 
