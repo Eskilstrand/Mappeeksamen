@@ -95,10 +95,7 @@ df %>%
              la.max = md("Lak<sub>maks</sub>"),
              borg.max ="Borg",
              rel.vo2max = md("VO<sub>2maks</sub><br><small>(ml/kg/min)</br></small>"))
-  
 
-    
-  
 
 
 
@@ -108,22 +105,77 @@ df %>%
 ### Figur fra o2-test
 
 ```{r}
-#| code-fold: true
-#| fig-cap: "Sammenheng mellom wattmaks og vo2maks"
- 
-ggplot(data = df, aes(x = w.max,
-                       y = vo2.max,
-                       color = id,
-                       shape = timepoint)) +
-   geom_point() +
-   labs(x = "Wattmaks",
-        y = "Vo2maks") +
-   facet_wrap(~timepoint)
-                      
 
 
+df %>% 
+  mutate(rel.vo2max = vo2.max / weight) %>% 
+  mutate(w.max.kg = w.max / weight) %>% 
+  ggplot(aes(x = rel.vo2max,
+             y = w.max.kg,
+             color = id)) +
+  geom_point() +
+  labs(x = ("Relativ VO2maks"),
+       y = ("Wattmaks/kg"),
+       title = "Korrelasjon mellom Vo2maks og Wattmaks",
+       subtitle = "Verdier er delt på vekt") 
 
 
 
 ```
+
+
+
+### Data presentert i tekst
+
+```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
+
+df %>% 
+  mutate(rel.vo2max = vo2.max / weight) %>% 
+  summarise(VO2max = mean(vo2.max),
+            wattmax = mean(w.max),
+            weight = mean(weight),
+            alder = mean(age),
+            rel.o2 = mean(rel.vo2max)) %>% 
+   gt() %>% 
+  cols_label(VO2max = md("VO<sub>2maks</sub><br><small>ml/min</br></small>"),
+             wattmax = md("Watt<br><small>maks</br></small>"),
+             weight = "Vekt",
+             alder = "Alder",
+             rel.o2 = md("VO<sub>2maks</sub><br><small>ml/kg/min</br></small>")) %>% 
+  fmt_number(columns = VO2max,
+             decimals = 1) %>% 
+  fmt_number(columns = wattmax,
+             decimals = 0) %>% 
+  fmt_number(columns = weight,
+             decimals = 1) %>% 
+  fmt_number(columns = alder,
+             decimals = 0) %>% 
+  fmt_number(columns = rel.o2,
+             decimals = 2)
+  df %>% 
+            mutate(rel.vo2max = vo2.max / weight) %>% 
+            summarise(VO2max.sd = sd(vo2.max),
+            wattmax.sd = sd(w.max),
+            weight.sd = sd(weight),
+            alder.sd = sd(age),
+            rel.o2.sd = sd(rel.vo2max)) %>% 
+  gt() %>% 
+    cols_label(VO2max.sd = md("VO<sub>2maks</sub> (±)"))
+    
+   
+
+
+
+```
+
+
+### Side-by-side table
+
+
+
+
+
 
