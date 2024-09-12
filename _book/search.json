@@ -1,0 +1,212 @@
+[
+  {
+    "objectID": "01-reliability-tools.html",
+    "href": "01-reliability-tools.html",
+    "title": "1  Assignment 1: Reliability and tools for reproducible data science",
+    "section": "",
+    "text": "1.1 Elements of the report\nImportantly, the report should contain:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
+    ]
+  },
+  {
+    "objectID": "01-reliability-tools.html#elements-of-the-report",
+    "href": "01-reliability-tools.html#elements-of-the-report",
+    "title": "1  Assignment 1: Reliability and tools for reproducible data science",
+    "section": "",
+    "text": "At least one table (created from your data)\nAt least one figure (created from your data), and\ndata presented in the text.\nThe report should use a bibliography file to manage references.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
+    ]
+  },
+  {
+    "objectID": "01-reliability-tools.html#starten-av-rapport",
+    "href": "01-reliability-tools.html#starten-av-rapport",
+    "title": "1  Assignment 1: Reliability and tools for reproducible data science",
+    "section": "1.2 Starten av rapport",
+    "text": "1.2 Starten av rapport",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
+    ]
+  },
+  {
+    "objectID": "01-reliability-tools.html#protokoll-for-vo2-max-testing",
+    "href": "01-reliability-tools.html#protokoll-for-vo2-max-testing",
+    "title": "1  Assignment 1: Reliability and tools for reproducible data science",
+    "section": "1.3 Protokoll for VO2 max testing",
+    "text": "1.3 Protokoll for VO2 max testing\n\n1.3.1 Forberedelse før test:\n\nGjennomfør samme type trening dagen før test\nStandardiser siste måltid før test (frokost)\nInnta normal mengde (for deg) med koffein før test\nUnngå alkohol/nikotin/tobakk siste 72t før test\nTilstreb å legge seg omtrent til samme tid alle dager før test\n\n\n\n1.3.2 Arbeidsflyt:\n\nSkru på BIOSEN\nFinne frem slange\nStarte kalibrering av Vyntus\nMens kalbibrering foregår skru sammen munnstykke\nTa volumkalibrering\nTestperson kommer:\nTa vekt\nLegge inn profil LODE og Vyntus\nStille inn sykkel, montere pedaler\nKalibrere krank\nZeroing\n\n\n\n1.3.3 Standardisering før test\nUtøveren skulle trene det samme dagen før test. Inntak av siste måltid før test skulle standardiseres, inntaket av koffein skulle være det samme før hver test. En skulle unngå inntak av alkohol og tobakk de siste 72 timene før test. Det skulle også tilstrebes å få like mye søvn før hver test.\n\n\n1.3.4 VO2maks test\nTesten som ble gjennomført er VO2maks test på sykkel. VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til &lt; 2,0% differanse og luftvolum kalibreres til &lt; 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra.\nVO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle [BLa-]. [BLa-] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
+    ]
+  },
+  {
+    "objectID": "01-reliability-tools.html#referanser",
+    "href": "01-reliability-tools.html#referanser",
+    "title": "1  Assignment 1: Reliability and tools for reproducible data science",
+    "section": "1.4 Referanser",
+    "text": "1.4 Referanser\nHopkins sier (Hopkins 2000)\n\n1.4.1 Tabell med gjennomsnitt og standardavvik\n\n\n\n\n\n\nTabell fra alle grupper med gjennomsnitt og standardavvik i ()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n\n\n\n\nBorg(maks)\n19.2 (0.96)\n19 (0.82)\n18 (1.2)\n19 (0)\n19.5 (0.71)\n19 (0)\n17.5 (1.7)\n17 (NA)\n19.7 (0.58)\n20 (0)\n17.5 (0.71)\n18 (1.7)\n18.3 (0.58)\n18.8 (0.5)\n17 (1)\n19.5 (0.71)\n\n\nVO2maks\n(ml/kg/min)\n33.5 (1.5)\n43.7 (2.6)\n51.6 (4.1)\n37.1 (1.1)\n58.9 (0.64)\n45.5 (0.2)\n61.8 (1.9)\n43.5 (NA)\n58.8 (0.59)\n43.2 (0.89)\n56.5 (0.94)\n61.7 (3.1)\n51.3 (0.88)\n65.7 (1.1)\n39.8 (2.6)\n60.2 (1.2)\n\n\nWattmaks/kg\n2.5 (0.14)\n3.58 (0.044)\n3.6 (0.46)\n3 (0.2)\n5.18 (0.082)\n3.51 (0.1)\n5.24 (0.2)\n3.93 (NA)\n4.92 (0.038)\n3.76 (0.014)\n4.93 (0.049)\n5.6 (0.4)\n3.87 (0.062)\n5.51 (0.1)\n2.85 (0.12)\n4.63 (0.065)\n\n\nVO2maks\n(ml/min)\n3240 (150)\n2700 (160)\n4130 (300)\n2860 (52)\n4390 (48)\n3710 (6.4)\n5130 (140)\n2540 (NA)\n4650 (41)\n3100 (64)\n3640 (97)\n4480 (230)\n4590 (48)\n4520 (59)\n4100 (270)\n4960 (130)\n\n\nWattmaks\n243 (13)\n221 (2.8)\n288 (36)\n231 (13)\n387 (6.1)\n286 (7.5)\n435 (19)\n230 (NA)\n389 (2.1)\n269 (1.2)\n318 (0)\n407 (29)\n347 (6.9)\n380 (5.7)\n293 (12)\n382 (3.1)\n\n\n\n\n\n\n\n\n\n\n\n\n\nReliability relativ vo2maks T1&T2\n\n\nMEAN\nSD\nTE\nCV\n\n\n\n\n52.44\n1.83\n1.30\n2.47\n\n\n\n\n\n\n\n\n\n\n\n\n\nReliability relativ vo2maks T3&T4\n\n\nMEAN\nSD\nTE\nCV\n\n\n\n\n52.44\n3.29\n2.32\n4.43\n\n\n\n\n\n\n\n\n\n1.4.2 Figur fra o2-test\n\n\n\n\n\n\n\n\n\nJeg fikk dessverre ikke til å gjøre om på hver enkelt farge, for å lettere kunne skille ulike id´er fra hverandre.\n\n\n\n\nHopkins, W. G. 2000. “Measures of Reliability in Sports Medicine and Science.” Journal Article. Sports Med 30 (1): 1–15. http://www.ncbi.nlm.nih.gov/pubmed/10907753.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
+    ]
+  },
+  {
+    "objectID": "01-reliability-tools.html#utregning-av-vanligste-feil",
+    "href": "01-reliability-tools.html#utregning-av-vanligste-feil",
+    "title": "1  Assignment 1: Reliability and tools for reproducible data science",
+    "section": "1.5 Utregning av vanligste feil",
+    "text": "1.5 Utregning av vanligste feil\n\ndf \n\n# A tibble: 47 × 20\n      id period  timepoint date  t.o.day temperature humidity sex     age height\n   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 idr400… t1        45532   0.410        17.9       69 M      36.5    178\n 2     1 idr400… t2        45533   0.406        18.5       68 M      36.5    178\n 3     1 idr400… t3        45532   0.410        17.9       69 M      36.5    178\n 4     1 idr400… t4        45532   0.469        18.7       44 M      36.5    178\n 5     2 idr400… t1        45532   0.441        18.2       70 K      24.5    162\n 6     2 idr400… t2        45532   0.429        18.3       67 K      24.5    162\n 7     2 idr400… t3        45532   0.441        18.2       70 K      24.5    162\n 8     2 idr400… t4        45532   0.441        19         45 K      24.5    162\n 9     3 idr400… t1        45532   0            18.3       70 M      24.6    180\n10     3 idr400… t2        45532   0.448        18.3       70 M      24.6    180\n# ℹ 37 more rows\n# ℹ 10 more variables: weight &lt;dbl&gt;, w.max &lt;dbl&gt;, vo2.max &lt;dbl&gt;,\n#   vco2.max &lt;dbl&gt;, rer.max &lt;dbl&gt;, ve.max &lt;dbl&gt;, bf.max &lt;dbl&gt;, hr.max &lt;chr&gt;,\n#   la.max &lt;chr&gt;, borg.max &lt;dbl&gt;\n\n\n\n\n\n\nHopkins, W. G. 2000. “Measures of Reliability in Sports Medicine and Science.” Journal Article. Sports Med 30 (1): 1–15. http://www.ncbi.nlm.nih.gov/pubmed/10907753.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html",
+    "href": "02-regression-models.html",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "",
+    "text": "The assignment has three parts:\n\nPart 1: Lactate thresholds\nPart 2: Predicting sizes of DNA fragments\nPart 3: Interpreting a regression table",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "03-statistical-inference.html",
+    "href": "03-statistical-inference.html",
+    "title": "3  Assignment 3: Drawing inference from statistical models, and statistical power",
+    "section": "",
+    "text": "This assignment is set up as a statistical laboratory, we will perform simulations and your assignment is to interpret and explain the results. Create a report based on the code used in the lab and make sure you answer the specified questions (1-8). You can be as creative as you want and explore the results further.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Assignment 3: Drawing inference from statistical models, and statistical power</span>"
+    ]
+  },
+  {
+    "objectID": "04-study-design.html",
+    "href": "04-study-design.html",
+    "title": "4  Assignment 4: Study designs",
+    "section": "",
+    "text": "4.1 Overview\nChoose an area of interest (e.g. protein supplementation for muscle hypertrophy or the effect of block periodization on VO2max). Find at least five original research studies1 in your selected area and describe strength and weakness of these studies. The report should focus on the design of the studies and selection of statistical tests to answer study aims. Conclude your report with a recommendation, how should future studies in your area be designed to best answer similar questions?",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Assignment 4: Study designs</span>"
+    ]
+  },
+  {
+    "objectID": "04-study-design.html#footnotes",
+    "href": "04-study-design.html#footnotes",
+    "title": "4  Assignment 4: Study designs",
+    "section": "",
+    "text": "Avoid using review articles or meta-analyses↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Assignment 4: Study designs</span>"
+    ]
+  },
+  {
+    "objectID": "05-repeated-measurements.html",
+    "href": "05-repeated-measurements.html",
+    "title": "5  Assignment 5: Analyzing repeated measures experiments",
+    "section": "",
+    "text": "5.1 Assignment overview\nIn this assignment you will analyse and report on trial investigating the effect of resistance training volume on lean mass and muscle strength. The data are part of the exscidata package and can be accessed as data(\"strengthvolume\") and data(\"dxadata\"). Read the instructions carefully!",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Assignment 5: Analyzing repeated measures experiments</span>"
+    ]
+  },
+  {
+    "objectID": "05-repeated-measurements.html#assignment-overview",
+    "href": "05-repeated-measurements.html#assignment-overview",
+    "title": "5  Assignment 5: Analyzing repeated measures experiments",
+    "section": "",
+    "text": "Below you will find a basic outline of the report and example code that we worked on in class.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Assignment 5: Analyzing repeated measures experiments</span>"
+    ]
+  },
+  {
+    "objectID": "05-repeated-measurements.html#introduction",
+    "href": "05-repeated-measurements.html#introduction",
+    "title": "5  Assignment 5: Analyzing repeated measures experiments",
+    "section": "5.2 Introduction",
+    "text": "5.2 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Assignment 5: Analyzing repeated measures experiments</span>"
+    ]
+  },
+  {
+    "objectID": "05-repeated-measurements.html#methods",
+    "href": "05-repeated-measurements.html#methods",
+    "title": "5  Assignment 5: Analyzing repeated measures experiments",
+    "section": "5.3 Methods",
+    "text": "5.3 Methods\n\n5.3.1 Participants and study overview\n\n\n5.3.2 Muscle strength and hypertrophy\n\n\n5.3.3 Data analysis and statistics",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Assignment 5: Analyzing repeated measures experiments</span>"
+    ]
+  },
+  {
+    "objectID": "05-repeated-measurements.html#results",
+    "href": "05-repeated-measurements.html#results",
+    "title": "5  Assignment 5: Analyzing repeated measures experiments",
+    "section": "5.4 Results",
+    "text": "5.4 Results\nThe average difference in lean mass changes between sets were 122.8, 95% CI: [8.6, 237], p = 0.036.\n\n## Time points in strength data set\n\nstrengthvolume %&gt;%\n  distinct(exercise)\n\n# A tibble: 6 × 1\n  exercise\n  &lt;chr&gt;   \n1 legpress\n2 legext  \n3 isok.60 \n4 isok.120\n5 isok.240\n6 isom    \n\n## Exploratory plot of strength data \n\nstr &lt;- strengthvolume %&gt;%\n  filter(include == \"incl\") %&gt;%\n  mutate(time = factor(time, levels = c(\"pre\", \"session1\", \n                                        \"week2\", \"week5\", \n                                        \"week9\", \"post\"))) %&gt;%\n  print()\n\n# A tibble: 2,856 × 8\n   participant sex   include time     sets     leg   exercise  load\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   &lt;fct&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;\n 1 FP13        male  incl    pre      single   R     legpress   115\n 2 FP13        male  incl    pre      multiple L     legpress   115\n 3 FP13        male  incl    pre      single   R     legext      55\n 4 FP13        male  incl    pre      multiple L     legext      55\n 5 FP13        male  incl    session1 single   R     legpress   125\n 6 FP13        male  incl    session1 multiple L     legpress   125\n 7 FP13        male  incl    session1 single   R     legext      55\n 8 FP13        male  incl    session1 multiple L     legext      55\n 9 FP13        male  incl    week2    single   R     legpress   185\n10 FP13        male  incl    week2    multiple L     legpress   175\n# ℹ 2,846 more rows\n\nstr %&gt;%\n  ggplot(aes(time, \n             load, \n             group = paste(participant, sets), \n             color = sets)) + \n  geom_line() + \n  facet_wrap(~ exercise, scales = \"free\")\n\nWarning: Removed 5 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n## How many measurements per participant\n\nstr %&gt;%\n  filter(!is.na(load)) %&gt;%\n  group_by(participant, exercise, sets) %&gt;%\n  summarise(n = n() ) %&gt;%\n  ggplot(aes(n, participant, color = sets)) +\n  geom_point() + \n  facet_wrap(~ exercise) + \n  theme(axis.text.y = element_blank())\n\n`summarise()` has grouped output by 'participant', 'exercise'. You can override\nusing the `.groups` argument.\n\n\n\n\n\n\n\n\n## Use pre and post data \n# Combine pre data prior to data analysis\n# per exercise, leg, participant, and sets\n\nstr %&gt;%\n  mutate(time = if_else(time %in% c(\"pre\", \"session1\"), \"pre\", time)) %&gt;%\n  \n  filter(time %in% c(\"pre\", \"post\")) %&gt;%\n  \n  summarise(load = max(load, na.rm = TRUE), \n            .by = c(participant, \n                    sex, \n                    time, \n                    sets,\n                    exercise,\n                    leg)) %&gt;%\n  \n  print()\n\nWarning: There were 7 warnings in `summarise()`.\nThe first warning was:\nℹ In argument: `load = max(load, na.rm = TRUE)`.\nℹ In group 62: `participant = \"FP6\"`, `sex = \"female\"`, `time = \"post\"`, `sets\n  = \"multiple\"`, `exercise = \"legpress\"`, `leg = \"L\"`.\nCaused by warning in `max()`:\n! no non-missing arguments to max; returning -Inf\nℹ Run `dplyr::last_dplyr_warnings()` to see the 6 remaining warnings.\n\n\n# A tibble: 816 × 7\n   participant sex    time  sets     exercise leg    load\n   &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt;\n 1 FP13        male   pre   single   legpress R     125  \n 2 FP13        male   pre   multiple legpress L     125  \n 3 FP13        male   pre   single   legext   R      55  \n 4 FP13        male   pre   multiple legext   L      55  \n 5 FP13        male   post  single   legpress R     230  \n 6 FP13        male   post  multiple legpress L     235  \n 7 FP13        male   post  single   legext   R      97.5\n 8 FP13        male   post  multiple legext   L     100  \n 9 FP16        female pre   single   legpress R      95  \n10 FP16        female pre   multiple legpress L      85  \n# ℹ 806 more rows",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Assignment 5: Analyzing repeated measures experiments</span>"
+    ]
+  },
+  {
+    "objectID": "05-repeated-measurements.html#discussion",
+    "href": "05-repeated-measurements.html#discussion",
+    "title": "5  Assignment 5: Analyzing repeated measures experiments",
+    "section": "5.5 Discussion",
+    "text": "5.5 Discussion",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Assignment 5: Analyzing repeated measures experiments</span>"
+    ]
+  },
+  {
+    "objectID": "05-repeated-measurements.html#conclusion",
+    "href": "05-repeated-measurements.html#conclusion",
+    "title": "5  Assignment 5: Analyzing repeated measures experiments",
+    "section": "5.6 Conclusion",
+    "text": "5.6 Conclusion",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Assignment 5: Analyzing repeated measures experiments</span>"
+    ]
+  },
+  {
+    "objectID": "06-vitenskapsteori.html",
+    "href": "06-vitenskapsteori.html",
+    "title": "6  Philosophy of science",
+    "section": "",
+    "text": "See instructions on canvas.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Philosophy of science</span>"
+    ]
+  },
+  {
+    "objectID": "07-laboratory-report.html",
+    "href": "07-laboratory-report.html",
+    "title": "7  Molecular Laboratory report",
+    "section": "",
+    "text": "Select one laboratory assignment and write a detailed report.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Molecular Laboratory report</span>"
+    ]
+  },
+  {
+    "objectID": "01-reliability-tools.html#introduksjon",
+    "href": "01-reliability-tools.html#introduksjon",
+    "title": "1  Assignment 1: Reliability and tools for reproducible data science",
+    "section": "1.2 Introduksjon",
+    "text": "1.2 Introduksjon\nDet ble gjennomført fire testdager 28.08.2024, 29.08.2024, 9.09.2024 og 11.09.2024 for å teste VO2maks. Formålet med disse testene var å øve på å kunne gjennomføre fysiologiske tester med høy reliabilitet. Reliabilitet refererer til graden av konsistens eller pålitelighet i målinger evnen til å kunne reprodusere (Hopkins,2001), et eksempel på dette er ved fysiologisk testing som repeteres i forskningsprosjekter, der bedre reliabilitet vil indikere hvor god presisjonen er og måling av endring over tid (Hopkins,2001). Det er mange begreper som er relevante for å kunne si noe om reliabilitet, men standardavviket er et av disse. Standardavviket sier noe om hvor langt unna verdiens gjennomsnittlige avstand er fra gjennomsnittet (Spigelhalter,2020)\nKroppens maksimale oksygenopptak (VO2maks ) sier noe om kroppens maksimale evne til å ta opp og omsette oksygen (Basset & Howley, 2000) . VO2maks kan beskrives ved hjelp av Ficks likning: VO2maks=MVmaks x a-vO2differansemaks. VO2maks måles ved at man måler hvor mye oksygen kroppen klarer å omsette pr minutt (Basset & Howley,2000) Det finnes ulike måter og fremstille VO2maks på de to av disse er absolutt VO2maks beskrevet som (ml/min) eller relative tall relatert til kroppsvekt (ml/kg/min).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
+    ]
+  },
+  {
+    "objectID": "01-reliability-tools.html#metode",
+    "href": "01-reliability-tools.html#metode",
+    "title": "1  Assignment 1: Reliability and tools for reproducible data science",
+    "section": "1.3 Metode",
+    "text": "1.3 Metode\nVO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til &lt; 2,0% differanse og luftvolum kalibreres til &lt; 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra. For å kunne sikre god relabilitet ble det tydeliggjort at man skulle replisere det siste måltidet før test, ha det samme koffeininntaket, avstå fra alkohol og tobakk de siste 72 timene før test og prøve å få tilnærmet lik søvn, samt trene det samme dagen før test. Da dette er faktorer som kan spille inn på prestasjon og metabolismen (Tanner & Gore, 2013) og dermed påvirke relabiliteten. Hvorvidt dette er fulgt er noe usikkert da dette ikke er fulgt opp videre annet enn at det ble informert om før første testdag.\nVO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person (Halperin., et.al, 2015) Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle [BLa-]. [BLa-] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio.\n\n1.3.1 Tabell med gjennomsnitt og standardavvik\n\n\n\n\n\n\nTabell fra alle grupper med gjennomsnitt og standardavvik i ()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n\n\n\n\nBorg(maks)\n19.2 (0.96)\n19 (0.82)\n18 (1.2)\n19 (0)\n19.5 (0.71)\n19 (0)\n17.5 (1.7)\n17 (NA)\n19.7 (0.58)\n20 (0)\n17.5 (0.71)\n18 (1.7)\n18.3 (0.58)\n18.8 (0.5)\n17 (1)\n19.5 (0.71)\n\n\nVO2maks\n(ml/kg/min)\n33.5 (1.5)\n43.7 (2.6)\n51.6 (4.1)\n37.1 (1.1)\n58.9 (0.64)\n45.5 (0.2)\n61.8 (1.9)\n43.5 (NA)\n58.8 (0.59)\n43.2 (0.89)\n56.5 (0.94)\n61.7 (3.1)\n51.3 (0.88)\n65.7 (1.1)\n39.8 (2.6)\n60.2 (1.2)\n\n\nWattmaks/kg\n2.5 (0.14)\n3.58 (0.044)\n3.6 (0.46)\n3 (0.2)\n5.18 (0.082)\n3.51 (0.1)\n5.24 (0.2)\n3.93 (NA)\n4.92 (0.038)\n3.76 (0.014)\n4.93 (0.049)\n5.6 (0.4)\n3.87 (0.062)\n5.51 (0.1)\n2.85 (0.12)\n4.63 (0.065)\n\n\nVO2maks\n(ml/min)\n3240 (150)\n2700 (160)\n4130 (300)\n2860 (52)\n4390 (48)\n3710 (6.4)\n5130 (140)\n2540 (NA)\n4650 (41)\n3100 (64)\n3640 (97)\n4480 (230)\n4590 (48)\n4520 (59)\n4100 (270)\n4960 (130)\n\n\nWattmaks\n243 (13)\n221 (2.8)\n288 (36)\n231 (13)\n387 (6.1)\n286 (7.5)\n435 (19)\n230 (NA)\n389 (2.1)\n269 (1.2)\n318 (0)\n407 (29)\n347 (6.9)\n380 (5.7)\n293 (12)\n382 (3.1)\n\n\n\n\n\n\n\n\n\n\n\n\n\nReliability relativ vo2maks T1&T2\n\n\nMEAN\nSD\nTE\nCV\n\n\n\n\n52.44\n1.83\n1.30\n2.47\n\n\n\n\n\n\n\n\n\n\n\n\n\nReliability relativ vo2maks T3&T4\n\n\nMEAN\nSD\nTE\nCV\n\n\n\n\n52.44\n3.29\n2.32\n4.43\n\n\n\n\n\n\n\n\n\n1.3.2 Figur fra o2-test\n\n\n\n\n\n\n\n\n\nJeg fikk dessverre ikke til å gjøre om på hver enkelt farge, for å lettere kunne skille ulike id´er fra hverandre.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
+    ]
+  }
+]

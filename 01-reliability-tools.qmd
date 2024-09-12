@@ -17,45 +17,18 @@ The purpose of this assignment is to present estimates of reliability of measure
 -   data presented in the text.
 -   The report should use a bibliography file to manage references.
 
-## **Starten av rapport**
 
-## Protokoll for VO2 max testing
+## Introduksjon
+Det ble gjennomført fire testdager 28.08.2024, 29.08.2024, 9.09.2024 og 11.09.2024 for å teste VO2maks. Formålet med disse testene var å øve på å kunne gjennomføre fysiologiske tester med høy reliabilitet. Reliabilitet refererer til graden av konsistens eller pålitelighet i målinger evnen til å kunne reprodusere (Hopkins,2001), et eksempel på dette er ved fysiologisk testing som repeteres i forskningsprosjekter, der bedre reliabilitet vil indikere hvor god presisjonen er og måling av endring over tid (Hopkins,2001). Det er mange begreper som er relevante for å kunne si noe om reliabilitet, men standardavviket er et av disse. Standardavviket sier noe om hvor langt unna verdiens gjennomsnittlige avstand er fra gjennomsnittet (Spigelhalter,2020)
 
-### Forberedelse før test:
+Kroppens maksimale oksygenopptak (VO2maks ) sier noe om kroppens maksimale evne til å ta opp og omsette oksygen (Basset & Howley, 2000) . VO2maks kan beskrives ved hjelp av Ficks likning:
+VO2maks=MVmaks x a-vO2differansemaks.   VO2maks måles ved at man måler hvor mye oksygen kroppen klarer å omsette pr minutt (Basset & Howley,2000) Det finnes ulike måter og fremstille VO2maks på de to av disse er absolutt VO2maks   beskrevet som (ml/min) eller relative tall relatert til kroppsvekt (ml/kg/min). 
 
--   Gjennomfør samme type trening dagen før test
--   Standardiser siste måltid før test (frokost)
--   Innta normal mengde (for deg) med koffein før test
--   Unngå alkohol/nikotin/tobakk siste 72t før test
--   Tilstreb å legge seg omtrent til samme tid alle dager før test
+## Metode
+VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester.  For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til < 2,0% differanse og luftvolum kalibreres til < 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra. For å kunne sikre god relabilitet ble det tydeliggjort at man skulle replisere det siste måltidet før test, ha det samme koffeininntaket, avstå fra alkohol og tobakk de siste 72 timene før test og prøve å få tilnærmet lik søvn, samt trene det samme dagen før test. Da dette er faktorer som kan spille inn på prestasjon og metabolismen (Tanner & Gore, 2013) og dermed påvirke relabiliteten. Hvorvidt dette er fulgt er noe usikkert da dette ikke er fulgt opp videre annet enn at det ble informert om før første testdag.  
 
-### Arbeidsflyt:
+VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person (Halperin., et.al, 2015) Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle [BLa-]. [BLa-] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio. 
 
-1.  Skru på BIOSEN
-2.  Finne frem slange
-3.  Starte kalibrering av Vyntus
-4.  Mens kalbibrering foregår skru sammen munnstykke
-5.  Ta volumkalibrering
-6.  Testperson kommer:
-7.  Ta vekt
-8.  Legge inn profil LODE og Vyntus
-9.  Stille inn sykkel, montere pedaler
-10. Kalibrere krank
-11. Zeroing
-
-### Standardisering før test
-
-Utøveren skulle trene det samme dagen før test. Inntak av siste måltid før test skulle standardiseres, inntaket av koffein skulle være det samme før hver test. En skulle unngå inntak av alkohol og tobakk de siste 72 timene før test. Det skulle også tilstrebes å få like mye søvn før hver test.
-
-### VO2maks test
-
-Testen som ble gjennomført er VO2maks test på sykkel. VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til \< 2,0% differanse og luftvolum kalibreres til \< 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra.
-
-VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle \[BLa-\]. \[BLa-\] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany)
-
-## Referanser
-
-Hopkins sier [@RN130]
 
 ```{r}
 #| echo: false
@@ -72,41 +45,157 @@ df <- read_xlsx("data/o2-test.xlsx")
 
 ```
 
-### Tabell over o2-tester med utvalgt data
+
+
+### Tabell med gjennomsnitt og standardavvik
 
 ```{r}
-#| code-fold: true
-#| warning: false
+#| tbl-cap: "Tabell fra alle grupper med gjennomsnitt og standardavvik i ()"
 #| echo: false
 #| message: false
+#| warning: false
 
 
-df %>% 
-  select(id, age, weight, w.max, vo2.max, hr.max, la.max, borg.max) %>% 
-  mutate(rel.vo2max = vo2.max / weight) %>% 
-  arrange(rel.vo2max) %>% 
-  gt(auto_align = TRUE) %>% 
-  tab_options(table.font.size = 12) |> 
-  fmt_number(columns = w.max,
-             decimals = 0) %>% 
-  fmt_number(columns = vo2.max,
-             decimals = 0) %>% 
-  fmt_number(columns = rel.vo2max,
-             decimals = 1) %>% 
-  fmt_number(columns = age,
-             decimals = 0) %>% 
-  cols_label(id = "ID",
-             age = "Alder",
-             weight = "Vekt",
-             w.max = md("Watt<sub>maks</sub>"),
-             vo2.max = md("VO<sub>2maks</sub><br><small>(ml/min)</br></small>"),
-             hr.max = md("HF<sub>maks</sub>"),
-             la.max = md("Lak<sub>maks</sub>"),
-             borg.max ="Borg",
-             rel.vo2max = md("VO<sub>2maks</sub><br><small>(ml/kg/min)</br></small>"))
+
+#Last inn datasettet
+df.tbl <- df |> 
+#Velg hvilke variabler som skal med videre  
+  select(id, timepoint, weight, w.max:borg.max) |> 
+#Fjern verdiene som har characters  
+  select(-hr.max) |> 
+  select(-la.max) |> 
+  select(-bf.max) |> 
+  select(-vco2.max) |> 
+  select(-rer.max) |> 
+  select(-ve.max) |> 
+#Lag nye verdier, relativ vo2maks og wattmaks/kg  
+  mutate(rel.vo2max = vo2.max / weight) |> 
+  mutate(rel.wmax = w.max / weight) |> 
+#Sliter fortsatt med å forklare pivot både longer og wider  
+  pivot_longer(names_to = "ID",
+               values_to = "verdier",
+               cols = w.max:rel.wmax) |> 
+#Grupper etter id og names  
+  group_by(id, ID) |> 
+#Summarise gjennomsnitt og standardavvik til verdiene
+  summarise(m = mean(verdier),
+            s = sd(verdier)) |> 
+   mutate(m_s = paste0(signif(m, 3), " (", signif(s, 2), ")")) %>% 
+    ungroup() |> 
+select(-m, -s) |> 
+  pivot_wider(names_from = "id",
+              values_from = "m_s") |> 
+  gt()
+
+
+df.tbl |> 
+   text_replace(
+    pattern = "^bf.max$",
+    replacement = md("Bf<small>(maks)</small>")) |> 
+    
+  text_replace(
+    pattern = "^borg.max$",
+    replacement = md("Borg<small>(maks)</small>")) |> 
+  
+  text_replace(
+    pattern = "^rel.vo2max$",
+    replacement = md("VO<sub>2maks</sub><br><small>(ml/kg/min)</br></small>")) |> 
+  
+  text_replace(
+    pattern = "^rel.wmax$",
+    replacement = md("Wattmaks/kg")) |> 
+  
+  text_replace(
+    pattern = "^vo2.max",
+    replacement = md("VO<sub>2maks</sub><br><small>(ml/min)</br></small>")) |> 
+  
+  
+  text_replace(
+    pattern = "w.max$",
+    replacement = ("Wattmaks")) |> 
+  tab_options(table.font.size = 10)
+  
+
+  
   
 
 
+
+
+
+
+
+```
+
+
+
+```{r}
+#| echo: false
+
+df.rel <- df |> 
+  select(id, timepoint, weight, vo2.max, w.max) |> 
+  mutate(rel.vo2 = vo2.max / weight) |> 
+  mutate(rel.wmax = w.max / weight)
+
+
+```
+
+
+```{r}
+#| echo: false
+#| tbl-cap: "Reliability relativ vo2maks T1&T2"
+
+
+df.rel |> 
+  
+  #velger hvilke variabler vi er interessert i å se på
+  
+  select(id, timepoint, rel.vo2) |> 
+
+
+
+  #benytter oss av pivot_wider for å lage tidy_data
+
+    pivot_wider(names_from = timepoint,
+                values_from = rel.vo2) |> 
+    mutate(diff = t2 - t1) |> 
+    summarise(MEAN = mean(c(t1, t2), na.rm = TRUE), 
+            SD = sd(diff, na.rm = TRUE), 
+            TE = SD / sqrt(2), 
+            CV = TE/MEAN * 100) |> 
+  gt() |> 
+  fmt_number(decimals = 2)
+
+
+```
+
+
+
+```{r}
+#| echo: false
+#| tbl-cap: "Reliability relativ vo2maks T3&T4"
+
+
+df.rel |> 
+  
+  #velger hvilke variabler vi er interessert i å se på
+  
+  select(id, timepoint, rel.vo2) |> 
+
+
+
+  #benytter oss av pivot_wider for å lage tidy_data
+
+    pivot_wider(names_from = timepoint,
+                values_from = rel.vo2) |> 
+    mutate(diff = t4 - t3) |> 
+    summarise(MEAN = mean(c(t1, t2), na.rm = TRUE), 
+            SD = sd(diff, na.rm = TRUE), 
+            TE = SD / sqrt(2), 
+            CV = TE/MEAN * 100) |> 
+  gt() |> 
+   fmt_number(decimals = 2)
+   
 
 
 ```
@@ -129,122 +218,12 @@ df %>%
   labs(x = ("Relativ VO2maks"),
        y = ("Wattmaks/kg"),
        title = "Korrelasjon mellom Vo2maks og Wattmaks",
-       subtitle = "Verdier er delt på vekt") 
-
-
-
-```
-
-### Data presentert i tekst
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-df %>% 
-  mutate(rel.vo2max = vo2.max / weight) %>% 
-  summarise(VO2max = mean(vo2.max),
-            wattmax = mean(w.max),
-            weight = mean(weight),
-            alder = mean(age),
-            rel.o2 = mean(rel.vo2max)) %>% 
-   gt() %>% 
-  cols_label(VO2max = md("VO<sub>2maks</sub><br><small>ml/min</br></small>"),
-             wattmax = md("Watt<br><small>maks</br></small>"),
-             weight = "Vekt",
-             alder = "Alder",
-             rel.o2 = md("VO<sub>2maks</sub><br><small>ml/kg/min</br></small>")) %>% 
-  fmt_number(columns = VO2max,
-             decimals = 1) %>% 
-  fmt_number(columns = wattmax,
-             decimals = 0) %>% 
-  fmt_number(columns = weight,
-             decimals = 1) %>% 
-  fmt_number(columns = alder,
-             decimals = 0) %>% 
-  fmt_number(columns = rel.o2,
-             decimals = 2)
-  df %>% 
-            mutate(rel.vo2max = vo2.max / weight) %>% 
-            summarise(VO2max.sd = sd(vo2.max),
-            wattmax.sd = sd(w.max),
-            weight.sd = sd(weight),
-            alder.sd = sd(age),
-            rel.o2.sd = sd(rel.vo2max)) %>% 
-  gt() %>% 
-    cols_label(VO2max.sd = md("VO<sub>2maks</sub> (±)"))
-    
-   
-
+       subtitle = "Verdier er delt på vekt")
 
 
 ```
 
-### Side-by-side table
-
-```{r}
-#| echo: false
-#| tbl-cap: "Different values means (±)"
-
-df %>% 
-  # Velger ut hvilke verdier jeg vil ha med videre
-  select(weight, vo2.max, w.max) %>% 
-  
-  # Oppretter nye verdier, for relativ vo2maks og wattmaks pr kg
-  
-  mutate(rel.vo2max = vo2.max / weight) %>% 
-  mutate(rel.wmax = w.max / weight) %>% 
-  
-  # Samler verdiene weight:rel.wmax og tilhørende verdier i kolonne v siden av
-  
-  pivot_longer(names_to = "variables",
-               values_to = "verdier",
-               cols = weight:rel.wmax) %>% 
-  
-  # Grupperer etter variabler
-  
-  group_by(variables) %>% 
-  
-  # Regner ut snitt og standardavvik av verdiene
-  
-  summarise(gr.snitt = mean(verdier),
-            gr.sd = sd(verdier),
-            gr.var = var(verdier)) %>% 
-  
-  # setter sammen snitt og sd til en enkelt kolonne
-  
-    mutate(gr.snitt_sd = paste0(signif(gr.snitt, 3), " (", signif(gr.sd, 3), ")")) %>% 
-  
-  # Fjerner gruppering
-  
-  ungroup() %>% 
-  
-  # Velger vekk gr.snitt og gr.sd så det ikke synes i tabellen
-  
-    select(-gr.snitt, -gr.sd) %>% 
-  
-  # Printer tabellen
-  
-   gt() %>% 
-  
-  # Navngir kolonner
-  
-  cols_label(variables = "Variabler",
-             gr.snitt_sd = "Gjennomsnitt (±)")
-  
-  
-
-
- 
-
-
-
-```
-
-
-## Utregning av vanligste feil
-
+Jeg fikk dessverre ikke til å gjøre om på hver enkelt farge, for å lettere kunne skille ulike id´er fra hverandre.
 
 
 

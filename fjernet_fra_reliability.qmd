@@ -1,0 +1,144 @@
+### Tabell over o2-tester med utvalgt data
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| echo: false
+#| message: false
+
+
+df %>% 
+  select(timepoint, id, age, weight, w.max, vo2.max, hr.max, la.max, borg.max) %>% 
+  mutate(rel.vo2max = vo2.max / weight) %>% 
+  arrange(rel.vo2max) %>% 
+  gt(auto_align = TRUE) %>% 
+  tab_options(table.font.size = 12) |> 
+  fmt_number(columns = w.max,
+             decimals = 0) %>% 
+  fmt_number(columns = vo2.max,
+             decimals = 0) %>% 
+  fmt_number(columns = rel.vo2max,
+             decimals = 1) %>% 
+  fmt_number(columns = age,
+             decimals = 0) %>% 
+  cols_label(id = "ID",
+             age = "Alder",
+             weight = "Vekt",
+             w.max = md("Watt<sub>maks</sub>"),
+             vo2.max = md("VO<sub>2maks</sub><br><small>(ml/min)</br></small>"),
+             hr.max = md("HF<sub>maks</sub>"),
+             la.max = md("Lak<sub>maks</sub>"),
+             borg.max ="Borg",
+             rel.vo2max = md("VO<sub>2maks</sub><br><small>(ml/kg/min)</br></small>"))
+
+
+
+
+```
+
+### Data presentert i tekst
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+df %>% 
+  mutate(rel.vo2max = vo2.max / weight) %>% 
+  summarise(VO2max = mean(vo2.max),
+            wattmax = mean(w.max),
+            weight = mean(weight),
+            alder = mean(age),
+            rel.o2 = mean(rel.vo2max)) %>% 
+   gt() %>% 
+  cols_label(VO2max = md("VO<sub>2maks</sub><br><small>ml/min</br></small>"),
+             wattmax = md("Watt<br><small>maks</br></small>"),
+             weight = "Vekt",
+             alder = "Alder",
+             rel.o2 = md("VO<sub>2maks</sub><br><small>ml/kg/min</br></small>")) %>% 
+  fmt_number(columns = VO2max,
+             decimals = 1) %>% 
+  fmt_number(columns = wattmax,
+             decimals = 0) %>% 
+  fmt_number(columns = weight,
+             decimals = 1) %>% 
+  fmt_number(columns = alder,
+             decimals = 0) %>% 
+  fmt_number(columns = rel.o2,
+             decimals = 2)
+  df %>% 
+            mutate(rel.vo2max = vo2.max / weight) %>% 
+            summarise(VO2max.sd = sd(vo2.max),
+            wattmax.sd = sd(w.max),
+            weight.sd = sd(weight),
+            alder.sd = sd(age),
+            rel.o2.sd = sd(rel.vo2max)) %>% 
+  gt() %>% 
+    cols_label(VO2max.sd = md("VO<sub>2maks</sub> (±)"))
+    
+   
+
+
+
+```
+
+### Side-by-side table
+
+```{r}
+#| echo: false
+#| tbl-cap: "Different values means (±)"
+
+df %>% 
+  # Velger ut hvilke verdier jeg vil ha med videre
+  select(weight, vo2.max, w.max) %>% 
+  
+  # Oppretter nye verdier, for relativ vo2maks og wattmaks pr kg
+  
+  mutate(rel.vo2max = vo2.max / weight) %>% 
+  mutate(rel.wmax = w.max / weight) %>% 
+  
+  # Samler verdiene weight:rel.wmax og tilhørende verdier i kolonne v siden av
+  
+  pivot_longer(names_to = "variables",
+               values_to = "verdier",
+               cols = weight:rel.wmax) %>% 
+  
+  # Grupperer etter variabler
+  
+  group_by(variables) %>% 
+  
+  # Regner ut snitt og standardavvik av verdiene
+  
+  summarise(gr.snitt = mean(verdier),
+            gr.sd = sd(verdier),
+            gr.var = var(verdier)) %>% 
+  
+  # setter sammen snitt og sd til en enkelt kolonne
+  
+    mutate(gr.snitt_sd = paste0(signif(gr.snitt, 3), " (", signif(gr.sd, 3), ")")) %>% 
+  
+  # Fjerner gruppering
+  
+  ungroup() %>% 
+  
+  # Velger vekk gr.snitt og gr.sd så det ikke synes i tabellen
+  
+    select(-gr.snitt, -gr.sd) %>% 
+  
+  # Printer tabellen
+  
+   gt() %>% 
+  
+  # Navngir kolonner
+  
+  cols_label(variables = "Variabler",
+             gr.snitt_sd = "Gjennomsnitt (±)")
+  
+  
+
+
+ 
+
+
+
+```
