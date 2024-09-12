@@ -19,30 +19,27 @@ The purpose of this assignment is to present estimates of reliability of measure
 
 ## **Starten av rapport**
 
-
 ## Protokoll for VO2 max testing
 
+### Forberedelse før test:
 
-
-### Forberedelse før test: 
--	Gjennomfør samme type trening dagen før test
--	Standardiser siste måltid før test (frokost)
--	Innta normal mengde (for deg) med koffein før test
--	Unngå alkohol/nikotin/tobakk siste 72t før test
--	Tilstreb å legge seg omtrent til samme tid alle dager før test
-
-
+-   Gjennomfør samme type trening dagen før test
+-   Standardiser siste måltid før test (frokost)
+-   Innta normal mengde (for deg) med koffein før test
+-   Unngå alkohol/nikotin/tobakk siste 72t før test
+-   Tilstreb å legge seg omtrent til samme tid alle dager før test
 
 ### Arbeidsflyt:
-1. Skru på BIOSEN
-2. Finne frem slange
-3. Starte kalibrering av Vyntus
-4. Mens kalbibrering foregår skru sammen munnstykke
-5. Ta volumkalibrering
-6. Testperson kommer:
-7. Ta vekt
-8. Legge inn profil LODE og Vyntus
-9. Stille inn sykkel, montere pedaler
+
+1.  Skru på BIOSEN
+2.  Finne frem slange
+3.  Starte kalibrering av Vyntus
+4.  Mens kalbibrering foregår skru sammen munnstykke
+5.  Ta volumkalibrering
+6.  Testperson kommer:
+7.  Ta vekt
+8.  Legge inn profil LODE og Vyntus
+9.  Stille inn sykkel, montere pedaler
 10. Kalibrere krank
 11. Zeroing
 
@@ -51,19 +48,19 @@ The purpose of this assignment is to present estimates of reliability of measure
 Utøveren skulle trene det samme dagen før test. Inntak av siste måltid før test skulle standardiseres, inntaket av koffein skulle være det samme før hver test. En skulle unngå inntak av alkohol og tobakk de siste 72 timene før test. Det skulle også tilstrebes å få like mye søvn før hver test.
 
 ### VO2maks test
- 
-Testen som ble gjennomført er VO2maks test på sykkel. VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. 
-For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til < 2,0% differanse og luftvolum kalibreres til < 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra.  
- 
-VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle [BLa-]. [BLa-] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany)
- 
 
+Testen som ble gjennomført er VO2maks test på sykkel. VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til \< 2,0% differanse og luftvolum kalibreres til \< 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra.
 
+VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle \[BLa-\]. \[BLa-\] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany)
 
+## Referanser
+
+Hopkins sier [@RN130]
 
 ```{r}
 #| echo: false
 #| message: false
+#| warning: false
 
 library(readxl)
 library(tidyverse)
@@ -75,21 +72,21 @@ df <- read_xlsx("data/o2-test.xlsx")
 
 ```
 
-
-
 ### Tabell over o2-tester med utvalgt data
 
 ```{r}
 #| code-fold: true
 #| warning: false
 #| echo: false
+#| message: false
 
 
 df %>% 
   select(id, age, weight, w.max, vo2.max, hr.max, la.max, borg.max) %>% 
   mutate(rel.vo2max = vo2.max / weight) %>% 
-  arrange(w.max) %>% 
+  arrange(rel.vo2max) %>% 
   gt(auto_align = TRUE) %>% 
+  tab_options(table.font.size = 12) |> 
   fmt_number(columns = w.max,
              decimals = 0) %>% 
   fmt_number(columns = vo2.max,
@@ -107,12 +104,12 @@ df %>%
              la.max = md("Lak<sub>maks</sub>"),
              borg.max ="Borg",
              rel.vo2max = md("VO<sub>2maks</sub><br><small>(ml/kg/min)</br></small>"))
+  
 
 
 
 
 ```
-
 
 ### Figur fra o2-test
 
@@ -137,8 +134,6 @@ df %>%
 
 
 ```
-
-
 
 ### Data presentert i tekst
 
@@ -186,10 +181,11 @@ df %>%
 
 ```
 
-
 ### Side-by-side table
+
 ```{r}
 #| echo: false
+#| tbl-cap: "Different values means (±)"
 
 df %>% 
   # Velger ut hvilke verdier jeg vil ha med videre
@@ -213,7 +209,8 @@ df %>%
   # Regner ut snitt og standardavvik av verdiene
   
   summarise(gr.snitt = mean(verdier),
-            gr.sd = sd(verdier)) %>% 
+            gr.sd = sd(verdier),
+            gr.var = var(verdier)) %>% 
   
   # setter sammen snitt og sd til en enkelt kolonne
   
@@ -246,9 +243,7 @@ df %>%
 ```
 
 
-
-
-
+## Utregning av vanligste feil
 
 
 
