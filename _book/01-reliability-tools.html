@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -170,13 +190,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#elements-of-the-report" id="toc-elements-of-the-report" class="nav-link active" data-scroll-target="#elements-of-the-report"><span class="header-section-number">1.1</span> Elements of the report</a></li>
-  <li><a href="#introduksjon" id="toc-introduksjon" class="nav-link" data-scroll-target="#introduksjon"><span class="header-section-number">1.2</span> Introduksjon</a></li>
-  <li><a href="#metode" id="toc-metode" class="nav-link" data-scroll-target="#metode"><span class="header-section-number">1.3</span> Metode</a>
+  <li><a href="#introduksjon" id="toc-introduksjon" class="nav-link active" data-scroll-target="#introduksjon"><span class="header-section-number">2</span> Introduksjon</a></li>
+  <li><a href="#metode" id="toc-metode" class="nav-link" data-scroll-target="#metode"><span class="header-section-number">3</span> Metode</a></li>
+  <li><a href="#resultat" id="toc-resultat" class="nav-link" data-scroll-target="#resultat"><span class="header-section-number">4</span> Resultat</a>
   <ul class="collapse">
-  <li><a href="#tabell-med-gjennomsnitt-og-standardavvik" id="toc-tabell-med-gjennomsnitt-og-standardavvik" class="nav-link" data-scroll-target="#tabell-med-gjennomsnitt-og-standardavvik"><span class="header-section-number">1.3.1</span> Tabell med gjennomsnitt og standardavvik</a></li>
-  <li><a href="#figur-fra-o2-test" id="toc-figur-fra-o2-test" class="nav-link" data-scroll-target="#figur-fra-o2-test"><span class="header-section-number">1.3.2</span> Figur fra o2-test</a></li>
+  <li><a href="#gjennomsnitt-og-standardavvik" id="toc-gjennomsnitt-og-standardavvik" class="nav-link" data-scroll-target="#gjennomsnitt-og-standardavvik"><span class="header-section-number">4.1</span> Gjennomsnitt og standardavvik</a></li>
+  <li><a href="#reliabilitet" id="toc-reliabilitet" class="nav-link" data-scroll-target="#reliabilitet"><span class="header-section-number">4.2</span> Reliabilitet</a></li>
+  <li><a href="#korrelasjon-mellom-vo2maks-og-wattmaks-per-kg" id="toc-korrelasjon-mellom-vo2maks-og-wattmaks-per-kg" class="nav-link" data-scroll-target="#korrelasjon-mellom-vo2maks-og-wattmaks-per-kg"><span class="header-section-number">4.3</span> Korrelasjon mellom Vo2maks og Wattmaks per kg</a></li>
   </ul></li>
+  <li><a href="#diskusjon" id="toc-diskusjon" class="nav-link" data-scroll-target="#diskusjon"><span class="header-section-number">5</span> Diskusjon</a>
+  <ul class="collapse">
+  <li><a href="#sammenhengen-mellom-relativ-vo₂-og-relativ-maksimal-watt-per-kilogram" id="toc-sammenhengen-mellom-relativ-vo₂-og-relativ-maksimal-watt-per-kilogram" class="nav-link" data-scroll-target="#sammenhengen-mellom-relativ-vo₂-og-relativ-maksimal-watt-per-kilogram"><span class="header-section-number">5.1</span> Sammenhengen mellom relativ VO₂ og relativ maksimal watt per kilogram</a></li>
+  </ul></li>
+  <li><a href="#referanser" id="toc-referanser" class="nav-link" data-scroll-target="#referanser"><span class="header-section-number">6</span> Referanser</a></li>
   </ul>
 </nav>
     </div>
@@ -202,47 +228,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The purpose of this assignment is to present estimates of reliability of measures collected in the physiology lab. A second purpose is to use tools for reproducible data science. The report that you are expected to hand in therefore has some strict requirements in its format (see <a href="https://dhammarstrom.github.io/quant-methods-workshops/assignment-1.html">assignment description</a>). The assignment is a group assignment and at least three students are expected to contribute to each report.</p>
-<section id="elements-of-the-report" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="elements-of-the-report"><span class="header-section-number">1.1</span> Elements of the report</h2>
-<p><strong>Importantly, the report should contain:</strong></p>
-<ul>
-<li>At least one table (created from your data)</li>
-<li>At least one figure (created from your data), and</li>
-<li>data presented in the text.</li>
-<li>The report should use a bibliography file to manage references.</li>
-</ul>
+<section id="introduksjon" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Introduksjon</h1>
+<p>Det ble gjennomført fire testdager 28.08.2024, 29.08.2024, 9.09.2024 og 11.09.2024 for å teste VO2maks. Formålet med disse testene var å øve på å kunne gjennomføre fysiologiske tester med høy reliabilitet. Reliabilitet refererer til graden av konsistens eller pålitelighet i målinger evnen til å kunne reprodusere (Hopkins,2001), et eksempel på dette er ved fysiologisk testing som repeteres i forskningsprosjekter, der bedre reliabilitet vil indikere hvor god presisjonen er og måling av endring over tid (Hopkins,2001). Det er mange begreper som er relevante for å kunne si noe om reliabilitet, men standardavviket er et av disse. Standardavviket sier noe om hvor langt unna verdiens gjennomsnittlige avstand er fra gjennomsnittet <span class="citation" data-cites="Spiegelhalter">(<a href="#ref-Spiegelhalter" role="doc-biblioref">Spiegelhalter 2020</a>)</span></p>
+<p>Kroppens maksimale oksygenopptak (VO2maks ) sier noe om kroppens maksimale evne til å ta opp og omsette oksygen <span class="citation" data-cites="Bassett">(<a href="#ref-Bassett" role="doc-biblioref">Bassett and Howley 2000</a>)</span> . VO2maks kan beskrives ved hjelp av Ficks likning: VO2maks=MVmaks x a-vO2differansemaks. VO2maks måles ved at man måler hvor mye oksygen kroppen klarer å omsette pr minutt <span class="citation" data-cites="Bassett">(<a href="#ref-Bassett" role="doc-biblioref">Bassett and Howley 2000</a>)</span>. Det finnes ulike måter og fremstille VO2maks på de to av disse er absolutt VO2maks beskrevet som (ml/min) eller relative tall relatert til kroppsvekt (ml/kg/min).</p>
+<p>Vi har i resultat delen valgt å fremstille effekt maks (Wmaks) som er et mål på snitteffekt det siste minuttet av VO2maks testen basert på kroppsvekt. Wmaks/kg sett opp i sammenheng med den relative VO2maks (ml/kg/min). Forskning viser at at høy VO₂maks sammen med god mekanisk effektivitet og høy laktatterskel gir bedre utholdenhetsprestasjoner, noe som reflekteres i høyere Wmaks/kg <span class="citation" data-cites="Joyner">(<a href="#ref-Joyner" role="doc-biblioref">Joyner and Coyle 2008</a>)</span>.</p>
 </section>
-<section id="introduksjon" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="introduksjon"><span class="header-section-number">1.2</span> Introduksjon</h2>
-<p>Det ble gjennomført fire testdager 28.08.2024, 29.08.2024, 9.09.2024 og 11.09.2024 for å teste VO2maks. Formålet med disse testene var å øve på å kunne gjennomføre fysiologiske tester med høy reliabilitet. Reliabilitet refererer til graden av konsistens eller pålitelighet i målinger evnen til å kunne reprodusere (Hopkins,2001), et eksempel på dette er ved fysiologisk testing som repeteres i forskningsprosjekter, der bedre reliabilitet vil indikere hvor god presisjonen er og måling av endring over tid (Hopkins,2001). Det er mange begreper som er relevante for å kunne si noe om reliabilitet, men standardavviket er et av disse. Standardavviket sier noe om hvor langt unna verdiens gjennomsnittlige avstand er fra gjennomsnittet (Spigelhalter,2020)</p>
-<p>Kroppens maksimale oksygenopptak (VO2maks ) sier noe om kroppens maksimale evne til å ta opp og omsette oksygen (Basset &amp; Howley, 2000) . VO2maks kan beskrives ved hjelp av Ficks likning: VO2maks=MVmaks x a-vO2differansemaks. VO2maks måles ved at man måler hvor mye oksygen kroppen klarer å omsette pr minutt (Basset &amp; Howley,2000) Det finnes ulike måter og fremstille VO2maks på de to av disse er absolutt VO2maks beskrevet som (ml/min) eller relative tall relatert til kroppsvekt (ml/kg/min).</p>
-</section>
-<section id="metode" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="metode"><span class="header-section-number">1.3</span> Metode</h2>
+<section id="metode" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Metode</h1>
 <p>VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til &lt; 2,0% differanse og luftvolum kalibreres til &lt; 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra. For å kunne sikre god relabilitet ble det tydeliggjort at man skulle replisere det siste måltidet før test, ha det samme koffeininntaket, avstå fra alkohol og tobakk de siste 72 timene før test og prøve å få tilnærmet lik søvn, samt trene det samme dagen før test. Da dette er faktorer som kan spille inn på prestasjon og metabolismen (Tanner &amp; Gore, 2013) og dermed påvirke relabiliteten. Hvorvidt dette er fulgt er noe usikkert da dette ikke er fulgt opp videre annet enn at det ble informert om før første testdag.</p>
-<p>VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person (Halperin., et.al, 2015) Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle [BLa-]. [BLa-] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio.</p>
-<section id="tabell-med-gjennomsnitt-og-standardavvik" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="tabell-med-gjennomsnitt-og-standardavvik"><span class="header-section-number">1.3.1</span> Tabell med gjennomsnitt og standardavvik</h3>
+<p>VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person <span class="citation" data-cites="Halperin">(<a href="#ref-Halperin" role="doc-biblioref">Halperin, Pyne, and Martin 2015</a>)</span>. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle [BLa-]. [BLa-] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio.</p>
+</section>
+<section id="resultat" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Resultat</h1>
+<section id="gjennomsnitt-og-standardavvik" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="gjennomsnitt-og-standardavvik"><span class="header-section-number">4.1</span> Gjennomsnitt og standardavvik</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="bqirdqvwxe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bqirdqvwxe table {
+<div id="gwboyfzwuz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gwboyfzwuz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bqirdqvwxe thead, #bqirdqvwxe tbody, #bqirdqvwxe tfoot, #bqirdqvwxe tr, #bqirdqvwxe td, #bqirdqvwxe th {
+#gwboyfzwuz thead, #gwboyfzwuz tbody, #gwboyfzwuz tfoot, #gwboyfzwuz tr, #gwboyfzwuz td, #gwboyfzwuz th {
   border-style: none;
 }
 
-#bqirdqvwxe p {
+#gwboyfzwuz p {
   margin: 0;
   padding: 0;
 }
 
-#bqirdqvwxe .gt_table {
+#gwboyfzwuz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -268,12 +287,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_caption {
+#gwboyfzwuz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bqirdqvwxe .gt_title {
+#gwboyfzwuz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -285,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#bqirdqvwxe .gt_subtitle {
+#gwboyfzwuz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -297,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#bqirdqvwxe .gt_heading {
+#gwboyfzwuz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -309,13 +328,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_bottom_border {
+#gwboyfzwuz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_col_headings {
+#gwboyfzwuz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -330,7 +349,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_col_heading {
+#gwboyfzwuz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -350,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#bqirdqvwxe .gt_column_spanner_outer {
+#gwboyfzwuz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -362,15 +381,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#bqirdqvwxe .gt_column_spanner_outer:first-child {
+#gwboyfzwuz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bqirdqvwxe .gt_column_spanner_outer:last-child {
+#gwboyfzwuz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bqirdqvwxe .gt_column_spanner {
+#gwboyfzwuz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -382,11 +401,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#bqirdqvwxe .gt_spanner_row {
+#gwboyfzwuz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bqirdqvwxe .gt_group_heading {
+#gwboyfzwuz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -412,7 +431,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#bqirdqvwxe .gt_empty_group_heading {
+#gwboyfzwuz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -427,15 +446,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#bqirdqvwxe .gt_from_md > :first-child {
+#gwboyfzwuz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bqirdqvwxe .gt_from_md > :last-child {
+#gwboyfzwuz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bqirdqvwxe .gt_row {
+#gwboyfzwuz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -454,7 +473,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#bqirdqvwxe .gt_stub {
+#gwboyfzwuz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -467,7 +486,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bqirdqvwxe .gt_stub_row_group {
+#gwboyfzwuz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -481,15 +500,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#bqirdqvwxe .gt_row_group_first td {
+#gwboyfzwuz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bqirdqvwxe .gt_row_group_first th {
+#gwboyfzwuz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bqirdqvwxe .gt_summary_row {
+#gwboyfzwuz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -499,16 +518,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bqirdqvwxe .gt_first_summary_row {
+#gwboyfzwuz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_first_summary_row.thick {
+#gwboyfzwuz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bqirdqvwxe .gt_last_summary_row {
+#gwboyfzwuz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -518,7 +537,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_grand_summary_row {
+#gwboyfzwuz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -528,7 +547,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bqirdqvwxe .gt_first_grand_summary_row {
+#gwboyfzwuz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -538,7 +557,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_last_grand_summary_row_top {
+#gwboyfzwuz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -548,11 +567,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_striped {
+#gwboyfzwuz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bqirdqvwxe .gt_table_body {
+#gwboyfzwuz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -561,7 +580,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_footnotes {
+#gwboyfzwuz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -575,7 +594,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_footnote {
+#gwboyfzwuz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -584,7 +603,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bqirdqvwxe .gt_sourcenotes {
+#gwboyfzwuz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -598,7 +617,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bqirdqvwxe .gt_sourcenote {
+#gwboyfzwuz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -606,72 +625,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bqirdqvwxe .gt_left {
+#gwboyfzwuz .gt_left {
   text-align: left;
 }
 
-#bqirdqvwxe .gt_center {
+#gwboyfzwuz .gt_center {
   text-align: center;
 }
 
-#bqirdqvwxe .gt_right {
+#gwboyfzwuz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bqirdqvwxe .gt_font_normal {
+#gwboyfzwuz .gt_font_normal {
   font-weight: normal;
 }
 
-#bqirdqvwxe .gt_font_bold {
+#gwboyfzwuz .gt_font_bold {
   font-weight: bold;
 }
 
-#bqirdqvwxe .gt_font_italic {
+#gwboyfzwuz .gt_font_italic {
   font-style: italic;
 }
 
-#bqirdqvwxe .gt_super {
+#gwboyfzwuz .gt_super {
   font-size: 65%;
 }
 
-#bqirdqvwxe .gt_footnote_marks {
+#gwboyfzwuz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bqirdqvwxe .gt_asterisk {
+#gwboyfzwuz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bqirdqvwxe .gt_indent_1 {
+#gwboyfzwuz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bqirdqvwxe .gt_indent_2 {
+#gwboyfzwuz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bqirdqvwxe .gt_indent_3 {
+#gwboyfzwuz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bqirdqvwxe .gt_indent_4 {
+#gwboyfzwuz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bqirdqvwxe .gt_indent_5 {
+#gwboyfzwuz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bqirdqvwxe .katex-display {
+#gwboyfzwuz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bqirdqvwxe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gwboyfzwuz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -824,23 +843,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="frjzgjomvo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#frjzgjomvo table {
+<div id="xjwsicspik" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xjwsicspik table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#frjzgjomvo thead, #frjzgjomvo tbody, #frjzgjomvo tfoot, #frjzgjomvo tr, #frjzgjomvo td, #frjzgjomvo th {
+#xjwsicspik thead, #xjwsicspik tbody, #xjwsicspik tfoot, #xjwsicspik tr, #xjwsicspik td, #xjwsicspik th {
   border-style: none;
 }
 
-#frjzgjomvo p {
+#xjwsicspik p {
   margin: 0;
   padding: 0;
 }
 
-#frjzgjomvo .gt_table {
+#xjwsicspik .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -866,12 +885,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_caption {
+#xjwsicspik .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#frjzgjomvo .gt_title {
+#xjwsicspik .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -883,7 +902,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#frjzgjomvo .gt_subtitle {
+#xjwsicspik .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -895,7 +914,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#frjzgjomvo .gt_heading {
+#xjwsicspik .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -907,13 +926,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_bottom_border {
+#xjwsicspik .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_col_headings {
+#xjwsicspik .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -928,7 +947,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_col_heading {
+#xjwsicspik .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -948,7 +967,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#frjzgjomvo .gt_column_spanner_outer {
+#xjwsicspik .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -960,15 +979,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#frjzgjomvo .gt_column_spanner_outer:first-child {
+#xjwsicspik .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#frjzgjomvo .gt_column_spanner_outer:last-child {
+#xjwsicspik .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#frjzgjomvo .gt_column_spanner {
+#xjwsicspik .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -980,11 +999,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#frjzgjomvo .gt_spanner_row {
+#xjwsicspik .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#frjzgjomvo .gt_group_heading {
+#xjwsicspik .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1010,7 +1029,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#frjzgjomvo .gt_empty_group_heading {
+#xjwsicspik .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1025,15 +1044,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#frjzgjomvo .gt_from_md > :first-child {
+#xjwsicspik .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#frjzgjomvo .gt_from_md > :last-child {
+#xjwsicspik .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#frjzgjomvo .gt_row {
+#xjwsicspik .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1052,7 +1071,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#frjzgjomvo .gt_stub {
+#xjwsicspik .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1065,7 +1084,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#frjzgjomvo .gt_stub_row_group {
+#xjwsicspik .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1079,15 +1098,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#frjzgjomvo .gt_row_group_first td {
+#xjwsicspik .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#frjzgjomvo .gt_row_group_first th {
+#xjwsicspik .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#frjzgjomvo .gt_summary_row {
+#xjwsicspik .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1097,16 +1116,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#frjzgjomvo .gt_first_summary_row {
+#xjwsicspik .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_first_summary_row.thick {
+#xjwsicspik .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#frjzgjomvo .gt_last_summary_row {
+#xjwsicspik .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1116,7 +1135,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_grand_summary_row {
+#xjwsicspik .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1126,7 +1145,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#frjzgjomvo .gt_first_grand_summary_row {
+#xjwsicspik .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1136,7 +1155,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_last_grand_summary_row_top {
+#xjwsicspik .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1146,11 +1165,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_striped {
+#xjwsicspik .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#frjzgjomvo .gt_table_body {
+#xjwsicspik .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1159,7 +1178,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_footnotes {
+#xjwsicspik .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1173,7 +1192,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_footnote {
+#xjwsicspik .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1182,7 +1201,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#frjzgjomvo .gt_sourcenotes {
+#xjwsicspik .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1196,7 +1215,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#frjzgjomvo .gt_sourcenote {
+#xjwsicspik .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1204,72 +1223,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#frjzgjomvo .gt_left {
+#xjwsicspik .gt_left {
   text-align: left;
 }
 
-#frjzgjomvo .gt_center {
+#xjwsicspik .gt_center {
   text-align: center;
 }
 
-#frjzgjomvo .gt_right {
+#xjwsicspik .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#frjzgjomvo .gt_font_normal {
+#xjwsicspik .gt_font_normal {
   font-weight: normal;
 }
 
-#frjzgjomvo .gt_font_bold {
+#xjwsicspik .gt_font_bold {
   font-weight: bold;
 }
 
-#frjzgjomvo .gt_font_italic {
+#xjwsicspik .gt_font_italic {
   font-style: italic;
 }
 
-#frjzgjomvo .gt_super {
+#xjwsicspik .gt_super {
   font-size: 65%;
 }
 
-#frjzgjomvo .gt_footnote_marks {
+#xjwsicspik .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#frjzgjomvo .gt_asterisk {
+#xjwsicspik .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#frjzgjomvo .gt_indent_1 {
+#xjwsicspik .gt_indent_1 {
   text-indent: 5px;
 }
 
-#frjzgjomvo .gt_indent_2 {
+#xjwsicspik .gt_indent_2 {
   text-indent: 10px;
 }
 
-#frjzgjomvo .gt_indent_3 {
+#xjwsicspik .gt_indent_3 {
   text-indent: 15px;
 }
 
-#frjzgjomvo .gt_indent_4 {
+#xjwsicspik .gt_indent_4 {
   text-indent: 20px;
 }
 
-#frjzgjomvo .gt_indent_5 {
+#xjwsicspik .gt_indent_5 {
   text-indent: 25px;
 }
 
-#frjzgjomvo .katex-display {
+#xjwsicspik .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#frjzgjomvo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xjwsicspik div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1297,25 +1316,29 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</section>
+<section id="reliabilitet" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="reliabilitet"><span class="header-section-number">4.2</span> Reliabilitet</h2>
+<p>Reliabiliteten mellom t1 og t2 er 2.47.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="qcvggivhgh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qcvggivhgh table {
+<div id="pimwxrewtm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pimwxrewtm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qcvggivhgh thead, #qcvggivhgh tbody, #qcvggivhgh tfoot, #qcvggivhgh tr, #qcvggivhgh td, #qcvggivhgh th {
+#pimwxrewtm thead, #pimwxrewtm tbody, #pimwxrewtm tfoot, #pimwxrewtm tr, #pimwxrewtm td, #pimwxrewtm th {
   border-style: none;
 }
 
-#qcvggivhgh p {
+#pimwxrewtm p {
   margin: 0;
   padding: 0;
 }
 
-#qcvggivhgh .gt_table {
+#pimwxrewtm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1341,12 +1364,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_caption {
+#pimwxrewtm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qcvggivhgh .gt_title {
+#pimwxrewtm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1358,7 +1381,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#qcvggivhgh .gt_subtitle {
+#pimwxrewtm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1370,7 +1393,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#qcvggivhgh .gt_heading {
+#pimwxrewtm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1382,13 +1405,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_bottom_border {
+#pimwxrewtm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_col_headings {
+#pimwxrewtm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1403,7 +1426,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_col_heading {
+#pimwxrewtm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1423,7 +1446,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#qcvggivhgh .gt_column_spanner_outer {
+#pimwxrewtm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1435,15 +1458,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#qcvggivhgh .gt_column_spanner_outer:first-child {
+#pimwxrewtm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qcvggivhgh .gt_column_spanner_outer:last-child {
+#pimwxrewtm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qcvggivhgh .gt_column_spanner {
+#pimwxrewtm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1455,11 +1478,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#qcvggivhgh .gt_spanner_row {
+#pimwxrewtm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qcvggivhgh .gt_group_heading {
+#pimwxrewtm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1485,7 +1508,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#qcvggivhgh .gt_empty_group_heading {
+#pimwxrewtm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1500,15 +1523,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#qcvggivhgh .gt_from_md > :first-child {
+#pimwxrewtm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qcvggivhgh .gt_from_md > :last-child {
+#pimwxrewtm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qcvggivhgh .gt_row {
+#pimwxrewtm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1527,7 +1550,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#qcvggivhgh .gt_stub {
+#pimwxrewtm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1540,7 +1563,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qcvggivhgh .gt_stub_row_group {
+#pimwxrewtm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1554,15 +1577,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#qcvggivhgh .gt_row_group_first td {
+#pimwxrewtm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qcvggivhgh .gt_row_group_first th {
+#pimwxrewtm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qcvggivhgh .gt_summary_row {
+#pimwxrewtm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1572,16 +1595,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qcvggivhgh .gt_first_summary_row {
+#pimwxrewtm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_first_summary_row.thick {
+#pimwxrewtm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qcvggivhgh .gt_last_summary_row {
+#pimwxrewtm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1591,7 +1614,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_grand_summary_row {
+#pimwxrewtm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1601,7 +1624,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qcvggivhgh .gt_first_grand_summary_row {
+#pimwxrewtm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1611,7 +1634,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_last_grand_summary_row_top {
+#pimwxrewtm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1621,11 +1644,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_striped {
+#pimwxrewtm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qcvggivhgh .gt_table_body {
+#pimwxrewtm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1634,7 +1657,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_footnotes {
+#pimwxrewtm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1648,7 +1671,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_footnote {
+#pimwxrewtm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1657,7 +1680,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qcvggivhgh .gt_sourcenotes {
+#pimwxrewtm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1671,7 +1694,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qcvggivhgh .gt_sourcenote {
+#pimwxrewtm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1679,72 +1702,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qcvggivhgh .gt_left {
+#pimwxrewtm .gt_left {
   text-align: left;
 }
 
-#qcvggivhgh .gt_center {
+#pimwxrewtm .gt_center {
   text-align: center;
 }
 
-#qcvggivhgh .gt_right {
+#pimwxrewtm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qcvggivhgh .gt_font_normal {
+#pimwxrewtm .gt_font_normal {
   font-weight: normal;
 }
 
-#qcvggivhgh .gt_font_bold {
+#pimwxrewtm .gt_font_bold {
   font-weight: bold;
 }
 
-#qcvggivhgh .gt_font_italic {
+#pimwxrewtm .gt_font_italic {
   font-style: italic;
 }
 
-#qcvggivhgh .gt_super {
+#pimwxrewtm .gt_super {
   font-size: 65%;
 }
 
-#qcvggivhgh .gt_footnote_marks {
+#pimwxrewtm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qcvggivhgh .gt_asterisk {
+#pimwxrewtm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qcvggivhgh .gt_indent_1 {
+#pimwxrewtm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qcvggivhgh .gt_indent_2 {
+#pimwxrewtm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qcvggivhgh .gt_indent_3 {
+#pimwxrewtm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qcvggivhgh .gt_indent_4 {
+#pimwxrewtm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qcvggivhgh .gt_indent_5 {
+#pimwxrewtm .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qcvggivhgh .katex-display {
+#pimwxrewtm .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qcvggivhgh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pimwxrewtm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1761,10 +1784,10 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="MEAN">52.44</td>
+<td class="gt_row gt_right" headers="MEAN">48.64</td>
 <td class="gt_row gt_right" headers="SD">3.29</td>
 <td class="gt_row gt_right" headers="TE">2.32</td>
-<td class="gt_row gt_right" headers="CV">4.43</td>
+<td class="gt_row gt_right" headers="CV">4.78</td>
 </tr>
 </tbody>
 </table>
@@ -1772,22 +1795,54 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>Reliabiliteten mellom t3 og t4 er 4.78.</p>
 </section>
-<section id="figur-fra-o2-test" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="figur-fra-o2-test"><span class="header-section-number">1.3.2</span> Figur fra o2-test</h3>
+<section id="korrelasjon-mellom-vo2maks-og-wattmaks-per-kg" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="korrelasjon-mellom-vo2maks-og-wattmaks-per-kg"><span class="header-section-number">4.3</span> Korrelasjon mellom Vo2maks og Wattmaks per kg</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="01-reliability-tools_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Figur 1: Hvert punkt = én observasjon</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>Jeg fikk dessverre ikke til å gjøre om på hver enkelt farge, for å lettere kunne skille ulike id´er fra hverandre.</p>
-
-
 </section>
+</section>
+<section id="diskusjon" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Diskusjon</h1>
+<section id="sammenhengen-mellom-relativ-vo₂-og-relativ-maksimal-watt-per-kilogram" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sammenhengen-mellom-relativ-vo₂-og-relativ-maksimal-watt-per-kilogram"><span class="header-section-number">5.1</span> Sammenhengen mellom relativ VO₂ og relativ maksimal watt per kilogram</h2>
+<p>Relativ VO₂ (rel.VO₂) og relativ maksimal watt per kilogram kroppsvekt (rel.Wmax/kg) er begge viktige mål for aerob kapasitet og prestasjonsevne, spesielt i utholdenhetsidrett. Begge måler aerob kapasitet: Rel.VO₂ måler hvor mye oksygen kroppen kan bruke per minutt per kilogram kroppsvekt (ml/kg/min), mens rel.Wmax/kg måler den maksimale kraften (watt) per kilogram kroppsvekt under maksimal innsats, som for eksempel på en ergometersykkel. Høy rel.VO₂ indikerer ofte en bedre evne til å produsere aerob energi, noe som kan føre til høyere rel.Wmax/kg. Dette understøttes av forskning som viser at VO₂max er en sterk pekepinn av utholdenhetsprestasjon, da en høy aerob kapasitet tillater høyere kraftproduksjon over tid. Forskning viser at det er en direkte sammenheng mellom rel.VO₂ og rel.Wmax/kg, fordi begge avhenger av kroppens evne til å transportere og utnytte oksygen effektivt. For eksempel peker <span class="citation" data-cites="Joyner">(<a href="#ref-Joyner" role="doc-biblioref">Joyner and Coyle 2008</a>)</span> på at høy VO₂max sammen med god mekanisk effektivitet og høy laktatterskel gir bedre utholdenhetsprestasjoner, noe som reflekteres i høyere Wmax/kg. Selv om høy rel.VO₂ ofte korrelerer med høy rel.Wmax/kg, spiller også effektiviteten i å omdanne oksygen til energi en viktig rolle. En utøver kan ha høy VO₂max, men dersom mekanisk effektivitet er lav, vil ikke nødvendigvis Wmax/kg være like høy som forventet. <span class="citation" data-cites="Bentley">(<a href="#ref-Bentley" role="doc-biblioref">Bentley, Newell, and Bishop 2007</a>)</span> diskuterer hvordan testdesign og analyse av disse parameterne kan gi en dypere forståelse av prestasjonsnivået hos utholdenhetsutøvere, og understreker betydningen av både rel.VO₂ og rel.Wmax/kg i denne sammenhengen. Sammenhengen mellom rel.VO₂ og rel.Wmax/kg gjør begge målene verdifulle indikatorer på en utøvers fysiske kapasitet. Høy rel.VO₂ støtter høyere rel.Wmax/kg, men faktorer som muskulær styrke, teknikk og spesifikk utholdenhet kan også påvirke den faktiske prestasjonen. <span class="citation" data-cites="Meyer">(<a href="#ref-Meyer" role="doc-biblioref">Meyer et al. 2005</a>)</span> fremhever hvordan submaksimale parametere kan benyttes til å forutse utholdenhetsprestasjoner, og hvordan rel.VO₂ og rel.Wmax/kg kan integreres i treningsprinsipper og diagnostikk.</p>
+</section>
+</section>
+<section id="referanser" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Referanser</h1>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Bassett" class="csl-entry" role="listitem">
+Bassett, D R, Jr, and E T Howley. 2000. <span>“Limiting Factors for Maximum Oxygen Uptake and Determinants of Endurance Performance.”</span> <em>Med. Sci. Sports Exerc.</em> 32 (1): 70–84.
+</div>
+<div id="ref-Bentley" class="csl-entry" role="listitem">
+Bentley, David J, John Newell, and David Bishop. 2007. <span>“Incremental Exercise Test Design and Analysis: Implications for Performance Diagnostics in Endurance Athletes.”</span> <em>Sports Med.</em> 37 (7): 575–86.
+</div>
+<div id="ref-Halperin" class="csl-entry" role="listitem">
+Halperin, Israel, David B Pyne, and David T Martin. 2015. <span>“Threats to Internal Validity in Exercise Science: A Review of Overlooked Confounding Variables.”</span> <em>Int. J. Sports Physiol. Perform.</em> 10 (7): 823–29.
+</div>
+<div id="ref-Joyner" class="csl-entry" role="listitem">
+Joyner, Michael J, and Edward F Coyle. 2008. <span>“Endurance Exercise Performance: The Physiology of Champions.”</span> <em>J. Physiol.</em> 586 (1): 35–44.
+</div>
+<div id="ref-Meyer" class="csl-entry" role="listitem">
+Meyer, T, A Lucı́a, C P Earnest, and W Kindermann. 2005. <span>“A Conceptual Framework for Performance Diagnosis and Training Prescription from Submaximal Gas Exchange Parameters–Theory and Application.”</span> <em>Int. J. Sports Med.</em> 26 Suppl 1 (February): S38–48.
+</div>
+<div id="ref-Spiegelhalter" class="csl-entry" role="listitem">
+Spiegelhalter, David. 2020. <span>“Introducing the Art of Statistics: How to Learn from Data.”</span> <em>Numeracy</em> 13 (1).
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

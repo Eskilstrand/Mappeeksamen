@@ -6,29 +6,19 @@ editor_options:
 
 # Assignment 1: Reliability and tools for reproducible data science {#assignment1}
 
-The purpose of this assignment is to present estimates of reliability of measures collected in the physiology lab. A second purpose is to use tools for reproducible data science. The report that you are expected to hand in therefore has some strict requirements in its format (see [assignment description](https://dhammarstrom.github.io/quant-methods-workshops/assignment-1.html)). The assignment is a group assignment and at least three students are expected to contribute to each report.
+# Introduksjon
 
-## Elements of the report
+Det ble gjennomført fire testdager 28.08.2024, 29.08.2024, 9.09.2024 og 11.09.2024 for å teste VO2maks. Formålet med disse testene var å øve på å kunne gjennomføre fysiologiske tester med høy reliabilitet. Reliabilitet refererer til graden av konsistens eller pålitelighet i målinger evnen til å kunne reprodusere (Hopkins,2001), et eksempel på dette er ved fysiologisk testing som repeteres i forskningsprosjekter, der bedre reliabilitet vil indikere hvor god presisjonen er og måling av endring over tid (Hopkins,2001). Det er mange begreper som er relevante for å kunne si noe om reliabilitet, men standardavviket er et av disse. Standardavviket sier noe om hvor langt unna verdiens gjennomsnittlige avstand er fra gjennomsnittet [@Spiegelhalter]
 
-**Importantly, the report should contain:**
+Kroppens maksimale oksygenopptak (VO2maks ) sier noe om kroppens maksimale evne til å ta opp og omsette oksygen [@Bassett] . VO2maks kan beskrives ved hjelp av Ficks likning: VO2maks=MVmaks x a-vO2differansemaks. VO2maks måles ved at man måler hvor mye oksygen kroppen klarer å omsette pr minutt [@Bassett]. Det finnes ulike måter og fremstille VO2maks på de to av disse er absolutt VO2maks beskrevet som (ml/min) eller relative tall relatert til kroppsvekt (ml/kg/min).
 
--   At least one table (created from your data)
--   At least one figure (created from your data), and
--   data presented in the text.
--   The report should use a bibliography file to manage references.
+Vi har i resultat delen valgt å fremstille effekt maks (Wmaks) som er et mål på snitteffekt det siste minuttet av VO2maks testen basert på kroppsvekt. Wmaks/kg sett opp i sammenheng med den relative VO2maks (ml/kg/min). Forskning viser at at høy VO₂maks sammen med god mekanisk effektivitet og høy laktatterskel gir bedre utholdenhetsprestasjoner, noe som reflekteres i høyere Wmaks/kg [@Joyner].
 
+# Metode
 
-## Introduksjon
-Det ble gjennomført fire testdager 28.08.2024, 29.08.2024, 9.09.2024 og 11.09.2024 for å teste VO2maks. Formålet med disse testene var å øve på å kunne gjennomføre fysiologiske tester med høy reliabilitet. Reliabilitet refererer til graden av konsistens eller pålitelighet i målinger evnen til å kunne reprodusere (Hopkins,2001), et eksempel på dette er ved fysiologisk testing som repeteres i forskningsprosjekter, der bedre reliabilitet vil indikere hvor god presisjonen er og måling av endring over tid (Hopkins,2001). Det er mange begreper som er relevante for å kunne si noe om reliabilitet, men standardavviket er et av disse. Standardavviket sier noe om hvor langt unna verdiens gjennomsnittlige avstand er fra gjennomsnittet (Spigelhalter,2020)
+VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til \< 2,0% differanse og luftvolum kalibreres til \< 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra. For å kunne sikre god relabilitet ble det tydeliggjort at man skulle replisere det siste måltidet før test, ha det samme koffeininntaket, avstå fra alkohol og tobakk de siste 72 timene før test og prøve å få tilnærmet lik søvn, samt trene det samme dagen før test. Da dette er faktorer som kan spille inn på prestasjon og metabolismen (Tanner & Gore, 2013) og dermed påvirke relabiliteten. Hvorvidt dette er fulgt er noe usikkert da dette ikke er fulgt opp videre annet enn at det ble informert om før første testdag.
 
-Kroppens maksimale oksygenopptak (VO2maks ) sier noe om kroppens maksimale evne til å ta opp og omsette oksygen (Basset & Howley, 2000) . VO2maks kan beskrives ved hjelp av Ficks likning:
-VO2maks=MVmaks x a-vO2differansemaks.   VO2maks måles ved at man måler hvor mye oksygen kroppen klarer å omsette pr minutt (Basset & Howley,2000) Det finnes ulike måter og fremstille VO2maks på de to av disse er absolutt VO2maks   beskrevet som (ml/min) eller relative tall relatert til kroppsvekt (ml/kg/min). 
-
-## Metode
-VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester.  For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til < 2,0% differanse og luftvolum kalibreres til < 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra. For å kunne sikre god relabilitet ble det tydeliggjort at man skulle replisere det siste måltidet før test, ha det samme koffeininntaket, avstå fra alkohol og tobakk de siste 72 timene før test og prøve å få tilnærmet lik søvn, samt trene det samme dagen før test. Da dette er faktorer som kan spille inn på prestasjon og metabolismen (Tanner & Gore, 2013) og dermed påvirke relabiliteten. Hvorvidt dette er fulgt er noe usikkert da dette ikke er fulgt opp videre annet enn at det ble informert om før første testdag.  
-
-VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person (Halperin., et.al, 2015) Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle [BLa-]. [BLa-] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio. 
-
+VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person [@Halperin]. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle \[BLa-\]. \[BLa-\] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio.
 
 ```{r}
 #| echo: false
@@ -45,9 +35,9 @@ df <- read_xlsx("data/o2-test.xlsx")
 
 ```
 
+# Resultat
 
-
-### Tabell med gjennomsnitt og standardavvik
+## Gjennomsnitt og standardavvik
 
 ```{r}
 #| tbl-cap: "Tabell fra alle grupper med gjennomsnitt og standardavvik i ()"
@@ -127,8 +117,6 @@ df.tbl |>
 
 ```
 
-
-
 ```{r}
 #| echo: false
 
@@ -139,7 +127,6 @@ df.rel <- df |>
 
 
 ```
-
 
 ```{r}
 #| echo: false
@@ -165,11 +152,14 @@ df.rel |>
             CV = TE/MEAN * 100) |> 
   gt() |> 
   fmt_number(decimals = 2)
+  cv_perct1_t2 <- 2.47
 
 
 ```
 
+## Reliabilitet
 
+Reliabiliteten mellom t1 og t2 er `r cv_perct1_t2`.
 
 ```{r}
 #| echo: false
@@ -189,23 +179,26 @@ df.rel |>
     pivot_wider(names_from = timepoint,
                 values_from = rel.vo2) |> 
     mutate(diff = t4 - t3) |> 
-    summarise(MEAN = mean(c(t1, t2), na.rm = TRUE), 
+    summarise(MEAN = mean(c(t3, t4), na.rm = TRUE), 
             SD = sd(diff, na.rm = TRUE), 
             TE = SD / sqrt(2), 
             CV = TE/MEAN * 100) |> 
   gt() |> 
    fmt_number(decimals = 2)
-   
+   cv_perct3_t4 <- 4.78
 
 
 ```
 
-### Figur fra o2-test
+Reliabiliteten mellom t3 og t4 er `r cv_perct3_t4`.
+
+## Korrelasjon mellom Vo2maks og Wattmaks per kg
 
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
+#| fig-cap: "Figur 1: Hvert punkt = én observasjon"
 
 
 df %>% 
@@ -225,5 +218,10 @@ df %>%
 
 Jeg fikk dessverre ikke til å gjøre om på hver enkelt farge, for å lettere kunne skille ulike id´er fra hverandre.
 
+# Diskusjon
 
+## Sammenhengen mellom relativ VO₂ og relativ maksimal watt per kilogram
 
+Relativ VO₂ (rel.VO₂) og relativ maksimal watt per kilogram kroppsvekt (rel.Wmax/kg) er begge viktige mål for aerob kapasitet og prestasjonsevne, spesielt i utholdenhetsidrett. Begge måler aerob kapasitet: Rel.VO₂ måler hvor mye oksygen kroppen kan bruke per minutt per kilogram kroppsvekt (ml/kg/min), mens rel.Wmax/kg måler den maksimale kraften (watt) per kilogram kroppsvekt under maksimal innsats, som for eksempel på en ergometersykkel. Høy rel.VO₂ indikerer ofte en bedre evne til å produsere aerob energi, noe som kan føre til høyere rel.Wmax/kg. Dette understøttes av forskning som viser at VO₂max er en sterk pekepinn av utholdenhetsprestasjon, da en høy aerob kapasitet tillater høyere kraftproduksjon over tid. Forskning viser at det er en direkte sammenheng mellom rel.VO₂ og rel.Wmax/kg, fordi begge avhenger av kroppens evne til å transportere og utnytte oksygen effektivt. For eksempel peker [@Joyner] på at høy VO₂max sammen med god mekanisk effektivitet og høy laktatterskel gir bedre utholdenhetsprestasjoner, noe som reflekteres i høyere Wmax/kg. Selv om høy rel.VO₂ ofte korrelerer med høy rel.Wmax/kg, spiller også effektiviteten i å omdanne oksygen til energi en viktig rolle. En utøver kan ha høy VO₂max, men dersom mekanisk effektivitet er lav, vil ikke nødvendigvis Wmax/kg være like høy som forventet. [@Bentley] diskuterer hvordan testdesign og analyse av disse parameterne kan gi en dypere forståelse av prestasjonsnivået hos utholdenhetsutøvere, og understreker betydningen av både rel.VO₂ og rel.Wmax/kg i denne sammenhengen. Sammenhengen mellom rel.VO₂ og rel.Wmax/kg gjør begge målene verdifulle indikatorer på en utøvers fysiske kapasitet. Høy rel.VO₂ støtter høyere rel.Wmax/kg, men faktorer som muskulær styrke, teknikk og spesifikk utholdenhet kan også påvirke den faktiske prestasjonen. [@Meyer] fremhever hvordan submaksimale parametere kan benyttes til å forutse utholdenhetsprestasjoner, og hvordan rel.VO₂ og rel.Wmax/kg kan integreres i treningsprinsipper og diagnostikk.
+
+# Referanser
