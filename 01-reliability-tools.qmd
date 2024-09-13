@@ -21,7 +21,7 @@ VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Exca
 VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person [@Halperin]. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle \[BLa-\]. \[BLa-\] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio.
 
 ```{r}
-#| echo: false
+#| code-fold: true
 #| message: false
 #| warning: false
 
@@ -40,8 +40,8 @@ df <- read_xlsx("data/o2-test.xlsx")
 ## Gjennomsnitt og standardavvik
 
 ```{r}
-#| tbl-cap: "Tabell fra alle grupper med gjennomsnitt og standardavvik i ()"
-#| echo: false
+#| tbl-cap: "Tabellen viser hver deltakers gjennomsnitt og standardavvik i ()"
+#| code-fold: true
 #| message: false
 #| warning: false
 
@@ -118,7 +118,7 @@ df.tbl |>
 ```
 
 ```{r}
-#| echo: false
+#| code-fold: true
 
 df.rel <- df |> 
   select(id, timepoint, weight, vo2.max, w.max) |> 
@@ -128,8 +128,12 @@ df.rel <- df |>
 
 ```
 
+## Reliabilitet
+
+
+
 ```{r}
-#| echo: false
+#| code-fold: true
 #| tbl-cap: "Reliability relativ vo2maks T1&T2"
 
 
@@ -157,12 +161,10 @@ df.rel |>
 
 ```
 
-## Reliabilitet
-
-Reliabiliteten mellom t1 og t2 er `r cv_perct1_t2`.
+Reliabiliteten mellom t1 og t2 er `r cv_perct1_t2`%.
 
 ```{r}
-#| echo: false
+#| code-fold: true
 #| tbl-cap: "Reliability relativ vo2maks T3&T4"
 
 
@@ -190,12 +192,12 @@ df.rel |>
 
 ```
 
-Reliabiliteten mellom t3 og t4 er `r cv_perct3_t4`.
+Reliabiliteten mellom t3 og t4 er `r cv_perct3_t4`%.
 
 ## Korrelasjon mellom Vo2maks og Wattmaks per kg
 
 ```{r}
-#| echo: false
+#| code-fold: true
 #| message: false
 #| warning: false
 #| fig-cap: "Figur 1: Hvert punkt = én observasjon"

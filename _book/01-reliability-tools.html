@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -234,30 +268,102 @@ div.csl-indent {
 <h1 data-number="3"><span class="header-section-number">3</span> Metode</h1>
 <p>VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til &lt; 2,0% differanse og luftvolum kalibreres til &lt; 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra. For å kunne sikre god relabilitet ble det tydeliggjort at man skulle replisere det siste måltidet før test, ha det samme koffeininntaket, avstå fra alkohol og tobakk de siste 72 timene før test og prøve å få tilnærmet lik søvn, samt trene det samme dagen før test. Da dette er faktorer som kan spille inn på prestasjon og metabolismen (Tanner &amp; Gore, 2013) og dermed påvirke relabiliteten. Hvorvidt dette er fulgt er noe usikkert da dette ikke er fulgt opp videre annet enn at det ble informert om før første testdag.</p>
 <p>VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person <span class="citation" data-cites="Halperin">(<a href="#ref-Halperin" role="doc-biblioref">Halperin, Pyne, and Martin 2015</a>)</span>. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle [BLa-]. [BLa-] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"data/o2-test.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="resultat" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Resultat</h1>
 <section id="gjennomsnitt-og-standardavvik" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="gjennomsnitt-og-standardavvik"><span class="header-section-number">4.1</span> Gjennomsnitt og standardavvik</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Last inn datasettet</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.tbl <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Velg hvilke variabler som skal med videre  </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, timepoint, weight, w.max<span class="sc">:</span>borg.max) <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Fjern verdiene som har characters  </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>hr.max) <span class="sc">|&gt;</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>la.max) <span class="sc">|&gt;</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>bf.max) <span class="sc">|&gt;</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>vco2.max) <span class="sc">|&gt;</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>rer.max) <span class="sc">|&gt;</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>ve.max) <span class="sc">|&gt;</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Lag nye verdier, relativ vo2maks og wattmaks/kg  </span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rel.vo2max =</span> vo2.max <span class="sc">/</span> weight) <span class="sc">|&gt;</span> </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rel.wmax =</span> w.max <span class="sc">/</span> weight) <span class="sc">|&gt;</span> </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Sliter fortsatt med å forklare pivot både longer og wider  </span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"ID"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"verdier"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">cols =</span> w.max<span class="sc">:</span>rel.wmax) <span class="sc">|&gt;</span> </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#Grupper etter id og names  </span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id, ID) <span class="sc">|&gt;</span> </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#Summarise gjennomsnitt og standardavvik til verdiene</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">m =</span> <span class="fu">mean</span>(verdier),</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">s =</span> <span class="fu">sd</span>(verdier)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">m_s =</span> <span class="fu">paste0</span>(<span class="fu">signif</span>(m, <span class="dv">3</span>), <span class="st">" ("</span>, <span class="fu">signif</span>(s, <span class="dv">2</span>), <span class="st">")"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(<span class="sc">-</span>m, <span class="sc">-</span>s) <span class="sc">|&gt;</span> </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"id"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="st">"m_s"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>df.tbl <span class="sc">|&gt;</span> </span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>   <span class="fu">text_replace</span>(</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"^bf.max$"</span>,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">replacement =</span> <span class="fu">md</span>(<span class="st">"Bf&lt;small&gt;(maks)&lt;/small&gt;"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text_replace</span>(</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"^borg.max$"</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">replacement =</span> <span class="fu">md</span>(<span class="st">"Borg&lt;small&gt;(maks)&lt;/small&gt;"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text_replace</span>(</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"^rel.vo2max$"</span>,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">replacement =</span> <span class="fu">md</span>(<span class="st">"VO&lt;sub&gt;2maks&lt;/sub&gt;&lt;br&gt;&lt;small&gt;(ml/kg/min)&lt;/br&gt;&lt;/small&gt;"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text_replace</span>(</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"^rel.wmax$"</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">replacement =</span> <span class="fu">md</span>(<span class="st">"Wattmaks/kg"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text_replace</span>(</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"^vo2.max"</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">replacement =</span> <span class="fu">md</span>(<span class="st">"VO&lt;sub&gt;2maks&lt;/sub&gt;&lt;br&gt;&lt;small&gt;(ml/min)&lt;/br&gt;&lt;/small&gt;"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text_replace</span>(</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"w.max$"</span>,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">replacement =</span> (<span class="st">"Wattmaks"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-<div id="urxalyzffi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#urxalyzffi table {
+<div id="zlgqjcxcnu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zlgqjcxcnu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#urxalyzffi thead, #urxalyzffi tbody, #urxalyzffi tfoot, #urxalyzffi tr, #urxalyzffi td, #urxalyzffi th {
+#zlgqjcxcnu thead, #zlgqjcxcnu tbody, #zlgqjcxcnu tfoot, #zlgqjcxcnu tr, #zlgqjcxcnu td, #zlgqjcxcnu th {
   border-style: none;
 }
 
-#urxalyzffi p {
+#zlgqjcxcnu p {
   margin: 0;
   padding: 0;
 }
 
-#urxalyzffi .gt_table {
+#zlgqjcxcnu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -283,12 +389,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_caption {
+#zlgqjcxcnu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#urxalyzffi .gt_title {
+#zlgqjcxcnu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -300,7 +406,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#urxalyzffi .gt_subtitle {
+#zlgqjcxcnu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -312,7 +418,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#urxalyzffi .gt_heading {
+#zlgqjcxcnu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -324,13 +430,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_bottom_border {
+#zlgqjcxcnu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_col_headings {
+#zlgqjcxcnu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -345,7 +451,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_col_heading {
+#zlgqjcxcnu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -365,7 +471,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#urxalyzffi .gt_column_spanner_outer {
+#zlgqjcxcnu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -377,15 +483,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#urxalyzffi .gt_column_spanner_outer:first-child {
+#zlgqjcxcnu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#urxalyzffi .gt_column_spanner_outer:last-child {
+#zlgqjcxcnu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#urxalyzffi .gt_column_spanner {
+#zlgqjcxcnu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -397,11 +503,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#urxalyzffi .gt_spanner_row {
+#zlgqjcxcnu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#urxalyzffi .gt_group_heading {
+#zlgqjcxcnu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -427,7 +533,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#urxalyzffi .gt_empty_group_heading {
+#zlgqjcxcnu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -442,15 +548,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#urxalyzffi .gt_from_md > :first-child {
+#zlgqjcxcnu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#urxalyzffi .gt_from_md > :last-child {
+#zlgqjcxcnu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#urxalyzffi .gt_row {
+#zlgqjcxcnu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -469,7 +575,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#urxalyzffi .gt_stub {
+#zlgqjcxcnu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -482,7 +588,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#urxalyzffi .gt_stub_row_group {
+#zlgqjcxcnu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -496,15 +602,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#urxalyzffi .gt_row_group_first td {
+#zlgqjcxcnu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#urxalyzffi .gt_row_group_first th {
+#zlgqjcxcnu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#urxalyzffi .gt_summary_row {
+#zlgqjcxcnu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -514,16 +620,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#urxalyzffi .gt_first_summary_row {
+#zlgqjcxcnu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_first_summary_row.thick {
+#zlgqjcxcnu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#urxalyzffi .gt_last_summary_row {
+#zlgqjcxcnu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -533,7 +639,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_grand_summary_row {
+#zlgqjcxcnu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -543,7 +649,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#urxalyzffi .gt_first_grand_summary_row {
+#zlgqjcxcnu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -553,7 +659,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_last_grand_summary_row_top {
+#zlgqjcxcnu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -563,11 +669,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_striped {
+#zlgqjcxcnu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#urxalyzffi .gt_table_body {
+#zlgqjcxcnu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -576,7 +682,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_footnotes {
+#zlgqjcxcnu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -590,7 +696,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_footnote {
+#zlgqjcxcnu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -599,7 +705,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#urxalyzffi .gt_sourcenotes {
+#zlgqjcxcnu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -613,7 +719,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#urxalyzffi .gt_sourcenote {
+#zlgqjcxcnu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -621,78 +727,78 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#urxalyzffi .gt_left {
+#zlgqjcxcnu .gt_left {
   text-align: left;
 }
 
-#urxalyzffi .gt_center {
+#zlgqjcxcnu .gt_center {
   text-align: center;
 }
 
-#urxalyzffi .gt_right {
+#zlgqjcxcnu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#urxalyzffi .gt_font_normal {
+#zlgqjcxcnu .gt_font_normal {
   font-weight: normal;
 }
 
-#urxalyzffi .gt_font_bold {
+#zlgqjcxcnu .gt_font_bold {
   font-weight: bold;
 }
 
-#urxalyzffi .gt_font_italic {
+#zlgqjcxcnu .gt_font_italic {
   font-style: italic;
 }
 
-#urxalyzffi .gt_super {
+#zlgqjcxcnu .gt_super {
   font-size: 65%;
 }
 
-#urxalyzffi .gt_footnote_marks {
+#zlgqjcxcnu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#urxalyzffi .gt_asterisk {
+#zlgqjcxcnu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#urxalyzffi .gt_indent_1 {
+#zlgqjcxcnu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#urxalyzffi .gt_indent_2 {
+#zlgqjcxcnu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#urxalyzffi .gt_indent_3 {
+#zlgqjcxcnu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#urxalyzffi .gt_indent_4 {
+#zlgqjcxcnu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#urxalyzffi .gt_indent_5 {
+#zlgqjcxcnu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#urxalyzffi .katex-display {
+#zlgqjcxcnu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#urxalyzffi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#zlgqjcxcnu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<caption>Tabell fra alle grupper med gjennomsnitt og standardavvik i ()</caption>
+<caption>Tabellen viser hver deltakers gjennomsnitt og standardavvik i ()</caption>
 <colgroup>
 <col style="width: 5%">
 <col style="width: 5%">
@@ -838,24 +944,58 @@ div.csl-indent {
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.rel <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, timepoint, weight, vo2.max, w.max) <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rel.vo2 =</span> vo2.max <span class="sc">/</span> weight) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rel.wmax =</span> w.max <span class="sc">/</span> weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="reliabilitet" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="reliabilitet"><span class="header-section-number">4.2</span> Reliabilitet</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.rel <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#velger hvilke variabler vi er interessert i å se på</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, timepoint, rel.vo2) <span class="sc">|&gt;</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#benytter oss av pivot_wider for å lage tidy_data</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> timepoint,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> rel.vo2) <span class="sc">|&gt;</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff =</span> t2 <span class="sc">-</span> t1) <span class="sc">|&gt;</span> </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">MEAN =</span> <span class="fu">mean</span>(<span class="fu">c</span>(t1, t2), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">sd</span>(diff, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">TE =</span> SD <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span>), </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">CV =</span> TE<span class="sc">/</span>MEAN <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-<div id="rtzmndgyro" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rtzmndgyro table {
+<div id="wivcwwmwuf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wivcwwmwuf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rtzmndgyro thead, #rtzmndgyro tbody, #rtzmndgyro tfoot, #rtzmndgyro tr, #rtzmndgyro td, #rtzmndgyro th {
+#wivcwwmwuf thead, #wivcwwmwuf tbody, #wivcwwmwuf tfoot, #wivcwwmwuf tr, #wivcwwmwuf td, #wivcwwmwuf th {
   border-style: none;
 }
 
-#rtzmndgyro p {
+#wivcwwmwuf p {
   margin: 0;
   padding: 0;
 }
 
-#rtzmndgyro .gt_table {
+#wivcwwmwuf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -881,12 +1021,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_caption {
+#wivcwwmwuf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rtzmndgyro .gt_title {
+#wivcwwmwuf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -898,7 +1038,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#rtzmndgyro .gt_subtitle {
+#wivcwwmwuf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -910,7 +1050,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#rtzmndgyro .gt_heading {
+#wivcwwmwuf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -922,13 +1062,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_bottom_border {
+#wivcwwmwuf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_col_headings {
+#wivcwwmwuf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -943,7 +1083,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_col_heading {
+#wivcwwmwuf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -963,7 +1103,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#rtzmndgyro .gt_column_spanner_outer {
+#wivcwwmwuf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -975,15 +1115,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#rtzmndgyro .gt_column_spanner_outer:first-child {
+#wivcwwmwuf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rtzmndgyro .gt_column_spanner_outer:last-child {
+#wivcwwmwuf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rtzmndgyro .gt_column_spanner {
+#wivcwwmwuf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -995,11 +1135,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#rtzmndgyro .gt_spanner_row {
+#wivcwwmwuf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rtzmndgyro .gt_group_heading {
+#wivcwwmwuf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1025,7 +1165,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#rtzmndgyro .gt_empty_group_heading {
+#wivcwwmwuf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1040,15 +1180,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#rtzmndgyro .gt_from_md > :first-child {
+#wivcwwmwuf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rtzmndgyro .gt_from_md > :last-child {
+#wivcwwmwuf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rtzmndgyro .gt_row {
+#wivcwwmwuf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1067,7 +1207,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#rtzmndgyro .gt_stub {
+#wivcwwmwuf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1080,7 +1220,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#rtzmndgyro .gt_stub_row_group {
+#wivcwwmwuf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1094,15 +1234,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#rtzmndgyro .gt_row_group_first td {
+#wivcwwmwuf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rtzmndgyro .gt_row_group_first th {
+#wivcwwmwuf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rtzmndgyro .gt_summary_row {
+#wivcwwmwuf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1112,16 +1252,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#rtzmndgyro .gt_first_summary_row {
+#wivcwwmwuf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_first_summary_row.thick {
+#wivcwwmwuf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rtzmndgyro .gt_last_summary_row {
+#wivcwwmwuf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1131,7 +1271,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_grand_summary_row {
+#wivcwwmwuf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1141,7 +1281,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#rtzmndgyro .gt_first_grand_summary_row {
+#wivcwwmwuf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1151,7 +1291,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_last_grand_summary_row_top {
+#wivcwwmwuf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1161,11 +1301,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_striped {
+#wivcwwmwuf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rtzmndgyro .gt_table_body {
+#wivcwwmwuf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1174,7 +1314,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_footnotes {
+#wivcwwmwuf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1188,7 +1328,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_footnote {
+#wivcwwmwuf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1197,7 +1337,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#rtzmndgyro .gt_sourcenotes {
+#wivcwwmwuf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1211,7 +1351,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#rtzmndgyro .gt_sourcenote {
+#wivcwwmwuf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1219,72 +1359,72 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#rtzmndgyro .gt_left {
+#wivcwwmwuf .gt_left {
   text-align: left;
 }
 
-#rtzmndgyro .gt_center {
+#wivcwwmwuf .gt_center {
   text-align: center;
 }
 
-#rtzmndgyro .gt_right {
+#wivcwwmwuf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rtzmndgyro .gt_font_normal {
+#wivcwwmwuf .gt_font_normal {
   font-weight: normal;
 }
 
-#rtzmndgyro .gt_font_bold {
+#wivcwwmwuf .gt_font_bold {
   font-weight: bold;
 }
 
-#rtzmndgyro .gt_font_italic {
+#wivcwwmwuf .gt_font_italic {
   font-style: italic;
 }
 
-#rtzmndgyro .gt_super {
+#wivcwwmwuf .gt_super {
   font-size: 65%;
 }
 
-#rtzmndgyro .gt_footnote_marks {
+#wivcwwmwuf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rtzmndgyro .gt_asterisk {
+#wivcwwmwuf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rtzmndgyro .gt_indent_1 {
+#wivcwwmwuf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rtzmndgyro .gt_indent_2 {
+#wivcwwmwuf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rtzmndgyro .gt_indent_3 {
+#wivcwwmwuf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rtzmndgyro .gt_indent_4 {
+#wivcwwmwuf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rtzmndgyro .gt_indent_5 {
+#wivcwwmwuf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rtzmndgyro .katex-display {
+#wivcwwmwuf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rtzmndgyro div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wivcwwmwuf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1311,30 +1451,53 @@ div.csl-indent {
 
 </div>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  cv_perct1_t2 <span class="ot">&lt;-</span> <span class="fl">2.47</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-</section>
-<section id="reliabilitet" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="reliabilitet"><span class="header-section-number">4.2</span> Reliabilitet</h2>
-<p>Reliabiliteten mellom t1 og t2 er 2.47.</p>
+<p>Reliabiliteten mellom t1 og t2 er 2.47%.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.rel <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#velger hvilke variabler vi er interessert i å se på</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, timepoint, rel.vo2) <span class="sc">|&gt;</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#benytter oss av pivot_wider for å lage tidy_data</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> timepoint,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> rel.vo2) <span class="sc">|&gt;</span> </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff =</span> t4 <span class="sc">-</span> t3) <span class="sc">|&gt;</span> </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">MEAN =</span> <span class="fu">mean</span>(<span class="fu">c</span>(t3, t4), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">sd</span>(diff, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">TE =</span> SD <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span>), </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">CV =</span> TE<span class="sc">/</span>MEAN <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-<div id="hnegupaybd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hnegupaybd table {
+<div id="aaovhzdmil" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aaovhzdmil table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hnegupaybd thead, #hnegupaybd tbody, #hnegupaybd tfoot, #hnegupaybd tr, #hnegupaybd td, #hnegupaybd th {
+#aaovhzdmil thead, #aaovhzdmil tbody, #aaovhzdmil tfoot, #aaovhzdmil tr, #aaovhzdmil td, #aaovhzdmil th {
   border-style: none;
 }
 
-#hnegupaybd p {
+#aaovhzdmil p {
   margin: 0;
   padding: 0;
 }
 
-#hnegupaybd .gt_table {
+#aaovhzdmil .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1360,12 +1523,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_caption {
+#aaovhzdmil .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hnegupaybd .gt_title {
+#aaovhzdmil .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1377,7 +1540,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#hnegupaybd .gt_subtitle {
+#aaovhzdmil .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1389,7 +1552,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#hnegupaybd .gt_heading {
+#aaovhzdmil .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1401,13 +1564,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_bottom_border {
+#aaovhzdmil .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_col_headings {
+#aaovhzdmil .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1422,7 +1585,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_col_heading {
+#aaovhzdmil .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1442,7 +1605,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#hnegupaybd .gt_column_spanner_outer {
+#aaovhzdmil .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1454,15 +1617,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#hnegupaybd .gt_column_spanner_outer:first-child {
+#aaovhzdmil .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hnegupaybd .gt_column_spanner_outer:last-child {
+#aaovhzdmil .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hnegupaybd .gt_column_spanner {
+#aaovhzdmil .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1474,11 +1637,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#hnegupaybd .gt_spanner_row {
+#aaovhzdmil .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hnegupaybd .gt_group_heading {
+#aaovhzdmil .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1504,7 +1667,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#hnegupaybd .gt_empty_group_heading {
+#aaovhzdmil .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1519,15 +1682,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#hnegupaybd .gt_from_md > :first-child {
+#aaovhzdmil .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hnegupaybd .gt_from_md > :last-child {
+#aaovhzdmil .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hnegupaybd .gt_row {
+#aaovhzdmil .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1546,7 +1709,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#hnegupaybd .gt_stub {
+#aaovhzdmil .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1559,7 +1722,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#hnegupaybd .gt_stub_row_group {
+#aaovhzdmil .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1573,15 +1736,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#hnegupaybd .gt_row_group_first td {
+#aaovhzdmil .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hnegupaybd .gt_row_group_first th {
+#aaovhzdmil .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hnegupaybd .gt_summary_row {
+#aaovhzdmil .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1591,16 +1754,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#hnegupaybd .gt_first_summary_row {
+#aaovhzdmil .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_first_summary_row.thick {
+#aaovhzdmil .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hnegupaybd .gt_last_summary_row {
+#aaovhzdmil .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1610,7 +1773,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_grand_summary_row {
+#aaovhzdmil .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1620,7 +1783,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#hnegupaybd .gt_first_grand_summary_row {
+#aaovhzdmil .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1630,7 +1793,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_last_grand_summary_row_top {
+#aaovhzdmil .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1640,11 +1803,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_striped {
+#aaovhzdmil .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hnegupaybd .gt_table_body {
+#aaovhzdmil .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1653,7 +1816,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_footnotes {
+#aaovhzdmil .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1667,7 +1830,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_footnote {
+#aaovhzdmil .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1676,7 +1839,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#hnegupaybd .gt_sourcenotes {
+#aaovhzdmil .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1690,7 +1853,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#hnegupaybd .gt_sourcenote {
+#aaovhzdmil .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1698,72 +1861,72 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#hnegupaybd .gt_left {
+#aaovhzdmil .gt_left {
   text-align: left;
 }
 
-#hnegupaybd .gt_center {
+#aaovhzdmil .gt_center {
   text-align: center;
 }
 
-#hnegupaybd .gt_right {
+#aaovhzdmil .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hnegupaybd .gt_font_normal {
+#aaovhzdmil .gt_font_normal {
   font-weight: normal;
 }
 
-#hnegupaybd .gt_font_bold {
+#aaovhzdmil .gt_font_bold {
   font-weight: bold;
 }
 
-#hnegupaybd .gt_font_italic {
+#aaovhzdmil .gt_font_italic {
   font-style: italic;
 }
 
-#hnegupaybd .gt_super {
+#aaovhzdmil .gt_super {
   font-size: 65%;
 }
 
-#hnegupaybd .gt_footnote_marks {
+#aaovhzdmil .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hnegupaybd .gt_asterisk {
+#aaovhzdmil .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hnegupaybd .gt_indent_1 {
+#aaovhzdmil .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hnegupaybd .gt_indent_2 {
+#aaovhzdmil .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hnegupaybd .gt_indent_3 {
+#aaovhzdmil .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hnegupaybd .gt_indent_4 {
+#aaovhzdmil .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hnegupaybd .gt_indent_5 {
+#aaovhzdmil .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hnegupaybd .katex-display {
+#aaovhzdmil .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hnegupaybd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#aaovhzdmil div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1790,12 +1953,30 @@ div.csl-indent {
 
 </div>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>   cv_perct3_t4 <span class="ot">&lt;-</span> <span class="fl">4.78</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>Reliabiliteten mellom t3 og t4 er 4.78.</p>
+<p>Reliabiliteten mellom t3 og t4 er 4.78%.</p>
 </section>
 <section id="korrelasjon-mellom-vo2maks-og-wattmaks-per-kg" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="korrelasjon-mellom-vo2maks-og-wattmaks-per-kg"><span class="header-section-number">4.3</span> Korrelasjon mellom Vo2maks og Wattmaks per kg</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rel.vo2max =</span> vo2.max <span class="sc">/</span> weight) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">w.max.kg =</span> w.max <span class="sc">/</span> weight) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> rel.vo2max,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> w.max.kg,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> id)) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> (<span class="st">"Relativ VO2maks"</span>),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> (<span class="st">"Wattmaks/kg"</span>),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Korrelasjon mellom Vo2maks og Wattmaks"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Verdier er delt på vekt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
