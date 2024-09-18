@@ -8,17 +8,17 @@ editor_options:
 
 # Introduksjon
 
-Det ble gjennomført fire testdager 28.08.2024, 29.08.2024, 9.09.2024 og 11.09.2024 for å teste VO2maks. Formålet med disse testene var å øve på å kunne gjennomføre fysiologiske tester med høy reliabilitet. Reliabilitet refererer til graden av konsistens eller pålitelighet i målinger evnen til å kunne reprodusere (Hopkins,2001), et eksempel på dette er ved fysiologisk testing som repeteres i forskningsprosjekter, der bedre reliabilitet vil indikere hvor god presisjonen er og måling av endring over tid (Hopkins,2001). Det er mange begreper som er relevante for å kunne si noe om reliabilitet, men standardavviket er et av disse. Standardavviket sier noe om hvor langt unna verdiens gjennomsnittlige avstand er fra gjennomsnittet [@Spiegelhalter]
+Det ble gjennomført fire testdager 28.08.2024, 29.08.2024, 9.09.2024 og 11.09.2024 for å teste VO~2maks~. Formålet med disse testene var å øve på å kunne gjennomføre fysiologiske tester med høy reliabilitet. Reliabilitet refererer til graden av konsistens eller pålitelighet i målinger evnen til å kunne reprodusere [@RN130], et eksempel på dette er ved fysiologisk testing som repeteres i forskningsprosjekter, der bedre reliabilitet vil indikere hvor god presisjonen er og måling av endring over tid [@RN130]. Det er mange begreper som er relevante for å kunne si noe om reliabilitet, men standardavviket er et av disse. Standardavviket sier noe om hvor langt unna verdiens gjennomsnittlige avstand er fra gjennomsnittet [@Spiegelhalter].
 
-Kroppens maksimale oksygenopptak (VO2maks ) sier noe om kroppens maksimale evne til å ta opp og omsette oksygen [@Bassett] . VO2maks kan beskrives ved hjelp av Ficks likning: VO2maks=MVmaks x a-vO2differansemaks. VO2maks måles ved at man måler hvor mye oksygen kroppen klarer å omsette pr minutt [@Bassett]. Det finnes ulike måter og fremstille VO2maks på de to av disse er absolutt VO2maks beskrevet som (ml/min) eller relative tall relatert til kroppsvekt (ml/kg/min).
+Kroppens maksimale oksygenopptak (VO~2maks~) sier noe om kroppens maksimale evne til å ta opp og omsette oksygen [@Bassett]. VO~2maks~ kan beskrives ved hjelp av Ficks likning: VO~2maks~=MVmaks x a-vO2differansemaks. VO~2maks~ måles ved at man måler hvor mye oksygen kroppen klarer å omsette pr minutt [@Bassett]. Det finnes ulike måter og fremstille VO~2maks~ på, de to av disse er absolutt VO~2maks~ beskrevet som (ml/min) eller relative tall relatert til kroppsvekt (ml/kg/min).
 
-Vi har i resultat delen valgt å fremstille effekt maks (Wmaks) som er et mål på snitteffekt det siste minuttet av VO2maks testen basert på kroppsvekt. Wmaks/kg sett opp i sammenheng med den relative VO2maks (ml/kg/min). Forskning viser at at høy VO₂maks sammen med god mekanisk effektivitet og høy laktatterskel gir bedre utholdenhetsprestasjoner, noe som reflekteres i høyere Wmaks/kg [@Joyner].
+Vi har i resultatdelen valgt å fremstille effekt maks (Wmaks) som er et mål på snitteffekt det siste minuttet av VO~2maks~ testen basert på kroppsvekt. Wmaks/kg sett opp i sammenheng med den relative VO~2maks~ (ml/kg/min). Forskning viser at at høy VO~2maks~ sammen med god mekanisk effektivitet og høy laktatterskel gir bedre utholdenhetsprestasjoner, noe som reflekteres i høyere Wmaks/kg [@Joyner].
 
 # Metode
 
-VO2maks testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til \< 2,0% differanse og luftvolum kalibreres til \< 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra. For å kunne sikre god relabilitet ble det tydeliggjort at man skulle replisere det siste måltidet før test, ha det samme koffeininntaket, avstå fra alkohol og tobakk de siste 72 timene før test og prøve å få tilnærmet lik søvn, samt trene det samme dagen før test. Da dette er faktorer som kan spille inn på prestasjon og metabolismen (Tanner & Gore, 2013) og dermed påvirke relabiliteten. Hvorvidt dette er fulgt er noe usikkert da dette ikke er fulgt opp videre annet enn at det ble informert om før første testdag.
+VO~2maks~ testen ble gjennomført på en ergometersykkel med bukkestyre (Lode Excalibur Sport; Lode B.V., Groningen, Nederland). Kranken kalibreres på Lode sykkelen før hver teststart, og sykkel stilles inn etter utøver sitt ønske ved første test og stilles inn til den samme sittestillingen påfølgende tester. For å måle det maksimale oksygenopptaket ble det brukt Vyntus (Jaeger Vyntus CPX, Hoechberg, Tyskland). Gassanalysator kalibreres til \< 2,0% differanse og luftvolum kalibreres til \< 0,2% differanse. Zeroing gjøres også alltid før test starter. Syklistene veies med de klærne de skal sykle med, og 0,3kg trekkes fra. For å kunne sikre god relabilitet ble det tydeliggjort at man skulle replisere det siste måltidet før test, ha det samme koffeininntaket, avstå fra alkohol og tobakk de siste 72 timene før test og prøve å få tilnærmet lik søvn, samt trene det samme dagen før test. Da dette er faktorer som kan spille inn på prestasjon og metabolismen [@RN2511] og dermed påvirke relabiliteten. Hvorvidt dette er fulgt er noe usikkert da dette ikke er fulgt opp videre annet enn at det ble informert om før første testdag.
 
-VO2maks testen gjennomføres etter en 5min standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en 2 min oppvarming på 11-12 i Borg, deretter 2min på 15 i Borg før 1min på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO2maks tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM≤ 60. Under VO2maks var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person [@Halperin]. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle \[BLa-\]. \[BLa-\] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio.
+VO~2maks~ testen gjennomføres etter en fem minutters standardisert oppvarming på ergometersykkelen. Oppvarmingen starter med en to minutters oppvarming på 11-12 i Borg, deretter to minutter på 15 i Borg før ett minutt på 11-12 BORG. Testen starter på en belastning (Watt) basert på deltagerens nivå i samråd med utøver og testleder. Det viktigste er at påfølgende VO~2maks~ tester starter på samme watt. Wattbelastningen økte med 20W eller 25W hvert minutt frem til utøveren når maksimal utmattelse er oppnådd. Maksimal utmattelse ble i denne sammenheng ikke evne til å kunne opprettholde RPM > 60. Under VO~2maks~ var RPM valgfritt. Testleder gjør verbal oppmuntring og sekundering underveis i testen. For at verbal oppmuntring og instruksjon ved test skulle være lik etterstreb vi å ha samme testleder til samme test person [@Halperin]. Det blir målt oksygenmålinger hvert 30 sek, og de to høyeste påfølgende målingene blir definert som VO2maks. Umiddelbart etter test oppgir utøveren opplevd anstrengelse på BORG skala. Maks hjertefrekvens blir lest av fra utøverens egen pulsklokke. Blodprøve ble tatt fra utøverens fingertupp 1 min etter endt test for å måle \[BLa-\]. \[BLa-\] blir videre målt videre målt ved hjelp av en Biosen C-line (Biosen C-line Lactate Analyzer, EKF Diagnostic GmbH, Barleben, Germany) .Etter endt test ble det hentet ut data som videre ble plottet inn i Excel og videre ført statistikk på ved hjelp av Rstudio.
 
 ```{r}
 #| code-fold: true
@@ -31,6 +31,7 @@ library(ggplot2)
 library(dplyr)
 library(magrittr)
 library(gt)
+library(ggtext)
 df <- read_xlsx("data/o2-test.xlsx")
 
 ```
@@ -204,21 +205,24 @@ Reliabiliteten mellom t3 og t4 er `r cv_perct3_t4`%.
 
 
 df %>% 
+  filter(timepoint == "t1") |> 
   mutate(rel.vo2max = vo2.max / weight) %>% 
   mutate(w.max.kg = w.max / weight) %>% 
   ggplot(aes(x = rel.vo2max,
-             y = w.max.kg,
-             color = id)) +
+             y = w.max,
+             color = as.factor(id))) +
   geom_point() +
   labs(x = ("Relativ VO2maks"),
-       y = ("Wattmaks/kg"),
-       title = "Korrelasjon mellom Vo2maks og Wattmaks",
-       subtitle = "Verdier er delt på vekt")
+       y = ("Wattmaks"),
+       title = "Korrelasjon mellom VO2maks og Wattmaks") +
+  geom_smooth(method = "lm", se = FALSE, color = "brown") 
+  
+
 
 
 ```
 
-Jeg fikk dessverre ikke til å gjøre om på hver enkelt farge, for å lettere kunne skille ulike id´er fra hverandre.
+
 
 
 
