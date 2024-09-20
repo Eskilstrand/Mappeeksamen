@@ -1,5 +1,15 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mappeeksamen IDR4000",
+    "section": "",
+    "text": "Introduksjon\nMappeeksamen består av følgende deler:\n\nRapport: “Deskriptiv statistikk, reliabilitet og validitet og verktøy for reproduserbar vitenskap”.\nLaborasjonsrapport fra molekylærlabb\nArbeidskrav i vitenskapsteori\nRapport: “Statistisk inferens, statistiske modeller og statistisk styrke”\nRapport: “Studiedesign”\nRapport: “Analyse av eksperimenter med repeterte målinger”\n\nI templatet organiseres hver del som et kapittel.\nReferanser finner du sist i dokumenetet (eks. (Spiegelhalter 2019))\n\n\n\n\nSpiegelhalter, D. J. 2019. The Art of Statistics : How to Learn from Data. Book. First US edition. New York: Basic Books.",
+    "crumbs": [
+      "Introduksjon"
+    ]
+  },
+  {
     "objectID": "01-reliability-tools.html",
     "href": "01-reliability-tools.html",
     "title": "1  Assignment 1: Reliability and tools for reproducible data science",
@@ -30,11 +40,11 @@
     ]
   },
   {
-    "objectID": "01-reliability-tools.html#korrelasjon-mellom-vo2maks-og-wattmaks-per-kg",
-    "href": "01-reliability-tools.html#korrelasjon-mellom-vo2maks-og-wattmaks-per-kg",
+    "objectID": "01-reliability-tools.html#diskusjon",
+    "href": "01-reliability-tools.html#diskusjon",
     "title": "1  Assignment 1: Reliability and tools for reproducible data science",
-    "section": "1.4 Korrelasjon mellom Vo2maks og Wattmaks per kg",
-    "text": "1.4 Korrelasjon mellom Vo2maks og Wattmaks per kg\n\n\nCode\ndf %&gt;% \n  filter(timepoint == \"t1\") |&gt; \n  mutate(rel.vo2max = vo2.max / weight) %&gt;% \n  mutate(w.max.kg = w.max / weight) %&gt;% \n  ggplot(aes(x = rel.vo2max,\n             y = w.max,\n             color = as.factor(id))) +\n  geom_point() +\n  labs(x = (\"Relativ VO2maks\"),\n       y = (\"Wattmaks\"),\n       title = \"Korrelasjon mellom VO2maks og Wattmaks\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"brown\") \n\n\n\n\n\nFigur 1: Hvert punkt = én observasjon",
+    "section": "1.4 Diskusjon",
+    "text": "1.4 Diskusjon",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
     ]
@@ -54,7 +64,67 @@
     "href": "02-regression-models.html",
     "title": "2  Assignment 2: Regression models, predicting from data",
     "section": "",
-    "text": "The assignment has three parts:\n\nPart 1: Lactate thresholds\nPart 2: Predicting sizes of DNA fragments\nPart 3: Interpreting a regression table",
+    "text": "2.1 Introduksjon\nEn regresjonsmodell er en modell som kvantifiserer forholdet mellom en eller flere uavhengige variabler og en avhengig variabel. Innen medisin er regresjon den analysemtoden som er hyppigst anvendt. Det finnes forskjellige regresjonsmodeller. De vanligste er lineær regresjon, polynominal regresjon og logistisk regresjon. Hva man har av datasett vil bestemme hvilken regresjonsmodell som egner seg best å benytte (Pisică et al. 2022).\nEn lineær regresjonsmodell er en modell der en kan estimere verdien av en avhengig variabel basert på verdien av andre kjente uavhengige variabler (Pisică et al. 2022). I en slik modell benyttes en rett linje for å lage en modell som beskriver dataen. Følgende funksjon benyttes for å skape det lineære plottet:\nyi = b0 + b1xi + ei\nder yi er den avhengige variabelen som kan estimeres ved å benytte de uavhengige variablene b1xi og b0. b0 er skjæringspunktet til grafen og b1 er stigningstallet til grafen.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#introduksjon",
+    "href": "02-regression-models.html#introduksjon",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "3.1 Introduksjon",
+    "text": "3.1 Introduksjon\nHva er regresjon, lineær modell og kategoriske prediktorer?\nEn regresjonsmodell er en modell som kvantifiserer forholdet mellom en eller flere uavhengige variabler og en avhengig variabel. Innen medisin er regresjon den analysemtoden som er hyppigst anvendt. Det finnes forskjellige regresjonsmodeller. De vanligste er lineær regresjon, polynominal regresjon og logistisk regresjon. Hva man har av datasett vil bestemme hvilken regresjonsmodell som egner seg best å benytte (Pisică et al. 2022).\nEn lineær regresjonsmodell er en modell der en kan estimere verdien av en avhengig variabel basert på verdien av andre kjente uavhengige variabler (Pisică et al. 2022). I en slik modell benyttes en rett linje for å lage en modell som beskriver dataen. Følgende funksjon benyttes for å skape det lineære plottet:\nyi = b0 + b1xi + ei\nder yi er vår avhengige variabel som kan estimeres ved å benytte oss av de uavhengige variablene b1xi og b0. b0 er skjæringspunktet til grafen og b1 er stigningstallet til grafen.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#metode",
+    "href": "02-regression-models.html#metode",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.2 Metode",
+    "text": "2.2 Metode\n\n2.2.1 Lactate thresholds\nDataene ble sortert i mer passende format (tidydata) for å gjøre det lettere med modellene våre senere. Deretter ble det gjort ulike regresjonsmodeller for å fremstille dataene våre. Nye skjæringspunkter ble tegnet for å illustrere treningsintensitet ved ulike laktatverdier.\n\n\n2.2.2 Predicting sizes of DNA fragments\nFor å kunne predikere kalibreringskurven til qPCR, er det en rekke prosesser på molekylærlabben som er gjort på forhånd før det kunne kjørers i R-studio (ELab?).\nFor å kunne kjøre et PCR på en agrose gel 2%, ble det først tatt helbod fra en forsøksperson for å kunne ha et ekstrahert DNA. Helblodet vært igjen ulike prosesser hvor det er tilsatt ulike løsninger og tilsatt ulike primere. Vi står da igjen med et PCR-produkt. Det har videre blitt kjørt en elektroforese for å kunne separere DNA fragmentene fra PCR reaksjonen. Når elektroforesen var ferdig, ble det tatt et bilde av agrose gel 2%.\nVidere har bildet fra elektroforesen blitt analysert ved hjelp av ImageJFiji og videre dataanalyser gjort i R og R studio. PCR-reaksjoner blir bestemt av primerdesign og dens spesifisitet.\n\n\n2.2.3 Interpreting a regression table\nDet ble benyttet R til plotting.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#resultat",
+    "href": "02-regression-models.html#resultat",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.3 Resultat",
+    "text": "2.3 Resultat\n\n\nCode\nlibrary(readxl)\nlibrary(tidyr)\nlibrary(exscidata)\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(magrittr)\nlibrary(gt)\nlibrary(ggtext)\n\n# Kalkuler treningsintensitet ved 2 og 4 mmol/L\n\nw &lt;- cyclingstudy |&gt; \n  select(subject, group, timepoint, lac.225:lac.375) |&gt; \n  filter(timepoint == \"pre\", subject == 10) |&gt; \n  pivot_longer(names_to = \"watt\", \n               values_to = \"lac\",\n               names_prefix = \"lac.\", \n               names_transform = list(watt = as.numeric),\n               cols = lac.225:lac.375)\n  \nmod &lt;- lm(lac ~ watt, data = w)\n\n\n\nw |&gt; \n  ggplot(aes(watt, lac, group = subject)) +\n  geom_point(size = 3, shape = 21, fill = \"gold\") + \n  geom_line(lty = 2) +\n  geom_smooth(method = lm, se = FALSE) +\n  geom_smooth(method = lm, se = FALSE, formula = y ~ poly(x, 2), color = \"lightgreen\") +\n  geom_smooth(method = lm, se = FALSE, formula = y ~ poly(x, 3), color = \"lightpink\") +\n  coord_cartesian(xlim = c(220, 380)) +\n  geom_hline(yintercept = 2, color = \"red\") +\n  geom_hline(yintercept = 4, color = \"purple\") +\n  # Legger inn en vertikal linje, med y = 2mmol, skjæringspunkt 308W, tatt på øyemål.\n  geom_vline(xintercept = 309, linewidth = 1, alpha = 0.8) +\n  # Legger inn en vertikal linje med y = 4mmol, skjæringspunkt 342W, tatt på øyemål.\n  geom_vline(xintercept = 342, linewidth = 1, alpha = 0.8) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nCode\nx2lac &lt;- (2 - coef(mod)[1]) / coef(mod)[2]\nx4lac &lt;- (4 - coef(mod)[1]) / coef(mod)[2]\n\n\n\n2.3.1 Lactate thresholds\n\n\n2.3.2 Predicting sizes of DNA fragments\n\n\nCode\nladder &lt;- data.frame(dist = c(374.5, 396.5, 423.5, 458.5, 496.5, 547.5,607.5,688.5,734.5,792.5,860.5,936.5,1035.5), \n                     \n                     mw = c(1000, 900, 800, \n                            700, 600, 500,\n                            400, 300, 250, \n                            200, 150, 100, 50))\n            \n\n# Create a new data frame of unknowns\nunknown &lt;- data.frame(dist = c(1208.5, 600.5, 18.5, 383.5, 408.5, 436.5, 470.5, 508.5, 559.5, 618.5, 696.5, 742.5, 798.5, 862.5, 935.5, 993.5))\n\n# Fit the model\ncal &lt;- lm(log(mw) ~ dist, data = ladder)\n\n\n\npreds &lt;- exp(predict(cal, newdata = unknown))\n\n\n\nladder %&gt;% \n  ggplot(aes(dist, log(mw))) + \n           geom_point() +\n  geom_abline(intercept = coef(cal)[1], slope = coef(cal)[2])\n\n\n\n\n\n\n\n\n\nCode\ndataframe2 &lt;- data.frame(unknowns = c(1208.5, 600.5, 18.5, 383.5, 408.5, 436.5, 470.5, 508.5, 559.5, 618.5, 696.5, 742.5, 798.5, 862.5, 935.5, 993.5),\n                         (preds))\n  dataframe2 |&gt; gt()\n\n\n\n\n\n\n\n\nunknowns\nX.preds.\n\n\n\n\n1208.5\n31.22469\n\n\n600.5\n400.04598\n\n\n18.5\n4595.75349\n\n\n383.5\n994.08908\n\n\n408.5\n895.12164\n\n\n436.5\n795.92770\n\n\n470.5\n690.13619\n\n\n508.5\n588.44932\n\n\n559.5\n475.11729\n\n\n618.5\n370.95290\n\n\n696.5\n267.43845\n\n\n742.5\n220.50796\n\n\n798.5\n174.34415\n\n\n862.5\n133.29586\n\n\n935.5\n98.13646\n\n\n993.5\n76.94317\n\n\n\n\n\n\n\n\nPart 3: Interpreting a regression table\n\n\n\nCode\nlibrary(exscidata)\nlibrary(tidyverse)\n\n# sammenheng mellom tykkelse vastus lateralis t2 og konsentrasjon av testosterone ved t2\n\ndat &lt;- hypertrophy |&gt; \n  select(GROUP, TRAINING_AGE, AGE, CLUSTER, VL_T2, TESTOSTERONE_T1, TESTOSTERONE_T2)\n\nm &lt;- lm(TESTOSTERONE_T1 ~ TRAINING_AGE, dat)\n\n  dat |&gt; \n  ggplot(aes(TRAINING_AGE, TESTOSTERONE_T1)) +\n    labs(x = \"Treningsalder (år)\",\n         y = expression(Testosteronverdier ~ ng %.% dl^{-1})) +  \n    # use expression for superscript\n    \n  geom_point(size = 3, shape = 21, fill = \"orange\") +\n    \n  geom_abline(intercept = coef(m)[1], slope = coef(m)[2], color = \"steelblue\", size = 1) +\n    \n    geom_hline(yintercept = coef(m)[1] + coef(m)[2] * 10, color = \"darkgreen\") +\n    \n    geom_vline(xintercept = 10, color = \"darkred\") +\n    \n    scale_y_continuous(breaks = c(200, 354, 400, 600, 800, 1000), \n                       labels = c(200, \"testo10\", 400, 600, 800, 1000)) + \n    \n    theme_bw()\n\n\n\n\n\nFigur 3: Sammenheng mellom treningsalder og testosteronverdier i blodet\n\n\n\n\nCode\n  # Den lineære modellen forteller i dette tilfellet at for hvert år man trener, så vil nivå av testosterone synke med 20.51 ng*dl&lt;sup&gt;-1&lt;/sup&gt;. I tillegg kan man estimere testonivå etter å ha trent i 10 år. Dette vil vi gjøre med følgende utregning: \n  \ntesto10 &lt;- coef(m)[1] + coef(m)[2] * 10\ntesto10rounded &lt;- round(testo10, 2)\n  \n# testosteronnivå etter 10 år med trening estimeres til 354.26 ng*dl^-1",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#diskusjon",
+    "href": "02-regression-models.html#diskusjon",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.4 Diskusjon",
+    "text": "2.4 Diskusjon\n\n2.4.1 Lactate thresholds\nVi har valgt å se på subject 10 fra datasettet Cyclingstudy. Vi gjør om datasettet til tidydata. Dette gjør vi for å gi watt og laktat hver sine verdier. Vi plotter inn laktatverdier og wattverdier (gule punkter). Deretter tegner vi en stiplet linje som følger punktene. Vi gjør en regresjonsanalyse, først en lineær modell (blå linje), deretter en andregradsligning (grønn) og til slutt en tredjegradsligning (rosa). Disse bruker vi for å observere hvilken modell som passer best i dette tilfellet.\nFor å understreke hvor unøyaktig den lineære modellen er i dette tilfellet, kan man på øyemål se at laktaten på 300W viser omtrent 2.4 mmol × L-1. Den faktiske laktaten på 300W er 1.69 mmol × L-1.\n\n\n2.4.2 Predicting sizes of DNA fragments\n\n\n2.4.3 Tolkning av regresjonsmodell\nFra datasettet hypertrophy velger vi å se på sammenhengen mellom testosteronkonsentrasjon i blodet (ng × dl-1) og treningsalder (antall år med trening). Den lineære modellen forteller at testosteronkonsentrasjonen i blodet synker med 20.51 ng × dl-1 for hvert treningsår. Etter 10 år med trening, estimerer den lineære modellen et testosteronnivå på 354.26 ng × dl-1.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#doing-the-assignment-then-sorting-it-in-the-intro-method-results-and-discussion-form-later",
+    "href": "02-regression-models.html#doing-the-assignment-then-sorting-it-in-the-intro-method-results-and-discussion-form-later",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.4 Doing the assignment, then sorting it in the intro, method, results and discussion form later",
+    "text": "2.4 Doing the assignment, then sorting it in the intro, method, results and discussion form later\nThe assignment has three parts:\n\nPart 1: Lactate thresholds",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#kalkuler-treningsintensitet-ved-2-og-4-mmoll",
+    "href": "02-regression-models.html#kalkuler-treningsintensitet-ved-2-og-4-mmoll",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "3.6 Kalkuler treningsintensitet ved 2 og 4 mmol/L",
+    "text": "3.6 Kalkuler treningsintensitet ved 2 og 4 mmol/L\n\n\nCode\nlibrary(readxl)\nlibrary(tidyr)\nlibrary(exscidata)\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(magrittr)\nlibrary(gt)\nlibrary(ggtext)\n\nw &lt;- cyclingstudy |&gt; \n  select(subject, group, timepoint, lac.225:lac.375) |&gt; \n  filter(timepoint == \"pre\", subject == 10) |&gt; \n  pivot_longer(names_to = \"watt\", \n               values_to = \"lac\",\n               names_prefix = \"lac.\", \n               names_transform = list(watt = as.numeric),\n               cols = lac.225:lac.375)\n  \nmod &lt;- lm(lac ~ watt, data = w)\n\n\n\nw |&gt; \n  ggplot(aes(watt, lac, group = subject)) +\n  geom_point(size = 3, shape = 21, fill = \"gold\") + \n  geom_line(lty = 2) +\n  geom_smooth(method = lm, se = FALSE) +\n  geom_smooth(method = lm, se = FALSE, formula = y ~ poly(x, 2), color = \"lightgreen\") +\n  geom_smooth(method = lm, se = FALSE, formula = y ~ poly(x, 3), color = \"lightpink\") +\n  coord_cartesian(xlim = c(220, 380)) +\n  geom_vline(xintercept = (2 - coef(mod)[1]) / coef(mod)[2], color = \"red\") +\n  geom_vline(xintercept = (4 - coef(mod)[1]) / coef(mod)[2], color = \"purple\") +\n  geom_hline(yintercept = 2, color = \"red\") +\n  geom_hline(yintercept = 4, color = \"purple\") +\n  # Legger inn en vertikal linje, med y = 2mmol, skjæringspunkt 308W, tatt på øyemål.\n  geom_vline(xintercept = 309, color = \"gold\") +\n  # Legger inn en vertikal linje med y = 4mmol, skjæringspunkt 342W, tatt på øyemål.\n  geom_vline(xintercept = 342) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nCode\nx2lac &lt;- (2 - coef(mod)[1]) / coef(mod)[2]\n\nx4lac &lt;- (4 - coef(mod)[1]) / coef(mod)[2]\n\n\n\n\nCode\n#reliabilitet\nx2lac &lt;- (2 - coef(mod)[1]) / coef(mod)[2]\n\nx4lac &lt;- (4 - coef(mod)[1]) / coef(mod)[2]\n\nslac2 &lt;- 309\n\nslac4 &lt;- 342\n\nreldf &lt;- data.frame(c(x2lac, x4lac, slac2, slac4))\n\ndiff2 &lt;- slac2 - x2lac\ndiff4 &lt;- x4lac - slac4\n\n\n\nPart 2: Predicting sizes of DNA fragments\nPart 3: Interpreting a regression table\n\n\n\nCode\nlibrary(exscidata)\nlibrary(tidyverse)\n\n# sammenheng mellom tykkelse vastus lateralis t2 og konsentrasjon av testosterone ved t2\n\ndat &lt;- hypertrophy |&gt; \n  select(GROUP, TRAINING_AGE, AGE, CLUSTER, VL_T2, TESTOSTERONE_T1, TESTOSTERONE_T2)\n\nm &lt;- lm(TESTOSTERONE_T1 ~ TRAINING_AGE, dat)\n\n  dat |&gt; \n  ggplot(aes(TRAINING_AGE, TESTOSTERONE_T1)) +\n    \n  geom_point(size = 3, shape = 21, fill = \"orange\") +\n    \n  geom_abline(intercept = coef(m)[1], slope = coef(m)[2], color = \"steelblue\", size = 1) +\n    \n    geom_hline(yintercept = coef(m)[1] + coef(m)[2] * 10, color = \"darkgreen\") +\n    \n    geom_vline(xintercept = 10, color = \"darkred\") +\n    \n    scale_y_continuous(breaks = c(200, 354, 400, 600, 800, 1000), \n                       labels = c(200, \"testo10\", 400, 600, 800, 1000)) + \n    \n    theme_bw()\n\n\n\n\n\n\n\n\n\nCode\n  #den lineære modellen forteller i dette tilfellet at for hvert år man trener, så vil nivå av testosterone synke med 20.51 ng*dl&lt;sup&gt;-1&lt;/sup&gt;. I tillegg kan man estimere testonivå etter å ha trent i 10 år. Dette vil vi gjøre med følgende utregning: \n  \ntesto10 &lt;- coef(m)[1] + coef(m)[2] * 10\n  \n# testosteronnivå etter 10 år med trening estimeres til 354.26 ng*dl^-1\n\n\n\n\n\n\nPisică, Dana, Ruben Dammers, Eric Boersma, and Victor Volovici. 2022. “Tenets of Good Practice in Regression Analysis. A Brief Tutorial.” World Neurosurg. 161 (May): 230–239.e6.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
     ]
@@ -180,13 +250,73 @@
     ]
   },
   {
-    "objectID": "01-reliability-tools.html#diskusjon",
-    "href": "01-reliability-tools.html#diskusjon",
-    "title": "1  Assignment 1: Reliability and tools for reproducible data science",
-    "section": "1.4 Diskusjon",
-    "text": "1.4 Diskusjon",
+    "objectID": "02-regression-models.html#referanser",
+    "href": "02-regression-models.html#referanser",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.5 Referanser",
+    "text": "2.5 Referanser\n\n\n\n\nPisică, Dana, Ruben Dammers, Eric Boersma, and Victor Volovici. 2022. “Tenets of Good Practice in Regression Analysis. A Brief Tutorial.” World Neurosurg. 161 (May): 230–239.e6.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1: Reliability and tools for reproducible data science</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#part-1---lactate-thresholds",
+    "href": "02-regression-models.html#part-1---lactate-thresholds",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.2 Part 1 - Lactate thresholds",
+    "text": "2.2 Part 1 - Lactate thresholds\n\n2.2.1 Metode\nDataene ble sortert i mer passende format (tidydata) for å gjøre det lettere med modellene våre senere. Deretter ble det gjort ulike regresjonsmodeller for å fremstille dataene våre. Nye skjæringspunkter ble tegnet for å illustrere treningsintensitet ved ulike laktatverdier.\n\n\n2.2.2 Resultat\n\n\nCode\nlibrary(readxl)\nlibrary(tidyr)\nlibrary(exscidata)\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(magrittr)\nlibrary(gt)\nlibrary(ggtext)\n\n# Kalkuler treningsintensitet ved 2 og 4 mmol/L\n\nw &lt;- cyclingstudy |&gt; \n  select(subject, group, timepoint, lac.225:lac.375) |&gt; \n  filter(timepoint == \"pre\", subject == 10) |&gt; \n  pivot_longer(names_to = \"watt\", \n               values_to = \"lac\",\n               names_prefix = \"lac.\", \n               names_transform = list(watt = as.numeric),\n               cols = lac.225:lac.375)\n  \nmod &lt;- lm(lac ~ watt, data = w)\n\n\n\nw |&gt; \n  ggplot(aes(watt, lac, group = subject)) +\n  labs(x = \"Watt\",\n       y = \"Laktat\") +\n  geom_point(size = 3, shape = 21, fill = \"gold\") + \n  geom_line(lty = 2) +\n  geom_smooth(method = lm, se = FALSE) +\n  geom_smooth(method = lm, se = FALSE, formula = y ~ poly(x, 2), color = \"lightgreen\") +\n  geom_smooth(method = lm, se = FALSE, formula = y ~ poly(x, 3), color = \"lightpink\") +\n  coord_cartesian(xlim = c(220, 380)) +\n  geom_hline(yintercept = 2, color = \"red\") +\n  geom_hline(yintercept = 4, color = \"purple\") +\n  # Legger inn en vertikal linje, med y = 2mmol, skjæringspunkt 308W, tatt på øyemål.\n  geom_vline(xintercept = 309, linewidth = 1, alpha = 0.8) +\n  # Legger inn en vertikal linje med y = 4mmol, skjæringspunkt 342W, tatt på øyemål.\n  geom_vline(xintercept = 342, linewidth = 1, alpha = 0.8) +\n  theme_minimal()\n\n\n\n\n\nFigur 1: Gule punkter = laktat og watt, blå linje = lineær regresjon, grønn linje = andregradsligning, rosa = tredjegradsligning.\n\n\n\n\nCode\nx2lac &lt;- (2 - coef(mod)[1]) / coef(mod)[2]\nx4lac &lt;- (4 - coef(mod)[1]) / coef(mod)[2]\n\n\n\n\n2.2.3 Diskusjon\nVi har valgt å se på subject 10 fra datasettet Cyclingstudy. Vi gjør om datasettet til tidydata. Dette gjør vi for å gi watt og laktat hver sine verdier. Vi plotter inn laktatverdier og wattverdier (gule punkter). Deretter tegner vi en stiplet linje som følger punktene. Vi gjør en regresjonsanalyse, først en lineær modell (blå linje), deretter en andregradsligning (grønn) og til slutt en tredjegradsligning (rosa). Disse bruker vi for å observere hvilken modell som passer best i dette tilfellet.\nFor å understreke hvor unøyaktig den lineære modellen er i dette tilfellet, kan man på øyemål se at laktaten på 300W viser omtrent 2.4 mmol × L-1. Den faktiske laktaten på 300W er 1.69 mmol × L-1.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#resultat-1",
+    "href": "02-regression-models.html#resultat-1",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.4 Resultat",
+    "text": "2.4 Resultat\n\n2.4.1 Lactate thresholds\n\n\n2.4.2 Predicting sizes of DNA fragments\n\n\nCode\nladder &lt;- data.frame(dist = c(374.5, 396.5, 423.5, 458.5, 496.5, 547.5,607.5,688.5,734.5,792.5,860.5,936.5,1035.5), \n                     \n                     mw = c(1000, 900, 800, \n                            700, 600, 500,\n                            400, 300, 250, \n                            200, 150, 100, 50))\n            \n\n# Create a new data frame of unknowns\nunknown &lt;- data.frame(dist = c(1208.5, 600.5, 18.5, 383.5, 408.5, 436.5, 470.5, 508.5, 559.5, 618.5, 696.5, 742.5, 798.5, 862.5, 935.5, 993.5))\n\n# Fit the model\ncal &lt;- lm(log(mw) ~ dist, data = ladder)\n\n\n\npreds &lt;- exp(predict(cal, newdata = unknown))\n\n\n\nladder %&gt;% \n  ggplot(aes(dist, log(mw))) + \n           geom_point() +\n  geom_abline(intercept = coef(cal)[1], slope = coef(cal)[2])\n\n\n\n\n\n\n\n\n\nCode\ndataframe2 &lt;- data.frame(unknowns = c(1208.5, 600.5, 18.5, 383.5, 408.5, 436.5, 470.5, 508.5, 559.5, 618.5, 696.5, 742.5, 798.5, 862.5, 935.5, 993.5),\n                         (preds))\n  dataframe2 |&gt; gt()\n\n\n\n\n\n\n\n\nunknowns\nX.preds.\n\n\n\n\n1208.5\n31.22469\n\n\n600.5\n400.04598\n\n\n18.5\n4595.75349\n\n\n383.5\n994.08908\n\n\n408.5\n895.12164\n\n\n436.5\n795.92770\n\n\n470.5\n690.13619\n\n\n508.5\n588.44932\n\n\n559.5\n475.11729\n\n\n618.5\n370.95290\n\n\n696.5\n267.43845\n\n\n742.5\n220.50796\n\n\n798.5\n174.34415\n\n\n862.5\n133.29586\n\n\n935.5\n98.13646\n\n\n993.5\n76.94317\n\n\n\n\n\n\n\n\nPart 3: Interpreting a regression table\n\n\n\nCode\nlibrary(exscidata)\nlibrary(tidyverse)\n\n# sammenheng mellom tykkelse vastus lateralis t2 og konsentrasjon av testosterone ved t2\n\ndat &lt;- hypertrophy |&gt; \n  select(GROUP, TRAINING_AGE, AGE, CLUSTER, VL_T2, TESTOSTERONE_T1, TESTOSTERONE_T2)\n\nm &lt;- lm(TESTOSTERONE_T1 ~ TRAINING_AGE, dat)\n\n  dat |&gt; \n  ggplot(aes(TRAINING_AGE, TESTOSTERONE_T1)) +\n    labs(x = \"Treningsalder (år)\",\n         y = expression(Testosteronverdier ~ ng %.% dl^{-1})) +  \n    # use expression for superscript\n    \n  geom_point(size = 3, shape = 21, fill = \"orange\") +\n    \n  geom_abline(intercept = coef(m)[1], slope = coef(m)[2], color = \"steelblue\", size = 1) +\n    \n    geom_hline(yintercept = coef(m)[1] + coef(m)[2] * 10, color = \"darkgreen\") +\n    \n    geom_vline(xintercept = 10, color = \"darkred\") +\n    \n    scale_y_continuous(breaks = c(200, 354, 400, 600, 800, 1000), \n                       labels = c(200, \"testo10\", 400, 600, 800, 1000)) + \n    \n    theme_bw()\n\n\n\n\n\nFigur 3: Sammenheng mellom treningsalder og testosteronverdier i blodet\n\n\n\n\nCode\n  # Den lineære modellen forteller i dette tilfellet at for hvert år man trener, så vil nivå av testosterone synke med 20.51 ng*dl&lt;sup&gt;-1&lt;/sup&gt;. I tillegg kan man estimere testonivå etter å ha trent i 10 år. Dette vil vi gjøre med følgende utregning: \n  \ntesto10 &lt;- coef(m)[1] + coef(m)[2] * 10\ntesto10rounded &lt;- round(testo10, 2)\n  \n# testosteronnivå etter 10 år med trening estimeres til 354.26 ng*dl^-1",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#diskusjon-1",
+    "href": "02-regression-models.html#diskusjon-1",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.4 Diskusjon",
+    "text": "2.4 Diskusjon\n\n2.4.1 Lactate thresholds\n\n\n2.4.2 Predicting sizes of DNA fragments\n\n\n2.4.3 Tolkning av regresjonsmodell\nFra datasettet hypertrophy velger vi å se på sammenhengen mellom testosteronkonsentrasjon i blodet (ng × dl-1) og treningsalder (antall år med trening). Den lineære modellen forteller at testosteronkonsentrasjonen i blodet synker med 20.51 ng × dl-1 for hvert treningsår. Etter 10 år med trening, estimerer den lineære modellen et testosteronnivå på 354.26 ng × dl-1.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#part-2---predicting-sizes-of-dna-fragments",
+    "href": "02-regression-models.html#part-2---predicting-sizes-of-dna-fragments",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.3 Part 2 - Predicting sizes of DNA fragments",
+    "text": "2.3 Part 2 - Predicting sizes of DNA fragments\n\n2.3.1 Metode\nFor å kunne predikere kalibreringskurven til qPCR, er det en rekke prosesser på molekylærlabben som er gjort på forhånd før det kunne kjørers i R-studio.\nFor å kunne kjøre et PCR på en agrose gel 2%, ble det først tatt helbod fra en forsøksperson for å kunne ha et ekstrahert DNA. Helblodet vært igjen ulike prosesser hvor det er tilsatt ulike løsninger og tilsatt ulike primere. Vi står da igjen med et PCR-produkt. Det har videre blitt kjørt en elektroforese for å kunne separere DNA fragmentene fra PCR reaksjonen. Når elektroforesen var ferdig, ble det tatt et bilde av agrose gel 2%.\nVidere har bildet fra elektroforesen blitt analysert ved hjelp av ImageJFiji og videre dataanalyser gjort i R og R studio. PCR-reaksjoner blir bestemt av primerdesign og dens spesifisitet.\n\n\n2.3.2 Resultat\n\n\nCode\nladder &lt;- data.frame(dist = c(374.5, 396.5, 423.5, 458.5, 496.5, 547.5,607.5,688.5,734.5,792.5,860.5,936.5,1035.5), \n                     \n                     mw = c(1000, 900, 800, \n                            700, 600, 500,\n                            400, 300, 250, \n                            200, 150, 100, 50))\n            \n\n# Create a new data frame of unknowns\nunknown &lt;- data.frame(dist = c(1208.5, 600.5, 18.5, 383.5, 408.5, 436.5, 470.5, 508.5, 559.5, 618.5, 696.5, 742.5, 798.5, 862.5, 935.5, 993.5))\n\n# Fit the model\ncal &lt;- lm(log(mw) ~ dist, data = ladder)\n\n\n\npreds &lt;- exp(predict(cal, newdata = unknown))\n\n\n\nladder %&gt;% \n  ggplot(aes(dist, log(mw))) + \n           geom_point() +\n  geom_abline(intercept = coef(cal)[1], slope = coef(cal)[2])\n\n\n\n\n\n\n\n\n\nCode\ndataframe2 &lt;- data.frame(unknowns = c(1208.5, 600.5, 18.5, 383.5, 408.5, 436.5, 470.5, 508.5, 559.5, 618.5, 696.5, 742.5, 798.5, 862.5, 935.5, 993.5),\n                         (preds))\n  dataframe2 |&gt; gt()\n\n\n\n\n\n\n\n\nunknowns\nX.preds.\n\n\n\n\n1208.5\n31.22469\n\n\n600.5\n400.04598\n\n\n18.5\n4595.75349\n\n\n383.5\n994.08908\n\n\n408.5\n895.12164\n\n\n436.5\n795.92770\n\n\n470.5\n690.13619\n\n\n508.5\n588.44932\n\n\n559.5\n475.11729\n\n\n618.5\n370.95290\n\n\n696.5\n267.43845\n\n\n742.5\n220.50796\n\n\n798.5\n174.34415\n\n\n862.5\n133.29586\n\n\n935.5\n98.13646\n\n\n993.5\n76.94317\n\n\n\n\n\n\n\n\n\n2.3.3 Diskusjon",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#part-3---interpreting-a-regression-table",
+    "href": "02-regression-models.html#part-3---interpreting-a-regression-table",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.4 Part 3 - Interpreting a regression table",
+    "text": "2.4 Part 3 - Interpreting a regression table\n\n2.4.1 Metode\n\n\n2.4.2 Resultat\n\n\nCode\nlibrary(exscidata)\nlibrary(tidyverse)\n\n# sammenheng mellom tykkelse vastus lateralis t2 og konsentrasjon av testosterone ved t2\n\ndat &lt;- hypertrophy |&gt; \n  select(GROUP, TRAINING_AGE, AGE, CLUSTER, VL_T2, TESTOSTERONE_T1, TESTOSTERONE_T2)\n\nm &lt;- lm(TESTOSTERONE_T1 ~ TRAINING_AGE, dat)\n\n  dat |&gt; \n  ggplot(aes(TRAINING_AGE, TESTOSTERONE_T1)) +\n    labs(x = \"Treningsalder (år)\",\n         y = expression(Testosteronverdier ~ ng %.% dl^{-1})) +  \n    # use expression for superscript\n    \n  geom_point(size = 3, shape = 21, fill = \"orange\") +\n    \n  geom_abline(intercept = coef(m)[1], slope = coef(m)[2], color = \"steelblue\", size = 1) +\n    \n    geom_hline(yintercept = coef(m)[1] + coef(m)[2] * 10, color = \"darkgreen\") +\n    \n    geom_vline(xintercept = 10, color = \"darkred\") +\n    \n    scale_y_continuous(breaks = c(200, 354, 400, 600, 800, 1000), \n                       labels = c(200, \"testo10\", 400, 600, 800, 1000)) + \n    \n    theme_bw()\n\n\n\n\n\nFigur 3: Sammenheng mellom treningsalder og testosteronverdier i blodet\n\n\n\n\nCode\n  # Den lineære modellen forteller i dette tilfellet at for hvert år man trener, så vil nivå av testosterone synke med 20.51 ng*dl&lt;sup&gt;-1&lt;/sup&gt;. I tillegg kan man estimere testonivå etter å ha trent i 10 år. Dette vil vi gjøre med følgende utregning: \n  \ntesto10 &lt;- coef(m)[1] + coef(m)[2] * 10\ntesto10rounded &lt;- round(testo10, 2)\n  \n# testosteronnivå etter 10 år med trening estimeres til 354.26 ng*dl^-1\n\n\n\n\n2.4.3 Diskusjon\nFra datasettet hypertrophy valgte vi å se på sammenhengen mellom testosteronkonsentrasjon i blodet (ng × dl-1) og treningsalder (antall år med trening). Den lineære modellen forteller at testosteronkonsentrasjonen i blodet synker med 20.51 ng × dl-1 for hvert treningsår. Etter 10 år med trening, estimerer den lineære modellen et testosteronnivå på 354.26 ng × dl-1.\nAnalysen av dataene viser en p-verdi på 0,1779, noe som indikerer at det ikke er statistisk signifikant bevis for en sammenheng mellom treningsalder og nivået av testosteron i blodet. Siden p-verdien er høyere enn det vanlige signifikansnivået på 0,05, kan vi ikke avvise nullhypotesen, som antyder at det ikke er noen betydelig effekt eller sammenheng mellom de to variablene i dette datasettet. Dette betyr at variasjonen i testosteronnivåer ikke ser ut til å være relatert til hvor lenge individene har trent.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
+    ]
+  },
+  {
+    "objectID": "02-regression-models.html#diskusjon-2",
+    "href": "02-regression-models.html#diskusjon-2",
+    "title": "2  Assignment 2: Regression models, predicting from data",
+    "section": "2.5 Diskusjon",
+    "text": "2.5 Diskusjon\nFra datasettet hypertrophy valgte vi å se på sammenhengen mellom testosteronkonsentrasjon i blodet (ng × dl-1) og treningsalder (antall år med trening). Den lineære modellen forteller at testosteronkonsentrasjonen i blodet synker med 20.51 ng × dl-1 for hvert treningsår. Etter 10 år med trening, estimerer den lineære modellen et testosteronnivå på 354.26 ng × dl-1.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2: Regression models, predicting from data</span>"
     ]
   }
 ]
