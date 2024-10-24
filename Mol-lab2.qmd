@@ -1,0 +1,55 @@
+---
+format: html
+author: Eskil
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+#| echo: false
+#| label: "Standardscript for pakker"
+#| warning: false
+#| message: false
+
+
+library(readxl)
+library(tidyr)
+library(exscidata)
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(magrittr)
+library(gt)
+library(ggtext)
+library(pwr)
+
+
+```
+
+
+
+
+```{r}
+
+
+df <- read_xlsx("data/qPCR.xlsx")
+```
+
+
+
+```{r}
+
+
+df |> 
+  select(Ct1...3:Average...11) |> 
+  mutate(deltaCt = Average...6 - Average...11) |> 
+  mutate(to-deltadelta = 2^-deltaCt) |> 
+  gt() |> 
+  fmt_number(decimals = 3)
+  
+
+  
+
+```
+

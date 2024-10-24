@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -170,7 +190,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">4.1</span> Overview</a></li>
+  <li><a href="#introduksjon" id="toc-introduksjon" class="nav-link active" data-scroll-target="#introduksjon"><span class="header-section-number">4.1</span> Introduksjon</a></li>
+  <li><a href="#metode" id="toc-metode" class="nav-link" data-scroll-target="#metode"><span class="header-section-number">4.2</span> Metode</a></li>
+  <li><a href="#resultat" id="toc-resultat" class="nav-link" data-scroll-target="#resultat"><span class="header-section-number">4.3</span> Resultat</a></li>
+  <li><a href="#diskusjon" id="toc-diskusjon" class="nav-link" data-scroll-target="#diskusjon"><span class="header-section-number">4.4</span> Diskusjon</a></li>
+  <li><a href="#konklusjon" id="toc-konklusjon" class="nav-link" data-scroll-target="#konklusjon"><span class="header-section-number">4.5</span> Konklusjon</a></li>
+  <li><a href="#referanser" id="toc-referanser" class="nav-link" data-scroll-target="#referanser"><span class="header-section-number">4.6</span> Referanser</a></li>
   </ul>
 </nav>
     </div>
@@ -196,17 +221,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">4.1</span> Overview</h2>
-<p>Choose an area of interest (e.g.&nbsp;protein supplementation for muscle hypertrophy or the effect of block periodization on VO<sub>2max</sub>). Find at least five <em>original research studies</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> in your selected area and describe strength and weakness of these studies. The report should focus on the design of the studies and selection of statistical tests to answer study aims. Conclude your report with a recommendation, how should future studies in your area be designed to best answer similar questions?</p>
-
-
+<section id="introduksjon" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="introduksjon"><span class="header-section-number">4.1</span> Introduksjon</h2>
+<p>Formålet med denne sammenligningen er å se på ulikheter rundt de metodiske valgene ved de ulike studiene. Felles for studiene jeg har valgt å se på er at de alle ser på effekten av bolklagt utholdenhetstrening sett mot tradisjonell utholdenhetstrening og effekten av dette på VO<sub>2maks</sub>. Videre blir det sett på styrker og svakheter ved studiedesign, statistiske analyser og resultater. Det vil til slutt bli gitt noen anbefalninger til fremtidige studier.</p>
 </section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Avoid using review articles or meta-analyses<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
+<section id="metode" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="metode"><span class="header-section-number">4.2</span> Metode</h2>
+<p>Det ble valgt ut fem ulike studier, som alle ser på effekten av blokkperiodisering av utholdenhetstrening på VO<sub>2maks</sub>. Studienes styrker og svakheter ble analysert, og det ble spesielt vektlagt studiedesign og statistiske analyser. Studiedesignenes evne til å måle relevante utfall ble vurdert, samt i hvor stor grad det ble tatt høyde for eksterne variabler som kunne påvirke resultatene.</p>
+</section>
+<section id="resultat" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="resultat"><span class="header-section-number">4.3</span> Resultat</h2>
+<p>Den første studien det ble sett på <span class="citation" data-cites="Ronnestad2014-bu">(<a href="#ref-Ronnestad2014-bu" role="doc-biblioref">Rønnestad, Hansen, and Ellefsen 2014</a>)</span> brukte et kontrollert design med objektive målinger som VO<sub>2maks</sub>, anvendbarheten er kanskje ikke så god da utvalgsstørrelsen er såpass liten som den er og det er manglende kontroll for eksterne faktorer.</p>
+<p>Den andre studien <span class="citation" data-cites="Ronnestad2014-xg">(<a href="#ref-Ronnestad2014-xg" role="doc-biblioref">Rønnestad et al. 2014</a>)</span> hadde et robust eksperimentelt design med godt definerte kontrollgrupper og brukte gjentatte målinger for å spore prestasjonsendringer. Likevel var ekstern validitet en utfordring på grunn av spesifisiteten til utvalget, og tidsrammen for kort til å vurdere langsiktige effekter.</p>
+<p>Studie nummer tre <span class="citation" data-cites="Breil2010-mr">(<a href="#ref-Breil2010-mr" role="doc-biblioref">Breil et al. 2010</a>)</span> implementerte blokkperiodisering og benyttet et bredt spekter av ulike prestasjonsmål. Den korte intervensjonsperioden og det lave antallet kvinnelige deltakere utgjorde imidlertid svakheter som kan ha påvirket representativiteten og konklusjonene.</p>
+<p>Den fjerde studien <span class="citation" data-cites="Ronnestad2016-nq">(<a href="#ref-Ronnestad2016-nq" role="doc-biblioref">Rønnestad et al. 2016</a>)</span> benyttet avanserte statistiske analyser og hadde et langsiktig design, men en begrenset utvalgsstørrelse og fokus på eliteutøvere reduserte generaliserbarheten av funnene i studien.</p>
+<p>Studie fem <span class="citation" data-cites="Solli2019-ej">(<a href="#ref-Solli2019-ej" role="doc-biblioref">Solli, Tønnessen, and Sandbakk 2019</a>)</span> brukte et omfattende design med både fysiologiske og prestasjonsbaserte utfall. Svakheten var spesifisiteten til deltakerutvalget, og det var behov for en bedre sammenheng mellom de statistiske testene og forskningsspørsmålene i studien.</p>
+</section>
+<section id="diskusjon" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="diskusjon"><span class="header-section-number">4.4</span> Diskusjon</h2>
+<p>Studiene generelt sett har god intern validitet, grunnet robuste studiedesign og gode kontrollgrupper. Den eksterne validiteten derimot er det verre med, dette med bakgrunn i at det er små utvalgsstørrelser og spesifikke grupper, eksempelvis eliteutøvere som er testet. Dette reduserer generaliserbarheten til studiene. Studiene har også benyttet seg av noe ulik varighet på treningsintervensjonene som har blitt brukt i studiene. Dette gjør at det blir vanskeligere å trekke konlusjoner rundt langsiktige effekter av treningen. Generelt sett er det valgt gode statistiske analyser i studiene. Det kunne dog vært gjort mer detaljert begrunnelse for valg av statistiske tester i enkelte av studiene.</p>
+</section>
+<section id="konklusjon" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="konklusjon"><span class="header-section-number">4.5</span> Konklusjon</h2>
+<p>Det bør i fremtidige studier fokuseres på å øke størrelsesutvalget, og inkludere mer varierte populasjoner for å forbedre generaliserbarheten og gjøre funnene mer anvendbare for hele befolkningen. Det kan med fordel også brukes lengre oppfølgingstider for å vurdere langsiktige effekter av treningsintervensjoner. Valg av statistiske analyser bør være tett koblet til forskningsspørsmålene for å sikre at de gir meningsfulle og presise svar.</p>
+</section>
+<section id="referanser" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="referanser"><span class="header-section-number">4.6</span> Referanser</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Breil2010-mr" class="csl-entry" role="listitem">
+Breil, Fabio A, Simone N Weber, Stefan Koller, Hans Hoppeler, and Michael Vogt. 2010. <span>“Block Training Periodization in Alpine Skiing: Effects of 11-Day <span>HIT</span> on <span>VO2max</span> and Performance.”</span> <em>Eur. J. Appl. Physiol.</em> 109 (6): 1077–86.
+</div>
+<div id="ref-Ronnestad2014-xg" class="csl-entry" role="listitem">
+Rønnestad, B R, S Ellefsen, H Nygaard, E E Zacharoff, O Vikmoen, J Hansen, and J Hallén. 2014. <span>“Effects of 12 Weeks of Block Periodization on Performance and Performance Indices in Well-Trained Cyclists.”</span> <em>Scand. J. Med. Sci. Sports</em> 24 (2): 327–35.
+</div>
+<div id="ref-Ronnestad2014-bu" class="csl-entry" role="listitem">
+Rønnestad, B R, J Hansen, and S Ellefsen. 2014. <span>“Block Periodization of High-Intensity Aerobic Intervals Provides Superior Training Effects in Trained Cyclists.”</span> <em>Scand. J. Med. Sci. Sports</em> 24 (1): 34–42.
+</div>
+<div id="ref-Ronnestad2016-nq" class="csl-entry" role="listitem">
+Rønnestad, B R, J Hansen, V Thyli, T A Bakken, and Ø Sandbakk. 2016. <span>“5-Week Block Periodization Increases Aerobic Power in Elite Cross-Country Skiers.”</span> <em>Scand. J. Med. Sci. Sports</em> 26 (2): 140–46.
+</div>
+<div id="ref-Solli2019-ej" class="csl-entry" role="listitem">
+Solli, Guro Strøm, Espen Tønnessen, and Øyvind Sandbakk. 2019. <span>“Block Vs. Traditional Periodization of <span>HIT</span>: Two Different Paths to Success for the World’s Best Cross-Country Skier.”</span> <em>Front. Physiol.</em> 10 (April): 375.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

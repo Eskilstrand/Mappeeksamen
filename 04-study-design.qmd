@@ -1,9 +1,32 @@
 # Assignment 4: Study designs
 
 
-## Overview
-Choose an area of interest (e.g. protein supplementation for muscle hypertrophy or the effect of block
-periodization on VO<sub>2max</sub>). Find at least five *original research studies*^[Avoid using review articles or meta-analyses] in your selected area and describe strength and weakness of these studies. The report should focus on the design of the studies and selection of statistical tests to answer study aims.
-Conclude your report with a recommendation, how should future studies in your area be designed to best
-answer similar questions?
+## Introduksjon
 
+Formålet med denne sammenligningen er å se på ulikheter rundt de metodiske valgene ved de ulike studiene. Felles for studiene jeg har valgt å se på er at de alle ser på effekten av bolklagt utholdenhetstrening sett mot tradisjonell utholdenhetstrening og effekten av dette på VO~2maks~. Videre blir det sett på styrker og svakheter ved studiedesign, statistiske analyser og resultater. Det vil til slutt bli gitt noen anbefalninger til fremtidige studier. 
+
+## Metode
+
+Det ble valgt ut fem ulike studier, som alle ser på effekten av blokkperiodisering av utholdenhetstrening på VO~2maks~. Studienes styrker og svakheter ble analysert, og det ble spesielt vektlagt studiedesign og statistiske analyser. Studiedesignenes evne til å måle relevante utfall ble vurdert, samt i hvor stor grad det ble tatt høyde for eksterne variabler som kunne påvirke resultatene. 
+
+## Resultat
+
+Den første studien det ble sett på [@Ronnestad2014-bu] brukte et kontrollert design med objektive målinger som VO~2maks~, anvendbarheten er kanskje ikke så god da utvalgsstørrelsen er såpass liten som den er og det er manglende kontroll for eksterne faktorer.
+
+Den andre studien [@Ronnestad2014-xg] hadde et robust eksperimentelt design med godt definerte kontrollgrupper og brukte gjentatte målinger for å spore prestasjonsendringer. Likevel var ekstern validitet en utfordring på grunn av spesifisiteten til utvalget, og tidsrammen for kort til å vurdere langsiktige effekter. 
+
+Studie nummer tre [@Breil2010-mr] implementerte blokkperiodisering og benyttet et bredt spekter av ulike prestasjonsmål. Den korte intervensjonsperioden og det lave antallet kvinnelige deltakere utgjorde imidlertid svakheter som kan ha påvirket representativiteten og konklusjonene. 
+
+Den fjerde studien [@Ronnestad2016-nq] benyttet avanserte statistiske analyser og hadde et langsiktig design, men en begrenset utvalgsstørrelse og fokus på eliteutøvere reduserte generaliserbarheten av funnene i studien. 
+
+Studie fem [@Solli2019-ej] brukte et omfattende design med både fysiologiske og prestasjonsbaserte utfall. Svakheten var spesifisiteten til deltakerutvalget, og det var behov for en bedre sammenheng mellom de statistiske testene og forskningsspørsmålene i studien. 
+
+## Diskusjon
+
+Studiene generelt sett har god intern validitet, grunnet robuste studiedesign og gode kontrollgrupper. Den eksterne validiteten derimot er det verre med, dette med bakgrunn i at det er små utvalgsstørrelser og spesifikke grupper, eksempelvis eliteutøvere som er testet. Dette reduserer generaliserbarheten til studiene. Studiene har også benyttet seg av noe ulik varighet på treningsintervensjonene som har blitt brukt i studiene. Dette gjør at det blir vanskeligere å trekke konlusjoner rundt langsiktige effekter av treningen. Generelt sett er det valgt gode statistiske analyser i studiene. Det kunne dog vært gjort mer detaljert begrunnelse for valg av statistiske tester i enkelte av studiene. 
+
+## Konklusjon
+
+Det bør i fremtidige studier fokuseres på å øke størrelsesutvalget, og inkludere mer varierte populasjoner for å forbedre generaliserbarheten og gjøre funnene mer anvendbare for hele befolkningen. Det kan med fordel også brukes lengre oppfølgingstider for å vurdere langsiktige effekter av treningsintervensjoner. Valg av statistiske analyser bør være tett koblet til forskningsspørsmålene for å sikre at de gir meningsfulle og presise svar. 
+
+## Referanser
