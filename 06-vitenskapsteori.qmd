@@ -21,4 +21,3 @@ Et annet eksempelproblem innenfor idrettsforskning og falsifikasjonisme er som f
 Et tredje forsøk fra idrettsverden er placeboeffekt, det finnes mye forskning gjort på kosttilskudd innenfor idretten. Hvis en utøver tror man får et kosttilskudd som skal gi en forventet bedring i prestasjon kan dette være nok til at man presterer bedre. Dette gjør det vanskelig å falsifisere hypoteser. En mulig løsning på dette problemet er å gjøre double blinded eller dobbeltblinda eksperimenter, så hverken forsker eller forsøksperson vet om man får placebo eller om man får det faktiske kosttilskuddet. Dette gjør hypotesen mer falsifiserbar, for hvis man i dette tilfellet også finner effekt, kan man med ganske god sannsynlighet si at det er på grunn av kosttilskuddets virkemiddel og ikke at utøveren tror man har fått tilskuddet.  
 
 
-## Referanser

@@ -29,4 +29,3 @@ Studiene generelt sett har god intern validitet, grunnet robuste studiedesign og
 
 Det bør i fremtidige studier fokuseres på å øke størrelsesutvalget, og inkludere mer varierte populasjoner for å forbedre generaliserbarheten og gjøre funnene mer anvendbare for hele befolkningen. Det kan med fordel også brukes lengre oppfølgingstider for å vurdere langsiktige effekter av treningsintervensjoner. Valg av statistiske analyser bør være tett koblet til forskningsspørsmålene for å sikre at de gir meningsfulle og presise svar. 
 
-## Referanser

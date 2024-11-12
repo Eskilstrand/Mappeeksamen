@@ -1,247 +1,505 @@
 ---
-output: html_document
+crossref: 
+  fig-title: "Figur" 
+  tbl-title: "Tabell"
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: console 
 ---
-# Assignment 5: Analyzing repeated measures experiments {#assignment5}
 
-## Assignment overview
-
-In this assignment you will analyse and report on trial investigating the effect of resistance training volume on lean mass and muscle strength. The data are part of the `exscidata` package and can be accessed as `data("strengthvolume")` and `data("dxadata")`. Read the [instructions carefully](https://dhammarstrom.github.io/quant-methods-workshops/assignment-5.html)!
+# Assignment 5: Analyzing repeated measures experiments
 
 
-> Below you will find a basic outline of the report and example code that we worked on in class.
+## Introduksjon
 
-## Introduction
 
-## Methods
 
-### Participants and study overview
+Et styrketreningsprogram kan bestå av mange ulike variabler, som i teorien skal påvirke adaptasjoner. Volum, intensitet, frekvens, pauselengder, samt ernærning, kontraksjonstype og kontraksjonshastighet er eksempler på dette. At vi har så mange forskjellige variabler, gjør at vi har muligheten til å gjøre endringer på uttallige forskjellige måter for å manipulere og tilpasse treningsprogrammer. Volum i styrketrening er et mye debattert tema, her er det spesielt ett sett, mot flere sett som har fått mye oppmerksomhet [@carpinelli1998].
 
-### Muscle strength and hypertrophy
 
-### Data analysis and statistics
 
-## Results
+Flere studier har vist at økt treningsvolum er fordelaktig for både muskelstyrke og muskelvekst (hypertrofi) [@sooneste2013; @radaelli2015]. Likevel finnes det forskning som indikerer at lavt volum kan gi styrke- og masseøkninger som er sammenlignbare med de som oppnås ved moderat volum [@cannon2010; @mitchell2012]. Denne variasjonen i studieresultater skyldes sannsynligvis en kombinasjon av små utvalgsstørrelser og individuelle forskjeller. Studiedesign som sammenligner ulike treningsvolumer hos samme person kan teoretisk sett bidra til å håndtere disse begrensningene. I flere studier som undersøker ett sett kontra tre sett, er det også forskjeller i intensitet og hvilke øvelser som benyttes [@marx2001; @messier1985].
+
+
+
+Formålet med analysene i denne rapporten var å sammenligne effekten av ett sett versus flere sett på både muskelstyrke og hypertrofi. Med tanke på de metodiske utfordringene i studier som sammenligner ett sett med flere sett, er følgende hypotese formulert: Tre sett vil være mer effektive for å forbedre maksimal muskelstyrke og øke muskelmasse sammenlignet med ett sett.
+
+## Metode
+
+### Forsøkspersoner og studiedesign
+
+
+
+Det ble rekruttert 41 mannlige og kvinnelige deltakere, kriteriene for å bli inkludert i studien var å ikke røyke, samt være mellom 18 og 40 år. Eksklusjonskriteriene var at vedkommende hadde trent mer enn én styrkeøkt i uken, i løpet av de siste 12 månedene før intervensjonen startet, intoleranse mot bedøvelse, reduksjon i muskelstyrke grunnet skade og bruk av reseptbelagte medisiner som i verstefall kunne påvirke treningsadaptasjoner. Det var syv deltakere som ble ekskludert fra analysene som ble gjort, fordi de ikke fullførte minst 85% av den planlagte treningen. Samtlige inkluderte deltakere rapporterte at de hadde erfaring med idrettsaktiviteter fra tidligere. Blant deltakerne var det tjue av dem som drev med fysisk trening da de meldte seg på studien; blant disse var det ti av dem som drev sporadisk styrketrening, men felles for dem var at ingen trente mer enn én gang i uken. 
+
+
+
+Intervensjonen besto av 12 uker med styrketrening for hele kroppen, denne ble fullført av samtlige deltakere fra september til november. Det ble gjort en randomisering på hvert ben hos deltakerne, for å muliggjøre differensiering av treningsvolum hos samme deltaker. Hver deltaker fikk da tilfeldig tildelt enten ett eller tre sett, til hvert av beina sine, så hver person fikk fulgt begge protokollene. Det ble gjort måling av muskelstyrke ved baseline, underveis (uke 3, 5 og 9) og etter intervensjonen. Målinger av kroppssammensetning ble utført før og etter intervensjonen. 
+
+
+
+### Treningsprotokoll
+
+
+
+Styrkeøvelsene ble gjennomført i denne rekkefølgen: unilateral beinpress, beincurl og kneekstensjon. Ett sett op det ene beinet, og tre sett på det andre beinet, ut i fra randomiseringen. Beinet som skulle trene ett sett, ble trent mellom andre og tredje sett på beinet som trente tre sett. Når øvelsene på beina var gjennomført, trente de også to sett av bilateral benkpress, nedtrekk og enten sittende roing eller skulderpress (skulderpress og sittende roing varierte fra økt til økt (annenhver gang)). Pauselengde mellom settene var mellom 1.5 og 3 minutter. Det ble gjort en gradvis økning i treningsmotstanden utover treningsintervensjonen. Deltakerne startet med 10 RM de to første ukene, deretter 8 RM i tre uker og 7 RM i syv uker. Etter økt nummer ni, ble motstanden redusert på én av de tre øktene som var ukentlig. Dette var en reduksjon tilsvarende 90 % (av motstanden) fra forrige økt på den gitte øvelsen. Deltakeren hadde fortsatt mål om samme repetisjonsantall. Det ble satt et minimum om 48 timer fra fullført økt med maksimal innsat og frem til neste økt. Etter styrkeøktene med redusert motstand var det minst 24 timer til den neste økten. For å sørge for best mulig umiddelbar resitusjon fikk deltakerne en standardisert drikke etter hver gjennomførte økt med 0.15 g/kg protein, 1.2 g/kg karbohydrater og 0.5 g/kg fett. 
+
+# Endre under her
+
+### Målinger av muskelstyrke og hypertrofi
+
+
+
+Maksimal styrke er definert som den motstanden man maksimalt klarer å løfte en repetisjon av (1 RM) i beinpress og kneekstensjon. Det ble gjort en spesifikk oppvarming med ti, seks og tre repetisjoner på henholdsvis 50, 75 og 85 % av forventet 1 RM. Motstanden ble deretter økt progressivt helt til deltakeren ikke lenger klarte å løfte mer. Den høyeste motstanden med godkjent repetisjon er definert som 1 RM. Deltakerne fikk fire til seks forsøk hver. 
+
+
+
+
+
+Ved baseline gjennomførte de testene 2 ganger, med 4 dager mellom. Den høyeste verdien de oppnådde på disse 2 dagene er brukt i analysene. Styrketestene var minst 48 timer etter en gjennomført økt ved etter intervensjonen. Ikke alle deltakerne (n = 18) gjorde styrketestene underveis i intervensjonen (uke 2, 5 og 9). Treningen ble prioritert for resterende deltakere hvis de gikk glipp av testing eller trening pga. sykdom eller logistiske utfordringer. Derfor er ikke testene underveis inkludert i analysene for at det skulle være et større utvalg i analysene. Resultatene før og etter intervensjonen er det som er analysert.
+
+Kroppssammensetning for bestemmelse av mager muskelmasse er bestemt ved dual-energy X-ray absorptiometry (DXA) før og etter intervensjonen (Lunar Prodigy, GE Healthcare, Oslo, Norway). Før DXA-målinger fikk deltakerne beskjed om å faste 2 timer og avstå fra krevende fysisk aktivitet i 48 timer. Det var også minimum 48 timer fra siste styrkeøkt til DXA-måling.
+
+### Dataanalyser og statistikk
+
+Statiske analyser er gjort i R studio [@rstudio]. Det er gjort enkle lineære regresjonsmodeller på differansen mellom gruppene (ett sett & flere sett) i endring av styrke og muskelmasse i løpet av intervensjonen. For maksimal styrke er det gjort analyser på øvelsene beinpress og kneekstensjon. Muskelmasse er målt som endringen i mager muskelmasse i beinet som har trent ett mot beinet som har trent tre sett.
+
+## Resultater
 
 ```{r}
-#| label: "Load packages and data"
-#| warning: false
-#| message: false
-#| echo: false
-#| output: false
+#| label: "Laste pakker og data, samt statistikk mager masse" 
+#| output: false 
+
+## laste pakker 
+
+library(tidyverse); library(exscidata); library(lme4); library(gt) 
 
 
 
-library(tidyverse); library(exscidata)
-library(lme4)
 
-
-## Import data set, extract leg lean mass per leg and remove observations
-# that are include == "excl".
-
-leanmass <- dxadata %>%
-  select(participant:include, lean.left_leg, lean.right_leg) %>%
+leanmass <- dxadata |> 
+  select(participant:include, 
+         lean.left_leg, 
+         lean.right_leg) |> 
   pivot_longer(names_to = "leg", 
                values_to = "lean.mass", 
-               cols = lean.left_leg:lean.right_leg) %>%
+               cols = lean.left_leg:lean.right_leg) |> 
   mutate(leg = if_else(leg == "lean.left_leg", "L", "R"), 
-         sets = if_else(multiple == leg, "multiple", "single")) %>%
-  select(participant, time, sex, include, sets, leg, lean.mass) %>%
-  filter(include == "incl") %>%
+         sets = if_else(multiple == leg, "multiple", "single")) |> 
+  select(participant, time, sex, 
+         include, sets, leg, lean.mass) |> 
+  filter(include == "incl") |> 
   
-  ## Change levels for time and sets
+
   mutate(time = factor(time, levels = c("pre", "post")), 
-         sets = factor(sets, levels = c("single", "multiple")), 
-         leg = paste0(participant, leg)) %>%
-  
-  print()
+         sets = factor(sets, levels = c("single", "multiple"))) |> 
+  print() 
 
 
-# Create a wide data set of change scores per volume condition
-# suitable for a t-test
-leanmass_change_wide <- leanmass %>%
-  pivot_wider(names_from = time, values_from = lean.mass) %>%
-  mutate(change = post - pre) %>%
-  
-  select(participant, sex, sets, change) %>%
+leanmass_change_wide <- leanmass |> 
+  pivot_wider(names_from = time, 
+              values_from = lean.mass) |> 
+  mutate(change = post - pre) |> 
+  select(participant, sex, sets, change) |> 
   pivot_wider(names_from = sets, 
-              values_from = change) %>%
+              values_from = change) |> 
   
-  mutate(diff = multiple - single) %>%
-  
-  print()
+  mutate(diff = multiple - single) |> 
+  print() 
 
 
-leanmass_change_wide_time <- leanmass %>%
-  pivot_wider(names_from = time, values_from = lean.mass) %>%
+# Lineær modell 
+m1 <- lm(diff ~ 1, data = leanmass_change_wide) 
 
-  select(participant, sex, sets, pre, post) %>%
-  
-  print()
+summary(m1) 
 
 
+### Hente ut data fra modellen: 
+# Den enkle lineære modellen (m1) er en lineær modell av forskjell i forskjellene mellom multiple og single. 
+
+m1pval <- round(coef(summary(m1))[1, 4], 2) 
+m1est <- round(coef(summary(m1))[1, 1], 2) 
 
 
-## Do a t-test on change scores per condition. 
+## Øvre (m1ciu) og nedre (m1cil) konfidensintervall, round-funksjonen brukes for å bestemme antall desimaler 
+m1ciu <- round(confint(m1)[1, 2], 2) 
+m1cil <- round(confint(m1)[1, 1], 2) 
 
-## Alternatives (paired, equal variation)
-tt1 <- with(leanmass_change_wide, t.test(multiple, single, paired = TRUE))
-
-## The same model but with lm
-m1 <- lm(diff ~ 1, data = leanmass_change_wide)
-
-summary(m1)
-
-
-
-
-### Mixed effects model
-# A mixed effects model allowing for a random slope for time is very similar 
-# to the t-test used above. 
-
-m2 <- lmer(lean.mass ~ time * sets +( 1 + time |participant), 
-           data = leanmass)
-
-# Check the summary 
-summary(m2)
-# Check assumptions of equal residual variance
-plot(m2)
-
-## Mixed-Effects ANCOVA
-
-# The lm model does not contain information on multiple
-# observations per participant
-m3 <- lm(post ~ pre + sets, data = leanmass_change_wide_time)
-
-
-# A more correct model also include random intercepts per 
-# participant. Mixed effects ANCOVA mnodel:
-m4 <- lmer(post ~ pre + sets + (1|participant), 
-           data = leanmass_change_wide_time)
-
-
-summary(m3)
-
-summary(m4)
-
-
-
-### How to extract data from a model:
-
-# m1 is a linear model of difference in differences
-# we can use it for inference, extract average diff and confidence 
-# intervals and p-value
-
-# Save all elements of inline results
-m1pval <- round(coef(summary(m1))[1, 4], 3)
-m1est <- round(coef(summary(m1))[1, 1], 1)
-
-m1ciu <- round(confint(m1)[1,2], 1)
-m1cil <- round(confint(m1)[1,1], 1)
-
-# Combine into an object
 m1results <- paste0(m1est, 
-                    ", 95% CI: [",
-                    m1cil, 
-                    ", ",
+                    " (95 % KI: [", 
+                    m1cil,
+                    "-", 
                     m1ciu, 
-                    "], p = ",
-                    m1pval
-                    )
-
-
-
-
-
+                    "], p = ", 
+                    m1pval, ")"
+                    ) 
 ```
 
-The average difference in lean mass changes between sets were `r m1results`.
-
-
-
 ```{r}
+#| label: "Statistikk på forskjell i styrke"
+#| output: false 
 
-## Time points in strength data set
+## Utforskende plot av styrkedata 
 
-strengthvolume %>%
-  distinct(exercise)
-
-
-
-## Exploratory plot of strength data 
-
-str <- strengthvolume %>%
-  filter(include == "incl") %>%
+str <- strengthvolume |> 
+  filter(include == "incl") |> 
   mutate(time = factor(time, levels = c("pre", "session1", 
                                         "week2", "week5", 
-                                        "week9", "post"))) %>%
-  print()
+                                        "week9", "post"))) |>
+  print() 
+# Har ikke skjedd noe foreløpig annet enn at bare de som fullførte nok trening (85 %) er inkludert, og time er gjort om til faktorvariabel
 
 
-str %>%
-  ggplot(aes(time, 
-             load, 
-             group = paste(participant, sets), 
-             color = sets)) + 
-  geom_line() + 
-  facet_wrap(~ exercise, scales = "free")
+## benytter pre&post
+## kombin predat
+
+styrke <- str |> 
+  mutate(time = if_else(time %in% c("pre", "session1"), 
+                        "pre", time)) |> 
   
-
-## How many measurements per participant
-
-str %>%
-  filter(!is.na(load)) %>%
-  group_by(participant, exercise, sets) %>%
-  summarise(n = n() ) %>%
-  ggplot(aes(n, participant, color = sets)) +
-  geom_point() + 
-  facet_wrap(~ exercise) + 
-  theme(axis.text.y = element_blank())
-
-
-
-## Use pre and post data 
-# Combine pre data prior to data analysis
-# per exercise, leg, participant, and sets
-
-str %>%
-  mutate(time = if_else(time %in% c("pre", "session1"), "pre", time)) %>%
+  filter(time %in% c("pre", "post")) |> 
   
-  filter(time %in% c("pre", "post")) %>%
-  
-  summarise(load = max(load, na.rm = TRUE), 
+  summarise(load = mean(load, na.rm = TRUE), 
             .by = c(participant, 
                     sex, 
                     time, 
-                    sets,
-                    exercise,
-                    leg)) %>%
+                    sets, 
+                    exercise, 
+                    leg)) |> 
+  print() 
+
+
+## Er bare interessert i beinpress og kneekstensjon og vil gjøre datasettet håndterbart for en lineær modell 
+# BP
+
+styrke_legpress <- styrke |> 
+  filter(exercise == "legpress") |> 
+  pivot_wider(names_from = time, 
+              values_from = load) |> 
   
-  print()
+  mutate(endring = post - pre) |> 
+  select(participant, sex, sets, endring) |> 
+  pivot_wider(names_from = sets, 
+              values_from = endring) |> 
+  
+  mutate(diff = multiple - single) |> 
+  print() 
 
 
+## KE
+styrke_ext <- styrke |> 
+  filter(exercise == "legext") |> 
+  pivot_wider(names_from = time, 
+              values_from = load) |> 
+  mutate(endring = post - pre) |> 
+  select(participant, sex, sets, endring) |> 
+  pivot_wider(names_from = sets, 
+              values_from = endring) |> 
+  mutate(diff = multiple - single) |> 
+  print() 
 
 
+## Gjøre enkle lineære modeller:
+# BP 
+mod_press <- lm(diff ~ 1, data = styrke_legpress) 
+summary(mod_press)
+# mangler 3 diff, mangler data
+
+# KE 
+mod_ext <- lm(diff ~ 1, data = styrke_ext) 
+summary(mod_ext)
+# her mangler 2 differanser
 
 
+### Ønsker å presentere resultatene 
+mod_press_pval <- round(coef(summary(mod_press))[1, 4], 3) 
+mod_press_est <- round(coef(summary(mod_press))[1, 1], 2) 
+
+mod_ext_pval <- round(coef(summary(mod_ext))[1, 4], 3) 
+mod_ext_est <- round(coef(summary(mod_ext))[1, 1], 2) 
 
 
+## KI 
+mod_press_cil <- round(confint(mod_press)[1, 1], 1) 
+mod_press_ciu <- round(confint(mod_press)[1, 2], 1) 
 
+mod_ext_cil <- round(confint(mod_ext)[1, 1], 1) 
+mod_ext_ciu <- round(confint(mod_ext)[1, 2], 1) 
+
+
+## Presentabelt
+mod_press_results <- paste0(mod_press_est, 
+                    " (95 % KI: [", 
+                    mod_press_cil,
+                    "-", 
+                    mod_press_ciu, 
+                    "], p = ", 
+                    mod_press_pval, ")"
+                    ) 
+
+
+mod_ext_results <- paste0(mod_ext_est, 
+                    " (95 % KI: [", 
+                    mod_ext_cil,
+                    "-", 
+                    mod_ext_ciu, 
+                    "], p = ", 
+                    mod_ext_pval, ")"
+                    ) 
 
 
 ```
 
+DXA-resultatene viste at gjennomsnittlig differanse mellom ett og tre sett var `r m1results`. Også for styrkeøvelsene var forbedringen i 1RM i gjennomsnitt større for det beinet som hadde trent flere sett. I beinpress var forskjellen `r mod_press_results`, mens for kneekstensjon var det `r mod_ext_results` differanse.
+
+Tabellen nedenfor viser nivået ved baseline for styrkeøvelsene og mager muskelmasse.
+
+```{r}
+#| label: "Lage tabell"
+#| output: false 
+
+## Vil ha pre-verdier, gjennomsnitt og standardavvik av mager masse per condition (single vs. multiple) 
+
+lean <- leanmass |> 
+  filter(time == "pre") |> 
+  summarise(m_lean = mean(lean.mass), 
+            sd_lean = sd(lean.mass), 
+            miss_val = sum(is.na(lean.mass)), 
+            n = n(),
+            .by = sets) |> 
+  select(sets:sd_lean) |>
+  print()  
+
+
+## BP
+press <- strengthvolume |> 
+  filter(include == "incl", 
+         exercise == "legpress", 
+         time == c("pre", "post")) |> 
+  summarise(m_press = mean(load, na.rm = TRUE), 
+            sd_press = sd(load, na.rm = TRUE), 
+            miss_val = sum(is.na(load)), 
+            n = n(),
+            .by = sets) |> 
+  select(sets:sd_press) |> 
+  print() 
+
+## KE 
+ext <- strengthvolume |> 
+  filter(include == "incl", 
+         exercise == "legext", 
+         time == c("pre", "post")) |> 
+  summarise(m_ext = mean(load, na.rm = TRUE), 
+            sd_ext = sd(load, na.rm = TRUE), 
+            miss_val = sum(is.na(load)), 
+            n = n(),
+            .by = sets) |> 
+  select(sets:sd_ext) |>
+  print() 
+
+
+## Slå alt sammen bortover slik at jeg i gt-funksjonen kan slå sammen gjennomsnitt og standardavvik i en kolonne 
+
+tbl <- right_join(lean, press, by = "sets") |> 
+  right_join(ext, by = "sets") 
+
+```
+
+```{r}
+#| label: tbl-pre
+#| tbl-cap: Resultater fra pre-test
+
+tbl |> 
+   gt() |> 
+  fmt_number(columns = m_lean:sd_ext, 
+             decimals = 1) |> 
+  cols_merge(columns = c(m_lean, sd_lean), 
+             pattern = "{1} \u00B1 {2}") |> 
+  cols_merge(columns = c(m_press, sd_press), 
+             pattern = "{1} \u00B1 {2}") |> 
+  cols_merge(columns = c(m_ext, sd_ext), 
+             pattern = "{1} \u00B1 {2}") |> 
+
+  
+  cols_label(sets = "Volum", 
+             m_lean = "Magermasse (g)", 
+             m_press = "Beinpress (kg)", 
+             m_ext = "Kneekstensjon (kg)") |> 
+  tab_footnote(footnote = md("*Data er presentert som gjennomsnitt &plusmn; standardavvik.*")) 
+
+```
+
+```{r}
+#| label: "Slå sammen datasett for å lage figur"
+#| output: false
+
+## Ønsker å lage en figur der jeg sammenligner økning i beinpress med økning i muskelmasse, vil sammenligne prosentvis endring
+
+styrke_join <- styrke |> 
+  filter(exercise == "legpress") |> 
+  pivot_wider(names_from = time, 
+              values_from = load) |> 
+  
+  mutate(endring_load = (post - pre)*100/post) |> 
+  select(participant, sex, sets, endring_load) |> 
+  print() 
+
+## Det samme som ovenfor, men for mager masse
+leanmass_join <- leanmass |> 
+  filter(time %in% c("pre", "post")) |> 
+  pivot_wider(names_from = time, 
+              values_from = lean.mass) |> 
+  mutate(endring_lean.mass = (post - pre)*100/post, na.rm = TRUE) |> 
+  select(participant, sex, sets, endring_lean.mass) |> 
+  print() 
+
+
+## Slå sammen datasettene 
+joined_dat <- inner_join(styrke_join, leanmass_join, 
+                         by = c("participant", "sex", "sets")) |> 
+  print() 
+
+
+## Gjøre en lineær modell, der jeg sette mage masse som prediktor variabel. Vil ha p-verdi og R 
+
+styrke_masse_mod <- lm(endring_lean.mass ~ endring_load, data = joined_dat) 
+summary(styrke_masse_mod) 
+
+## Spare verdiene i objekter
+r_squared <- round(summary(styrke_masse_mod)$r.squared, 3) 
+p_val_styrke_masse <- round(coef(summary(styrke_masse_mod))[2, 4], 2) 
+
+## Kombinere verdiene slik jeg vil bruke dem i teksten 
+results_styrke_masse <- paste0("(R = ", 
+                               r_squared,
+                               " & p = ", 
+                               p_val_styrke_masse, 
+                               ")") 
+
+```
+
+Figuren viser om det er en sammenheng mellom prosentvis endring i muskelmasse og 1RM beinpress. 0.5 % av endringen i 1RM beinpress kan forklares med endringen i muskelmasse `r results_styrke_masse`.
+
+```{r}
+#| label: fig-figur1
+#| fig-cap: Figur som viser en lineær regresjonsmodell med endring i muskelmasse som prediktor variabel for endring i 1RM beinpress. 
+
+joined_dat |> 
+ggplot(aes(endring_lean.mass, endring_load)) + 
+  geom_point() + geom_smooth(method = "lm", se = FALSE, color = "green") + 
+  labs(x = "% endring muskelmasse", 
+       y = "% endring 1RM beinpress", 
+       title = "Sammenheng endring muskelmasse og 1RM beinpress") 
+
+```
+
+```{r}
+#| output: false 
+
+prosent_beinpress_gruppevis <- styrke |> 
+  filter(exercise == "legpress") |> 
+  pivot_wider(names_from = time, 
+              values_from = load) |> 
+  
+  mutate(endring = (post - pre)*100/post) |> 
+  select(participant, sex, sets, endring) |> 
+  pivot_wider(names_from = sets, 
+              values_from = endring) |> 
+  
+  summarise(single_m = mean(single, na.rm = TRUE), 
+            multiple_m = mean(multiple, na.rm = TRUE), 
+            single_sd = sd(single, na.rm = TRUE), 
+            multiple_sd = sd(multiple, na.rm = TRUE)) |> 
+  print() 
+
+
+single_mean_beinpress <- round(prosent_beinpress_gruppevis$single_m, 1) 
+single_sd_beinpress <- round(prosent_beinpress_gruppevis$single_sd, 1) 
+multiple_m_beinpress <- round(prosent_beinpress_gruppevis$multiple_m, 1) 
+multiple_sd_beinpress <- round(prosent_beinpress_gruppevis$multiple_sd, 1) 
+
+
+results_change_beinpress_single <- paste0(single_mean_beinpress, 
+                                         " \u00B1 ", 
+                                         single_sd_beinpress)  
+
+results_change_beinpress_multiple <- paste0(multiple_m_beinpress, 
+                                           " \u00B1 ", 
+                                           multiple_sd_beinpress)
+
+## Kneekstensjon 
+prosent_kneekstensjon_gruppevis <- styrke |> 
+  filter(exercise == "legext") |> 
+  pivot_wider(names_from = time, 
+              values_from = load) |> 
+  
+  mutate(endring = (post - pre)*100/post) |> 
+  select(participant, sex, sets, endring) |> 
+  pivot_wider(names_from = sets, 
+              values_from = endring) |> 
+  
+  summarise(single_m = mean(single, na.rm = TRUE), 
+            multiple_m = mean(multiple, na.rm = TRUE), 
+            single_sd = sd(single, na.rm = TRUE), 
+            multiple_sd = sd(multiple, na.rm = TRUE)) |> 
+  print() 
+
+
+single_mean_kneekstensjon <- round(prosent_kneekstensjon_gruppevis$single_m, 1) 
+single_sd_kneekstensjon <- round(prosent_kneekstensjon_gruppevis$single_sd, 1) 
+multiple_m_kneekstensjon <- round(prosent_kneekstensjon_gruppevis$multiple_m, 1) 
+multiple_sd_kneekstensjon <- round(prosent_kneekstensjon_gruppevis$multiple_sd, 1)  
+
+
+results_change_kneekstensjon_single <- paste0(single_mean_kneekstensjon, 
+                                         " \u00B1 ", 
+                                         single_sd_kneekstensjon)  
+
+results_change_kneekstensjon_multiple <- paste0(multiple_m_kneekstensjon, 
+                                                " \u00B1 ", 
+                                                multiple_sd_kneekstensjon) 
+                                         
+ 
+## leanmass
+
+prosent_leanmass_gruppevis <- leanmass |> 
+  pivot_wider(names_from = time, 
+              values_from = lean.mass) |> 
+  mutate(change = (post - pre)*100/post) |> 
+  select(participant, sex, sets, change) |> 
+  pivot_wider(names_from = sets, 
+              values_from = change) |> 
+  summarise(single_m = mean(single, na.rm = TRUE), 
+            multiple_m = mean(multiple, na.rm = TRUE), 
+            single_sd = sd(single, na.rm = TRUE), 
+            multiple_sd = sd(multiple, na.rm = TRUE)) |> 
+  print() 
+
+
+single_mean_leanmass <- round(prosent_leanmass_gruppevis$single_m, 1) 
+single_sd_leanmass <- round(prosent_leanmass_gruppevis$single_sd, 1) 
+multiple_mean_leanmass <- round(prosent_leanmass_gruppevis$multiple_m, 1) 
+multiple_sd_leanmass <- round(prosent_leanmass_gruppevis$multiple_sd, 1) 
+
+
+results_change_leanmass_single <- paste0(single_mean_leanmass, 
+                                         " \u00B1 ", 
+                                         single_sd_leanmass) 
+
+results_change_leanmass_multiple <- paste0(multiple_mean_leanmass, 
+                                           " \u00B1 ", 
+                                           multiple_sd_leanmass) 
+```
+
+## Diskusjon
 
 
 
-
-## Discussion
-
-## Conclusion
+I det beinet som trente tre sett, så man at det var mer hypertrofi og større økning i styrke, målt i de to øvelsene, sammenlignet med de som trente ett sett. Prosentvis endring i magermasse var høyere ved 3 sett, henholdsvis `r results_change_leanmass_multiple` % mot ett sett, som økte `r results_change_leanmass_single` %. Man har sett det samme i en metaanalyse, som så at to til tre  sett og fire til seks sett ga bedre resultat på effektstørrelse enn ett sett (ingen forskjell mellom to til tre og fire til seks sett) [@krieger2009]. Vi skal være litt forsiktige med å trekke konlusjoner basert på metaanalyser, men mange andre studier sammenligner grupper med forskjellige deltakere og ikke samme deltaker med ulikt treningsvolum på to forskjellige bein [@starkey1996]. Dette gjør at man ikke får tatt høyde for biologiske variasjoner hos de ulike individene, dermed blir det vanskelig å sammenligne ulikt volum. Økningen i muskelmasse kan i analysene fra denne rapporten ikke forklare økningen i 1 RM beinpress når begge bein ble inkludert i korrelasjonsanalysen. 
 
 
 
+Til tross for at det ikke var noen sammenheng, så man også em større økning i styrke, i beinpress ved tre sett kontra ett sett (den prosentvise endringen på henholdsvis `r results_change_beinpress_multiple` & `r results_change_beinpress_single`). Man så det samme på kneekstensjon, tre sett økte her `r results_change_kneekstensjon_multiple` %, ett sett derimot økte med `r results_change_kneekstensjon_single` %.
 
 
 
+Som konklusjon ut i fra de gjennomførte analysene fra rapporten, kan vi si at responsen på styrke og hypertrofi følger et dose-volum forhold. Dette vil si at tre sett er mer gunstig enn ett sett for ikke-røykende, utrente kvinner og menn mellom 18 og 40 år.
