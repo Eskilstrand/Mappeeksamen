@@ -144,6 +144,12 @@
 \usepackage{anyfontsize}
 \usepackage{amsmath}
 \usepackage{float}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{booktabs}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
@@ -450,21 +456,25 @@ og b\textsubscript{1} er stigningstallet til grafen.
 
 \subsection{Metode}\label{metode-1}
 
-Dataene ble sortert i mer passende format (tidydata) for å gjøre det
-lettere med modellene våre senere. Deretter ble det gjort ulike
-regresjonsmodeller for å fremstille dataene våre. Nye skjæringspunkter
-ble tegnet for å illustrere treningsintensitet ved ulike laktatverdier.
+Dataene ble organisert i et mer hensiktsmessig format (tidy data) for å
+forenkle videre analyse og modellering. Deretter ble ulike
+regresjonsmodeller anvendt for å representere dataene. Nye
+skjæringspunkter ble tegnet opp for å illustrere treningsintensitet ved
+forskjellige laktatnivåer.
 
 \subsection{Resultat}\label{resultat-1}
 
-\begin{figure}[H]
+\begin{figure}
 
-{\centering \includegraphics{02-regression-models_files/figure-pdf/unnamed-chunk-1-1.pdf}
+\centering{
+
+\includegraphics{02-regression-models_files/figure-pdf/fig-fig1-1.pdf}
 
 }
 
-\caption{Figur 1: Gule punkter = laktat og watt, blå linje = lineær
-regresjon, grønn linje = andregradsligning, rosa = tredjegradsligning.}
+\caption{\label{fig-fig1}Figur 1: Gule punkter = laktat og watt, blå
+linje = lineær regresjon, grønn linje = andregradsligning, rosa =
+tredjegradsligning.}
 
 \end{figure}%
 
@@ -482,58 +492,61 @@ tilfellet.
 For å understreke hvor unøyaktig den lineære modellen er i dette
 tilfellet, kan man på øyemål se at laktaten på 300W viser omtrent 2.4
 mmol \textbf{×} L-1. Den faktiske laktaten på 300W er 1.69 mmol
-\textbf{×} L-1.
+\textbf{×} L-1 Figure~\ref{fig-fig1}.
 
 \section{Part 2 - Predicting sizes of DNA
 fragments}\label{part-2---predicting-sizes-of-dna-fragments}
 
 \subsection{Metode}\label{metode-2}
 
-For å kunne predikere kalibreringskurven til qPCR, er det en rekke
-prosesser på molekylærlabben som er gjort på forhånd før det kunne
-kjørers i R-studio.
+For å predikere kalibreringskurven til qPCR, må en rekke prosesser på
+molekylærlaboratoriet gjennomføres før dataene kan analyseres i R
+Studio.
 
-For å kunne kjøre et PCR på en agrose gel 2\%, ble det først tatt helbod
-fra en forsøksperson for å kunne ha et ekstrahert DNA. Helblodet vært
-igjen ulike prosesser hvor det er tilsatt ulike løsninger og tilsatt
-ulike primere. Vi står da igjen med et PCR-produkt. Det har videre blitt
-kjørt en elektroforese for å kunne separere DNA fragmentene fra PCR
-reaksjonen. Når elektroforesen var ferdig, ble det tatt et bilde av
-agrose gel 2\%.
+For å utføre en PCR på en 2\% agarosegel, ble det først tatt helblod fra
+en forsøksperson for å ekstrahere DNA. Helblodet gjennomgikk ulike
+prosesser hvor forskjellige løsninger og primere ble tilsatt. Dette
+resulterte i et PCR-produkt. En elektroforese ble deretter kjørt for å
+separere DNA-fragmentene fra PCR-reaksjonen. Etter fullført
+elektroforese ble det tatt et bilde av 2\% agarosegelen.
 
-Videre har bildet fra elektroforesen blitt analysert ved hjelp av
-ImageJFiji og videre dataanalyser gjort i R og R studio. PCR-reaksjoner
-blir bestemt av primerdesign og dens spesifisitet.
+Bildet fra elektroforesen ble analysert ved hjelp av ImageJ/Fiji, og
+videre dataanalyser ble utført i R og R Studio. PCR-reaksjoners
+effektivitet bestemmes av primerdesign og deres spesifisitet.
 
 \subsection{Resultat}\label{resultat-2}
 
 \includegraphics{02-regression-models_files/figure-pdf/unnamed-chunk-3-1.pdf}
 
-\begingroup
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{longtable*}{rr}
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{>{}c>{}c>{}c}
+\caption{Predikerte molekylvekter for ukjente distanser}\\
 \toprule
-unknowns & X.preds. \\ 
-\midrule\addlinespace[2.5pt]
-1208.5 & 31.22469 \\ 
-600.5 & 400.04598 \\ 
-18.5 & 4595.75349 \\ 
-383.5 & 994.08908 \\ 
-408.5 & 895.12164 \\ 
-436.5 & 795.92770 \\ 
-470.5 & 690.13619 \\ 
-508.5 & 588.44932 \\ 
-559.5 & 475.11729 \\ 
-618.5 & 370.95290 \\ 
-696.5 & 267.43845 \\ 
-742.5 & 220.50796 \\ 
-798.5 & 174.34415 \\ 
-862.5 & 133.29586 \\ 
-935.5 & 98.13646 \\ 
-993.5 & 76.94317 \\ 
+\cellcolor[HTML]{404080}{\textcolor{white}{\textbf{Båndnummer}}} & \cellcolor[HTML]{404080}{\textcolor{white}{\textbf{Distanse (px)}}} & \cellcolor[HTML]{404080}{\textcolor{white}{\textbf{Predikert molekylvekt (bp)}}}\\
+\midrule
+\textbf{\cellcolor{gray!10}{1}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{1208.5}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{\cellcolor{red!25}31.22}}\\
+\textbf{2} & \cellcolor[HTML]{F0F0FF}{600.5} & \cellcolor[HTML]{F0F0FF}{\cellcolor{yellow!25}400.05}\\
+\textbf{\cellcolor{gray!10}{3}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{18.5}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{\cellcolor{green!25}4595.75}}\\
+\textbf{4} & \cellcolor[HTML]{F0F0FF}{383.5} & \cellcolor[HTML]{F0F0FF}{\cellcolor{green!25}994.09}\\
+\textbf{\cellcolor{gray!10}{5}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{408.5}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{\cellcolor{green!25}895.12}}\\
+\addlinespace
+\textbf{6} & \cellcolor[HTML]{F0F0FF}{436.5} & \cellcolor[HTML]{F0F0FF}{\cellcolor{green!25}795.93}\\
+\textbf{\cellcolor{gray!10}{7}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{470.5}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{\cellcolor{green!25}690.14}}\\
+\textbf{8} & \cellcolor[HTML]{F0F0FF}{508.5} & \cellcolor[HTML]{F0F0FF}{\cellcolor{green!25}588.45}\\
+\textbf{\cellcolor{gray!10}{9}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{559.5}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{\cellcolor{yellow!25}475.12}}\\
+\textbf{10} & \cellcolor[HTML]{F0F0FF}{618.5} & \cellcolor[HTML]{F0F0FF}{\cellcolor{yellow!25}370.95}\\
+\addlinespace
+\textbf{\cellcolor{gray!10}{11}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{696.5}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{\cellcolor{yellow!25}267.44}}\\
+\textbf{12} & \cellcolor[HTML]{F0F0FF}{742.5} & \cellcolor[HTML]{F0F0FF}{\cellcolor{yellow!25}220.51}\\
+\textbf{\cellcolor{gray!10}{13}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{798.5}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{\cellcolor{yellow!25}174.34}}\\
+\textbf{14} & \cellcolor[HTML]{F0F0FF}{862.5} & \cellcolor[HTML]{F0F0FF}{\cellcolor{yellow!25}133.3}\\
+\textbf{\cellcolor{gray!10}{15}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{935.5}} & \cellcolor[HTML]{F0F0FF}{\cellcolor{gray!10}{\cellcolor{red!25}98.14}}\\
+\addlinespace
+\textbf{16} & \cellcolor[HTML]{F0F0FF}{993.5} & \cellcolor[HTML]{F0F0FF}{\cellcolor{red!25}76.94}\\
 \bottomrule
-\end{longtable*}
-\endgroup
+\end{longtable}
+\endgroup{}
 
 \subsection{Diskusjon}\label{diskusjon-2}
 
@@ -839,45 +852,52 @@ intervensjonen.
 
 \subsection{Treningsprotokoll}\label{treningsprotokoll}
 
-Benøvelser ble gjennomført i følgende rekkefølge: unilateral beinpress,
-bencurl og kneekstensjon, som ett sett på ene beinet og tre sett på
-andre beinet. Benet som skulle trenes i ett sett ble trent mellom andre
-og tredje sett på det andre benet som trente tre sett. Etter
-beinøvelsene trente de også to sett av bilateral benkpress, nedtrekk, og
-enten skulderpress eller sittende roing (skulderpress og sittende roing
-varierte med annenhver økt). Pauselengde mellom settene var 1.5-3
-minutter. Treningsmotstanden økte gradvis utover intervensjonen, med
-10RM første 2 uker, etterfølgt av 8 RM i 3 uker og 7RM i 7 uker. Etter
-den niende økten, ble motstanden redusert på én av de tre øktene som var
-hver uke. Reduseringen tilsvarte 90 \% i motstand av forrige økt på den
-gitte øvelsen, men med mål om samme antall repetisjoner. Det var minimum
-48 timer før neste økt etter styrkeøktene som var med maksimal innsats.
-Etter styrkeøktene med redusert motstand var det minst 24 timer til
-neste økt. For å sikre umiddelbar restitusjon fikk de en standardisert
-drikke etter hver økt med 0.15 g/kg protein, 1.2 g/kg karbohydrater og
-0.5 g/kg fett.
+Styrkeøvelsene ble gjennomført i denne rekkefølgen: unilateral
+beinpress, beincurl og kneekstensjon. Ett sett op det ene beinet, og tre
+sett på det andre beinet, ut i fra randomiseringen. Beinet som skulle
+trene ett sett, ble trent mellom andre og tredje sett på beinet som
+trente tre sett. Når øvelsene på beina var gjennomført, trente de også
+to sett av bilateral benkpress, nedtrekk og enten sittende roing eller
+skulderpress (skulderpress og sittende roing varierte fra økt til økt
+(annenhver gang)). Pauselengde mellom settene var mellom 1.5 og 3
+minutter. Det ble gjort en gradvis økning i treningsmotstanden utover
+treningsintervensjonen. Deltakerne startet med 10 RM de to første ukene,
+deretter 8 RM i tre uker og 7 RM i syv uker. Etter økt nummer ni, ble
+motstanden redusert på én av de tre øktene som var ukentlig. Dette var
+en reduksjon tilsvarende 90 \% (av motstanden) fra forrige økt på den
+gitte øvelsen. Deltakeren hadde fortsatt mål om samme repetisjonsantall.
+Det ble satt et minimum om 48 timer fra fullført økt med maksimal innsat
+og frem til neste økt. Etter styrkeøktene med redusert motstand var det
+minst 24 timer til den neste økten. For å sørge for best mulig
+umiddelbar resitusjon fikk deltakerne en standardisert drikke etter hver
+gjennomførte økt med 0.15 g/kg protein, 1.2 g/kg karbohydrater og 0.5
+g/kg fett.
 
 \subsection{Målinger av muskelstyrke og
 hypertrofi}\label{muxe5linger-av-muskelstyrke-og-hypertrofi}
 
-Maksimal styrke er bestemt som den motstanden man maksimalt klarer en
-repetisjon av (1RM) i beinpress og kneekstensjon. Før selve testen hadde
-de en spesifikk oppvarming med 10, 6 og 3 repetisjoner på henholdsvis
-50, 75 og 85 \% av forventet 1RM. Deretter ble 1RM bestemt ved å øke
-motstanden progressivt helt til deltakeren ikke lenger klarte å løfte
-gjennom hele bevegelsesbanen. Den høyeste motstanden hvor repetisjonen
-ble godkjent, er definert som 1RM. De fikk fire til seks forsøk hver.
+Maksimal styrke er definert som den motstanden man maksimalt klarer å
+løfte en repetisjon av (1 RM) i beinpress og kneekstensjon. Det ble
+gjort en spesifikk oppvarming med ti, seks og tre repetisjoner på
+henholdsvis 50, 75 og 85 \% av forventet 1 RM. Motstanden ble deretter
+økt progressivt helt til deltakeren ikke lenger klarte å løfte mer. Den
+høyeste motstanden med godkjent repetisjon er definert som 1 RM.
+Deltakerne fikk fire til seks forsøk hver.
 
-Ved baseline gjennomførte de testene 2 ganger, med 4 dager mellom. Den
-høyeste verdien de oppnådde på disse 2 dagene er brukt i analysene.
-Styrketestene var minst 48 timer etter en gjennomført økt ved etter
-intervensjonen. Ikke alle deltakerne (n = 18) gjorde styrketestene
-underveis i intervensjonen (uke 2, 5 og 9). Treningen ble prioritert for
-resterende deltakere hvis de gikk glipp av testing eller trening pga.
-sykdom eller logistiske utfordringer. Derfor er ikke testene underveis
-inkludert i analysene for at det skulle være et større utvalg i
-analysene. Resultatene før og etter intervensjonen er det som er
-analysert.
+Testene ble gjennomført to ganger ved baseline, med fire dager mellom.
+Den høyeste enkeltverdien de oppnådde på disse to dagene er brukt i
+analysene. Styrketestene ble gjort minst 48 timer etter siste
+gjennomførte økt etter intervensjonen. Ikke alle deltakerne (n = 18)
+gjorde styrketestene underveis i intervensjonen (uke to, fem og ni). Det
+ble prioritert trening for de andre deltakerne, dersom de gikk glipp av
+enten test eller trening grunnet sykdom eller andre utfordringer.
+Testene underveis er derfor ikke inkludert i analysene for at det skulle
+være et større utvalg i analysene. Derfor er resultatene før og etter
+treningsintervensjonen det som er tatt med i analysene.
+
+\bookmarksetup{startatroot}
+
+\chapter{Endre under her}\label{endre-under-her}
 
 Kroppssammensetning for bestemmelse av mager muskelmasse er bestemt ved
 dual-energy X-ray absorptiometry (DXA) før og etter intervensjonen

@@ -27,6 +27,13 @@ format:
       text:  |
         \usepackage{amsmath}
         \usepackage{float}
+        \usepackage{pdflscape}
+        \usepackage{afterpage}
+        \usepackage{longtable}
+        \usepackage[table]{xcolor}
+        \usepackage{longtable}
+        \usepackage{booktabs}
+
 
 execute: 
   echo: false 

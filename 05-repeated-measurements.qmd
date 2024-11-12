@@ -43,7 +43,7 @@ Intervensjonen besto av 12 uker med styrketrening for hele kroppen, denne ble fu
 
 Styrkeøvelsene ble gjennomført i denne rekkefølgen: unilateral beinpress, beincurl og kneekstensjon. Ett sett op det ene beinet, og tre sett på det andre beinet, ut i fra randomiseringen. Beinet som skulle trene ett sett, ble trent mellom andre og tredje sett på beinet som trente tre sett. Når øvelsene på beina var gjennomført, trente de også to sett av bilateral benkpress, nedtrekk og enten sittende roing eller skulderpress (skulderpress og sittende roing varierte fra økt til økt (annenhver gang)). Pauselengde mellom settene var mellom 1.5 og 3 minutter. Det ble gjort en gradvis økning i treningsmotstanden utover treningsintervensjonen. Deltakerne startet med 10 RM de to første ukene, deretter 8 RM i tre uker og 7 RM i syv uker. Etter økt nummer ni, ble motstanden redusert på én av de tre øktene som var ukentlig. Dette var en reduksjon tilsvarende 90 % (av motstanden) fra forrige økt på den gitte øvelsen. Deltakeren hadde fortsatt mål om samme repetisjonsantall. Det ble satt et minimum om 48 timer fra fullført økt med maksimal innsat og frem til neste økt. Etter styrkeøktene med redusert motstand var det minst 24 timer til den neste økten. For å sørge for best mulig umiddelbar resitusjon fikk deltakerne en standardisert drikke etter hver gjennomførte økt med 0.15 g/kg protein, 1.2 g/kg karbohydrater og 0.5 g/kg fett. 
 
-# Endre under her
+
 
 ### Målinger av muskelstyrke og hypertrofi
 
@@ -53,9 +53,9 @@ Maksimal styrke er definert som den motstanden man maksimalt klarer å løfte en
 
 
 
+Testene ble gjennomført to ganger ved baseline, med fire dager mellom. Den høyeste enkeltverdien de oppnådde på disse to dagene er brukt i analysene. Styrketestene ble gjort minst 48 timer etter siste gjennomførte økt etter intervensjonen. Ikke alle deltakerne (n = 18) gjorde styrketestene underveis i intervensjonen (uke to, fem og ni). Det ble prioritert trening for de andre deltakerne, dersom de gikk glipp av enten test eller trening grunnet sykdom eller andre utfordringer. Testene underveis er derfor ikke inkludert i analysene for at det skulle være et større utvalg i analysene. Derfor er resultatene før og etter treningsintervensjonen det som er tatt med i analysene. 
 
 
-Ved baseline gjennomførte de testene 2 ganger, med 4 dager mellom. Den høyeste verdien de oppnådde på disse 2 dagene er brukt i analysene. Styrketestene var minst 48 timer etter en gjennomført økt ved etter intervensjonen. Ikke alle deltakerne (n = 18) gjorde styrketestene underveis i intervensjonen (uke 2, 5 og 9). Treningen ble prioritert for resterende deltakere hvis de gikk glipp av testing eller trening pga. sykdom eller logistiske utfordringer. Derfor er ikke testene underveis inkludert i analysene for at det skulle være et større utvalg i analysene. Resultatene før og etter intervensjonen er det som er analysert.
 
 Kroppssammensetning for bestemmelse av mager muskelmasse er bestemt ved dual-energy X-ray absorptiometry (DXA) før og etter intervensjonen (Lunar Prodigy, GE Healthcare, Oslo, Norway). Før DXA-målinger fikk deltakerne beskjed om å faste 2 timer og avstå fra krevende fysisk aktivitet i 48 timer. Det var også minimum 48 timer fra siste styrkeøkt til DXA-måling.
 
