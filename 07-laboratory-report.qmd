@@ -1,3 +1,229 @@
-# Molecular Laboratory report
+---
+title: "Lab-rapport"
+editor_options: 
+  chunk_output_type: console
+geometry:
+  - top=0.5in
+  - bottom=0.5in
+  - left=1in
+  - right=1in
+---
 
-Select one laboratory assignment and write a detailed report. 
+## Introduksjon
+
+Genekspresjonsanalyse med kvantitativ fluorescens-basert sanntids polymerasekjedereaksjon (qPCR) er en avansert forskningsmetode som ofte anvendes innen treningsfysiologi. Målet med qPCR er å studere genuttrykk for et spesifikt målgen ved bruk av biologisk materiale [@kuang2018]. qPCR er særlig nyttig for å måle treningsinduserte endringer i genuttrykk i muskelfibertyper. Den største forskjellen mellom qPCR og tradisjonell PCR er at qPCR gjør det mulig å kvantifisere og måle mengden av DNA-sekvenser i sanntid [@kuang2018].
+
+For å utføre qPCR kreves RNA, som ekstraheres fra biologisk materiale, for eksempel muskelvev. RNA-et må gjennom flere trinn før det kan brukes i analysen. Det første trinnet er å omdanne RNA til komplementært DNA (cDNA) ved hjelp av en prosess som kalles revers transkripsjon [@kuang2018]. Deretter kopieres cDNA eksponentielt, slik at milliarder av kopier kan fremstilles [@kuang2018].
+
+
+## Metode
+
+Ved oppstart av forsøket fikk vi utdelt ferdigprodusert cDNA fra et tidligere gjennomført styrketreningsprosjekt, levert av labansvarlig. For å gjennomføre qPCR ble det brukt cDNA kombinert med en Master Mix, som inneholdt følgende komponenter:
+
+SYBR Green Mix: 50 µl
+Vann (H$_2$O): 20 µl
+Primer-mix (enten MHC1, MHC2x eller MHC2a): 10 µl
+I tillegg ble det laget en kontroll-Master Mix som besto av følgende:
+
+b2m Primer-mix: 50 µl
+Vann (H$_2$O): 100 µl
+SYBR Green Mix: 250 µl
+Fremstilling av fortynningsrekker
+
+Under forsøket ble det også utarbeidet to ulike fortynningsrekker for å standardisere og validere resultatene. Fortynningsrekkene var som følger:
+
+Fortynningsrekke 1:
+1 (ufortynnet)
+1/10
+1/100
+1/1000
+Fortynningsrekke 2:
+½
+1/20
+1/200
+For å lage fortynningsrekkene ble c-myc-primer fortynnet med H$_2$O. I den ufortynnede prøven (1/1) ble det tilsatt 30 µl av prøven og 0 µl H$_2$O, mens de resterende fortynningene ble fremstilt ved proporsjonal tilsetning av vann og prøve.
+
+Dette oppsettet sikret nøyaktighet og reproduserbarhet i analysen, og tillot oss å undersøke genuttrykket under forskjellige fortynningsforhold.
+
+
+```{r}
+library(knitr)
+
+fortynning<-data.frame( Fortynning = c("1", "1/10", "1/100", "1/1000", "½", "1/20", "1/200"),
+  Prøve = c(30, 2, 2, 2, 10, 2, 2),
+  H2O = c(0, 18, 18, 18, 10, 18, 18)
+)
+
+kable(fortynning, caption = "Fortynning Tabell")
+
+```
+
+Flytter 2 µl fra rør 1 til 2a, og 10µl fra 1 til 2b, vortex rør 2a+2b.
+
+Flytter 2µl fra 2a til 3a og 2µl fra 2b til 3b, vortex rør 3a+3b.
+
+Flytter 2µl fra 3a til 4a og 2µ fra 3b til 4b, vortex rør 4a + 4b.
+
+```{r}
+library(knitr)
+library(kableExtra)
+
+
+data <- data.frame(
+  Pre_week_0 = c("myhe 1", "myhe 1", "myhe 1", "myhe 2a", "myhe 2a", "myhe 2a", "myhe 2x", "myhe 2x", "myhe 2x", "b2m", "b2m", "b2m"),
+  Post_week_12 = c("myhe 1", "myhe 1", "myhe 1", "myhe 2a", "myhe 2a", "myhe 2a", "myhe 2x", "myhe 2x", "myhe 2x", "b2m", "b2m", "b2m"),
+  cmyc_1 = rep(NA, 12),
+  cmyc_2a = rep(NA, 12),
+  cmyc_3a = rep(NA, 12),
+  cmyc_4a = rep(NA, 12),
+  cmyc_2b = rep(NA, 12),
+  cmyc_3b = rep(NA, 12),
+  cmyc_4b = rep(NA, 12)
+)
+
+
+rownames(data) <- c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L")
+
+
+kable(data, caption = "Tabell: Oversikt over prøver") 
+  
+```
+
+
+Prøvene ble pipettert over i brønner i henhold til et forhåndsdefinert pipetteringskart. Hver brønn ble fylt med 8 µl primer-spesifikk prøve og 2 µl cDNA-løsning eller kontrolløsning (A-L, 1 og 2). Fortynningsrekkene ble pipettert inn i brønnene 5-11 (A-C). Alle prøvene ble satt opp i et treplat-format, noe som sikret nøyaktighet og reproduserbarhet i analysen.
+
+qPCR-analysen ble gjennomført ved hjelp av Applied Biosystems 7500 Fast Real-Time PCR System (Life Technologies AS) og programvaren Quant Studio 5. Prosessen besto av tre hovedtrinn. Først ble prøvene kjørt i en «Hold stage» der temperaturen økte med 1,99 °C/s opp til 50 °C, hvor den ble holdt konstant i 2 minutter. Deretter økte temperaturen videre med 1,99 °C/s opp til 95 °C, hvor den ble holdt i ytterligere 2 minutter.
+
+Selve PCR-prosessen, kalt «PCR stage», besto av 40 sykluser. Hver syklus innebar at temperaturen først ble holdt på 95 °C i 1 sekund før den senket seg med 1,77 °C/s til 60 °C. Denne temperaturen ble deretter holdt konstant i 30 sekunder. Etter hver syklus ble det tatt et bilde av fluorescensen for å overvåke reaksjonen i sanntid.
+
+Til slutt ble prøvene kjørt gjennom en «Melt stage». Her økte temperaturen med 1,99 °C/s opp til 95 °C, hvor den ble holdt i 15 sekunder. Deretter ble temperaturen gradvis senket med 1,77 °C/s til 60 °C, hvor den ble holdt konstant i 1 minutt. Til slutt økte temperaturen med 0,15 °C/s opp til 95 °C igjen, hvor den ble holdt i 15 sekunder. Etter dette var PCR-prosessen ferdig, og CT-verdiene ble hentet ut for videre analyse.
+
+### Databehandling
+
+De innsamlede CT-verdiene ble analysert og behandlet ved hjelp av Microsoft Excel. Dette inkluderte utregninger og datavisualisering for å tolke genuttrykk og endringer i fluorescens. Hele prosessen sikret presise resultater og pålitelige konklusjoner.
+
+
+```{r}
+library(knitr)
+library(kableExtra)
+
+
+ct_data <- data.frame(
+  sample_name = c("Control sample W0", "W0", "W12", "W0", "W12", "W0", "W12"),
+  target_name = c("b2m", "MHC I", "MHC I", "MHC 2a", "MHC 2a", "MHC 2x", "MHC 2x"),
+  Ct1 = c(23.427, 18.299, 18.431, 22.419, 18.393, 25.708, 25.120),
+  Ct2 = c(24.072, 19.223, 19.080, 17.707, 18.731, 25.036, 23.575),
+  Ct3 = c(23.318, 19.764, 18.348, 18.314, 35.236, 23.771, 23.052)
+)
+
+
+ct_data$average_Ct <- rowMeans(ct_data[, c("Ct1", "Ct2", "Ct3")])
+
+
+kable(ct_data, 
+      col.names = c("Sample Name", "Target Name", "Ct1", "Ct2", "Ct3", "Average Ct"),
+      caption = "Ct-verdier for de ulike prøvene") %>%
+  kable_styling("striped", full_width = FALSE) %>%
+  column_spec(1:6, bold = FALSE) %>%
+  add_header_above(c(" ", "Ct Data" = 5)) 
+
+```
+
+
+Tallene viser til antall sykluser før syklisk terskel (CT) er nådd. CT
+verdiene verdier for å nå syklisk terskel har endret seg fra uke 0 til
+uke 12. For MHC1 har det endret seg fra et gjennomsnitt på 19,09 -18,62
+sykluser. For MHC2a har det endret seg fra 19,48 -24,12 og for MHC 2x
+fra 24,83-23,91. Et lavere antall sykluser et større genutrykk.
+
+
+```{r}
+library(knitr)
+library(kableExtra)
+
+
+gen_expression <- data.frame(
+  time_point = c("Uke 0", "Uke 12"),
+  MHC1 = c(56, 95),
+  MHC2a = c(43, 2),
+  MHC2x = c(1, 2)
+)
+
+
+kable(gen_expression, 
+      col.names = c("Uke", "MHC1", "MHC2a", "MHC2x")) %>% 
+  kable_styling("striped", full_width = FALSE) %>% 
+  column_spec(1, bold = TRUE) %>%  
+  add_header_above(c(" " = 1, "Prosentvis fordeling av genuttrykk" = 3))  
+
+```
+
+Vi ser at mengden genuttrykk for muskelfibertype 2a (MHC-2a) har sunket
+fra 43% til 2% etter 12 uker, det har også vært en reduksjon for
+muskelfibertype 2x (MHC-2x) fra 2% til 1%. Muskelfibertype 1 (MHC1) har
+derimot økt fra 56% til 95%.
+
+```{r}
+library(knitr)
+library(kableExtra)
+
+primer_efficiency <- data.frame(
+  slope = -2.4774046,
+  primer_eff = 153.31
+)
+
+kable(primer_efficiency, 
+      caption = "Primer Efficiency Results", 
+      col.names = c("Slope", "Primer Efficiency")) %>%
+  kable_styling("striped", full_width = FALSE) %>%
+  column_spec(1, bold = TRUE) 
+```
+
+
+## Diskusjon 
+
+Målet med dette forsøket var å undersøke endringer i myoisintungkjedene.
+Etter en styrketreningsintevesjon på utrent forsøksperson på 12 uker,
+ved hjelp av fluoricens- basert sanntids kvantitativ polymerase
+kjedereaksjon (qPCR).
+
+Det har i dette forsøket blitt undersøkt hvor mange sykluser CT-verdiene
+til den ulike myoisintungkjedene trenger for å nå sin terskelverdi. Der
+færre sykluser og lavere CT verdier indikerer et størrre genutrykk. I
+våre resulatater har vi sett en endring for alle myosintunkjedene når
+det gjelder antall sykluser myoisnkjedene har trengt for å nå sin
+CT-verdi og den prosentvise endringen for tungkjedene indikerer at vi
+har fått en stor endring fra 56%- 95% for MHCI, for MHC2a har det blitt
+redusert fra 43% til 2%, det samme gjelder for MHC2x som har fått en
+reduksjon fra 2%-1%.
+
+I en tidligere studie av Ellefsen et al. (2014), hvor en
+styrketreningsintervensjon ble gjennomført på utrente individer over 12
+uker, ble det observert en økning i MHC2A, en reduksjon i MHC2X, samt
+stabilitet i MHC1 [@ellefsen2014]. I kontrast til dette viser våre resultater
+motstridende funn, med både reduksjon i MHC2A og MHC2X, samt en
+betydelig økning i MHC1. Andre studier, som [@terzis2008] Terzis et al.
+(2008) og @andersen2000 også vist at utrente personer med overvekt av
+MHC2X opplever en reduksjon i MHC2X og en økning i MHC2A ved trening,
+med minimal endring i MHC1. Det er kjent at genuttrykk ikke kan endres
+fra MHC1 til MHC2A eller MHC2X, noe som gjør det vanskelig å forklare de
+resultatene vi har fått fra analysen av myosintungkjeder. Dette reiser
+spørsmål om hva som kan ha skjedd under vår analyse og om det er
+spesifikke faktorer ved vårt eksperiment som kan ha bidratt til disse
+avvikene fra tidligere forskning.
+
+Det som en kan reise en usikkerhet om er om både pippetringferdigheter
+og primerkvaliteten har vært god nok enten at primer har gått ut på dato
+eller bruk av feil primer. Primer efficency skulle ligge mellom 90-110%.
+I vårt tilfelle fikk vi en efficency på 153% noe som kan tyde på at det
+kan være menneskelige feil som har påvirket resulatet. Det er også
+vanskelig å skulle trekke slutninger basert på en prøve. Samt at vi har
+ingen forkunnskap om hvilket treningsstimuli forsøkspersonen vi har fått
+har vært utsatt for, annet enn den informasjonen vi har fått fra
+labansvarlig.
+
+### Konklusjon
+
+Basert på funn vi har fått i forsøket kan vi ikke si noe om endringene i
+myiosntungkjedene for denne forsøkspersonen. Da resultatene vi har fått
+ikke er mulig basert på det vi kjenner til av tidligere forskning.

@@ -23,6 +23,8 @@
 \ifPDFTeX\else  
     % xetex/luatex font selection
     \setmainfont[]{Times New Roman}
+    \setsansfont[]{Times New Roman}
+    \setmonofont[]{Courier New}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -68,6 +70,46 @@
 \fi
 \makeatother
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -151,7 +193,11 @@
 \usepackage[table]{xcolor}
 \usepackage{longtable}
 \usepackage{booktabs}
-\usepackage{graphicx} % Legger til graphicx-pakken for å kunne inkludere bildet
+\usepackage{graphicx}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setsansfont{Times New Roman}
+\setmonofont{Courier New}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
@@ -206,8 +252,6 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Mappeeksamen IDR4000},
-  pdfauthor={Eskil Strand},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -216,27 +260,28 @@
   pdfcreator={LaTeX via pandoc}}
 
 
-\title{Mappeeksamen IDR4000}
-\author{Eskil Strand}
-\date{2024-09-10}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
 \begin{titlepage}
 \begin{center}
 \vspace*{1cm}
 
-{\Huge \textbf{Mappeeksamen IDR4000}}
+{\Huge \textbf{Kvantitativ metode og statistikk (IDR4000)}}
 
-\vspace{0.5cm}
-{\Large Eskil Strand}
+\vspace{1cm}
+{\Large Kandidatnummer: 505}
 
-\vspace{0.5cm}
-\includegraphics[width=0.3\textwidth]{logo.png} % Juster størrelsen etter behov
+\vspace{1cm}
+Antall ord: \textbf{12874} % Setter inn ordtellingen her
+
+\vspace{5cm}
+\includegraphics[width=1.6\textwidth]{logo.png}
 
 \vfill
-{\large 2024-09-10}
+{\large 2024-11-22}
 
 \end{center}
 \end{titlepage}
@@ -250,41 +295,26 @@
 
 \bookmarksetup{startatroot}
 
-\chapter*{Introduksjon}\label{introduksjon}
-\addcontentsline{toc}{chapter}{Introduksjon}
+\chapter*{Forord}\label{forord}
+\addcontentsline{toc}{chapter}{Forord}
 
-\markboth{Introduksjon}{Introduksjon}
+\markboth{Forord}{Forord}
 
-Mappeeksamen består av følgende deler:
+Denne rapporten inneholder ulike arbeidskrav som er gjennomført gjennom
+høsten 2024. Arbeidskravene er satt sammen og danner nå mappeeksamen i
+Kvantitativ metode og statistikk (IDR4000).
 
-\begin{itemize}
-\tightlist
-\item
-  Rapport: ``Deskriptiv statistikk, reliabilitet og validitet og verktøy
-  for reproduserbar vitenskap''.
-\item
-  Laborasjonsrapport fra molekylærlabb
-\item
-  Arbeidskrav i vitenskapsteori
-\item
-  Rapport: ``Statistisk inferens, statistiske modeller og statistisk
-  styrke''
-\item
-  Rapport: ``Studiedesign''
-\item
-  Rapport: ``Analyse av eksperimenter med repeterte målinger''
-\end{itemize}
+Takk til Ole for mye godt samarbeid underveis, både med kode og som
+selskap under ferdigstillingen av eksamen.
 
-I templatet organiseres hver del som et kapittel.
-
-Referanser finner du sist i dokumenetet (eks. (D. J. Spiegelhalter
-2019))
+Lenke som gjør det mulig å etterprøve koder:
+https://github.com/Eskilstrand/Mappeeksamen.git
 
 \bookmarksetup{startatroot}
 
 \chapter{Reliabilitetstesting}\label{reliabilitetstesting}
 
-\section{Introduksjon}\label{introduksjon-1}
+\section{Introduksjon}\label{introduksjon}
 
 Reliabilitet er en utrolig viktig faktor innenfor fysiologisk testing.
 Hvis man ønsker å følge utviklingen til en utøver over en lenger periode
@@ -318,8 +348,8 @@ forskningsprosjekter, der bedre reliabilitet vil indikere hvor god
 presisjonen er og måling av endring over tid (Hopkins 2000). Det er
 mange begreper som er relevante for å kunne si noe om reliabilitet, men
 standardavviket er et av disse. Standardavviket sier noe om hvor langt
-unna verdiens gjennomsnittlige avstand er fra gjennomsnittet (D.
-Spiegelhalter 2020).
+unna verdiens gjennomsnittlige avstand er fra gjennomsnittet
+(Spiegelhalter 2020).
 
 Kroppens maksimale oksygenopptak (\(\dot{V}O_{2maks}\)) sier noe om
 kroppens maksimale evne til å ta opp og omsette oksygen (Bassett and
@@ -387,12 +417,19 @@ Rstudio.
 \section{Resultat}\label{resultat}
 
 Etter at testene er gjennomført kan vi se nærmere på hver forsøkperson
-sine data. Dette gir muligheten til å se på hver enkelt forsøksperson om
-man finner dette interessant (Table 1.1). Verdiene man kan se i
+sine data, ved T1. T1 er valgt da denne testen hadde flest deltakere.
+Dette gir muligheten til å se på hver enkelt forsøksperson om man finner
+dette interessant (Table~\ref{tbl-tbl1}). Verdiene man kan se i
 tabellen, er verdier som er plottet etter endt
 \(\dot{V}O_{2maks}\)-test.
 
-\begin{table}[H]
+\begin{table}
+
+\caption{\label{tbl-tbl1}}
+
+\centering{
+
+[H]
 \centering\begingroup\fontsize{6}{8}\selectfont
 
 \begin{tabular}{l>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}}
@@ -408,7 +445,10 @@ Watt$_{max}$ & 243 (13) & 221 (2.8) & 288 (36) & 231 (13) & 387 (6.1) & 286 (7.5
 \multicolumn{17}{l}{\textsuperscript{} Table 1.1: Tabellen viser hver deltakers gjennomsnitt og standardavvik i () på verdier vi har undersøkt}\\
 \end{tabular}
 \endgroup{}
-\end{table}
+
+}
+
+\end{table}%
 
 Etter å ha gjennomført VO\textsubscript{2maks}-testene ser vi at
 kvinnene på 1MAIDR har et gjennomsnittlig oksygenopptak på 3163 ± 484.
@@ -417,8 +457,9 @@ Mennene har derimot et gjennomsnittlig oksygenopptak på 4380 ± 515.
 Reliabiliteten mellom t1 og t2 er 2.47\%, mens reliabiliteten mellom t3
 og t4 er 4.78\%.
 
-\subsection{Korrelasjon mellom Vo2maks og Wattmaks per
-kg}\label{korrelasjon-mellom-vo2maks-og-wattmaks-per-kg}
+\subsection{\texorpdfstring{Korrelasjon mellom
+\textbf{\(\dot{V}O_{2maks}\)} og Wattmaks per
+kg}{Korrelasjon mellom \textbackslash dot\{V\}O\_\{2maks\} og Wattmaks per kg}}\label{korrelasjon-mellom-dotvo_2maks-og-wattmaks-per-kg}
 
 \begin{figure}[H]
 
@@ -426,7 +467,7 @@ kg}\label{korrelasjon-mellom-vo2maks-og-wattmaks-per-kg}
 
 }
 
-\caption{Figur 1: Hvert punkt = én observasjon}
+\caption{Hvert punkt = én observasjon}
 
 \end{figure}%
 
@@ -447,7 +488,7 @@ treningsperioder i mellom.
 \chapter{Regresjonsmodeller og
 prediksjoner}\label{regresjonsmodeller-og-prediksjoner}
 
-\section{Introduksjon}\label{introduksjon-2}
+\section{Introduksjon}\label{introduksjon-1}
 
 En regresjonsmodell er en modell som kvantifiserer forholdet mellom en
 eller flere uavhengige variabler og en avhengig variabel. Innen medisin
@@ -471,6 +512,23 @@ der y\textsubscript{i} er den avhengige variabelen som kan estimeres ved
 og b\textsubscript{0}. b\textsubscript{0} er skjæringspunktet til grafen
 og b\textsubscript{1} er stigningstallet til grafen.
 
+Laktatterskeltesting er en sentral metode innen prestasjonsanalyse og
+treningsoptimalisering, spesielt i utholdenhetsidretter. Laktatterskelen
+representerer den høyeste intensiteten hvor kroppen kan opprettholde
+balanse mellom produksjon og eliminering av laktat i blodet. Dette er en
+viktig parameter for å forstå hvordan kroppen responderer på økende
+treningsintensitet, og den gir verdifull innsikt i både fysisk kapasitet
+og treningsprogrammering.
+
+For å bestemme laktatterskelen benyttes typisk en trinnvis økning i
+treningsintensitet mens blodprøver tas for å måle laktatnivåer.
+Relasjonen mellom treningsintensitet og blodlaktat analyseres deretter
+ved hjelp av regresjonsmodeller for å estimere intensitetsnivåene ved
+faste laktatkonsentrasjoner, ofte 2 og 4 mmol/L. Disse tersklene gir
+grunnlag for å skille mellom moderat og høy intensitet i trening, noe
+som er avgjørende for å optimalisere treningsplaner {[}Tanner and Gore
+(2012); Machado2012{]}.
+
 \section{Part 1 - Lactate thresholds}\label{part-1---lactate-thresholds}
 
 \subsection{Metode}\label{metode-1}
@@ -483,7 +541,7 @@ forskjellige laktatnivåer.
 
 \subsection{Resultat}\label{resultat-1}
 
-\begin{figure}
+\begin{figure}[H]
 
 \centering{
 
@@ -491,11 +549,17 @@ forskjellige laktatnivåer.
 
 }
 
-\caption{\label{fig-fig1}Figur 1: Gule punkter = laktat og watt, blå
-linje = lineær regresjon, grønn linje = andregradsligning, rosa =
+\caption{\label{fig-fig1}Figur 1: Gule punkter: laktat og watt, blå
+linje: lineær regresjon, lysegrønn: andregradsligning, rosa:
 tredjegradsligning.}
 
 \end{figure}%
+
+Vår beste prediksjon til belastningen på 2 mmol \textbf{×} L-1 er 311W,
+denne kommer fra tredjegradsligningen. Den predikerte belastningen fra
+en lineær modell gir 288W. For predikert terskelwatt (4 mmol \textbf{×}
+L-1) gir tredjegradsligningen 343W, som er den beste prediksjonen, mens
+den lineære modellen gir et estimat på 359W.
 
 \subsection{Diskusjon}\label{diskusjon-1}
 
@@ -511,7 +575,7 @@ tilfellet.
 For å understreke hvor unøyaktig den lineære modellen er i dette
 tilfellet, kan man på øyemål se at laktaten på 300W viser omtrent 2.4
 mmol \textbf{×} L-1. Den faktiske laktaten på 300W er 1.69 mmol
-\textbf{×} L-1 Figure~\ref{fig-fig1}.
+\textbf{×} L-1 (Figure~\ref{fig-fig1}).
 
 \section{Part 2 - Predicting sizes of DNA
 fragments}\label{part-2---predicting-sizes-of-dna-fragments}
@@ -535,14 +599,29 @@ effektivitet bestemmes av primerdesign og deres spesifisitet.
 
 \subsection{Resultat}\label{resultat-2}
 
-\includegraphics{02-regression-models_files/figure-pdf/unnamed-chunk-3-1.pdf}
+\begin{figure}
+
+\centering{
+
+\includegraphics{02-regression-models_files/figure-pdf/fig-fig2-1.pdf}
+
+}
+
+\caption{\label{fig-fig2}}
+
+\end{figure}%
 
 \newpage
 
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{}c>{}c>{}c}
-\caption{Predikerte molekylvekter for ukjente distanser}\\
+
+\caption{\label{tbl-tbl2}Predikerte molekylvekter for ukjente distanser}
+
+\tabularnewline
+
+\\
 \toprule
 \cellcolor[HTML]{404080}{\textcolor{white}{\textbf{Båndnummer}}} & \cellcolor[HTML]{404080}{\textcolor{white}{\textbf{Distanse (px)}}} & \cellcolor[HTML]{404080}{\textcolor{white}{\textbf{Predikert molekylvekt (bp)}}}\\
 \midrule
@@ -566,30 +645,108 @@ effektivitet bestemmes av primerdesign og deres spesifisitet.
 \addlinespace
 \textbf{16} & \cellcolor[HTML]{F0F0FF}{993.5} & \cellcolor[HTML]{F0F0FF}{\cellcolor{red!25}76.94}\\
 \bottomrule
+
 \end{longtable}
+
 \endgroup{}
 
 \subsection{Diskusjon}\label{diskusjon-2}
 
-MÅ HA NOKO HER
+I denne delen av oppgaven har vi benyttet en kalibreringskurve for å
+predikere størrelsene på ukjente DNA-fragmenter fra en
+agarosegelelektroforese. Ved å bruke et kjent DNA-ladder med kjente
+molekylvekter, etablerte vi en lineær sammenheng mellom logaritmen av
+molekylvekten og migrasjonsavstanden på gelen.
+
+Resultatene viser en tydelig lineær korrelasjon mellom log(mw) og
+distanse, noe som er i tråd med teori, da mindre DNA-fragmenter migrerer
+lenger gjennom gelen enn større fragmenter. Den tilpassede lineære
+modellen ble deretter brukt til å estimere molekylvektene til de ukjente
+fragmentene basert på deres migrasjonsavstander (Figure~\ref{fig-fig2}).
+
+Tabellen presenterer de predikerte molekylvektene for hvert ukjent bånd,
+og fargekodingen gir en visuell indikasjon på fragmentenes relative
+størrelser (Table~\ref{tbl-tbl2}). Dette er nyttig for raskt å
+identifisere fragmenter av interesse, spesielt i komplekse prøver med
+mange bånd.
+
+Det er viktig å være oppmerksom på at nøyaktigheten av prediksjonene
+avhenger av flere faktorer. Kvaliteten på gelen, nøyaktigheten i måling
+av migrasjonsavstander, og lineariteten i området av molekylvekter som
+analyseres, kan alle påvirke resultatene. For eksempel kan avvik i
+gelens konsistens eller løpeforhold føre til uregelmessig migrasjon av
+DNA-fragmenter, noe som kan gi feilaktige estimater.
+
+Videre antar den lineære modellen en eksponentiell sammenheng mellom
+migrasjonsavstand og molekylvekt, noe som kan være mindre nøyaktig for
+svært store eller små fragmenter. I slike tilfeller kan det være
+fordelaktig å bruke en ikke-lineær modell eller å inkludere flere
+kalibreringspunkter for å forbedre presisjonen.
+
+Samlet sett demonstrerer denne analysen effektiviteten av å bruke
+gelelektroforese kombinert med kalibreringskurver for å estimere
+størrelsen på ukjente DNA-fragmenter. Dette er en grunnleggende teknikk
+i molekylærbiologi som er essensiell for en rekke applikasjoner,
+inkludert genotyping, kloning og diagnostikk.
 
 \section{Part 3 - Interpreting a regression
 table}\label{part-3---interpreting-a-regression-table}
 
 \subsection{Metode}\label{metode-3}
 
+I denne analysen undersøkte vi sammenhengen mellom treningsalder (antall
+år med trening) og testosteronkonsentrasjon i blodet ved tidspunkt T1
+(målt i ng \textbf{×} dl-1). Vi benyttet datasettet hypertrophy fra
+exscidata-pakken i R. Variablene som ble analysert var TRAINING\_AGE
+(treningsalder) og TESTOSTERONE\_T1 (testosteronnivå ved T1).
+
+En enkel lineær regresjonsanalyse ble utført med testosteronnivå som
+avhengig variabel og treningsalder som uavhengig variabel.
+Regresjonsmodellen ble tilpasset ved hjelp av funksjonen lm() i R:
+
+m \textless- lm(TESTOSTERONE\_T1 \textasciitilde{} TRAINING\_AGE, data =
+dat) Vi hentet ut regresjonskoeffisientene, standardfeilen, t-verdien og
+p-verdien fra modellens sammendrag ved hjelp av summary()-funksjonen. Vi
+estimerte også det forventede testosteronnivået etter 10 år med trening
+ved å bruke regresjonsligningen.
+
 \subsection{Resultat}\label{resultat-3}
 
-\begin{figure}[H]
+\begin{figure}
 
-{\centering \includegraphics{02-regression-models_files/figure-pdf/tolkning av regresjonsmodell-1.pdf}
+\centering{
+
+\includegraphics{02-regression-models_files/figure-pdf/fig-fig3-1.pdf}
 
 }
 
-\caption{Figur 3: Sammenheng mellom treningsalder og testosteronverdier
-i blodet}
+\caption{\label{fig-fig3}Figur 3: Sammenheng mellom treningsalder og
+testosteronverdier i blodet}
 
 \end{figure}%
+
+Den lineære regresjonsmodellen viste at det var en negativ sammenheng
+mellom treningsalder og testosteronkonsentrasjon i blodet
+(Figure~\ref{fig-fig3}). Regresjonskoeffisienten for treningsalder var
+-20.51ng \textbf{×} dl-1 per år, noe som indikerer at testosteronnivået
+synker med gjennomsnittlig 20.51ng \textbf{×} dl-1 for hvert år med
+trening. Interceptet i modellen var 559.36ng \textbf{×} dl-1, som
+representerer det estimerte testosteronnivået for en person uten
+treningserfaring.
+
+T-verdien for koeffisienten var -1.39, og tilhørende p-verdi var 0.178.
+Siden p-verdien er høyere enn signifikansnivået på 0,05, er sammenhengen
+ikke statistisk signifikant. Dette betyr at vi ikke har tilstrekkelig
+bevis til å konkludere med at det er en lineær sammenheng mellom
+treningsalder og testosteronnivå i denne populasjonen.
+
+Ved å bruke regresjonsligningen estimerte vi testosteronnivået etter 10
+år med trening til å være 354.26ng \textbf{×} dl-1. Dette ble beregnet
+ved å sette inn TRAINING\_AGE = 10 i modellen.
+
+Dette estimatet illustrerer den forventede nedgangen i testosteronnivå
+basert på modellen, men gitt den ikke-signifikante p-verdien bør
+resultatene tolkes med forsiktighet.
 
 \subsection{Diskusjon}\label{diskusjon-3}
 
@@ -626,11 +783,7 @@ effekt på testosteronnivåene i blodet.
 \chapter{Å trekke slutninger fra statistiske modeller og statistisk
 styrke}\label{uxe5-trekke-slutninger-fra-statistiske-modeller-og-statistisk-styrke}
 
-Denne oppgaven er utformet som et statistisk laboratorium; vi vil utføre
-simuleringer, og din oppgave er å tolke og forklare resultatene. Lag en
-rapport basert på koden brukt i laboratoriet, og sørg for at du svarer
-på de spesifiserte spørsmålene (1-8). Du kan være så kreativ du ønsker
-og utforske resultatene videre.
+\section{Spørsmål og svar}\label{spuxf8rsmuxe5l-og-svar}
 
 \subsection{Estimate}\label{estimate}
 
@@ -650,8 +803,8 @@ variere fra utvalg til utvalg på grunn av tilfeldig sampling.
 
 \textbf{t-verdien} er forholdet mellom estimatet og standardfeilen
 (\(t = \frac{{estimat}}{{SE}}\)). Den indikerer hvor mange standardfeil
-estimatet er unna null. En høy absolutt t-verdi tyder på at estimatet er
-signifikant forskjellig fra null.
+estimatet er unna null (Spiegelhalter 2020). En høy absolutt t-verdi
+tyder på at estimatet er signifikant forskjellig fra null.
 
 \textbf{P-verdien} angir sannsynligheten for å observere en t-verdi som
 er minst like ekstrem som den vi har fått, gitt at nullhypotesen er
@@ -659,7 +812,7 @@ sann. Det vil si, den måler sannsynligheten for å få våre data, eller
 data som er mer ekstreme, dersom det faktisk ikke er noen effekt (dvs.
 hvis den sanne parameteren er null). En lav p-verdi indikerer at et så
 ekstremt resultat er lite sannsynlig under nullhypotesen, noe som gir
-grunnlag for å forkaste nullhypotesen.
+grunnlag for å forkaste nullhypotesen (Spiegelhalter 2020).
 
 I vårt tilfelle har vi en høy p-verdi, noe som indikerer at vi ikke kan
 forkaste nullhypotesen. Dette betyr at det ikke er tilstrekkelig bevis
@@ -673,7 +826,7 @@ utvalg, noe som fører til større usikkerhet rundt resultatene. I
 \emph{m2} er det brukt et større utvalg, som gjør at det estimerte
 gjennomsnittet blir nærmere populasjonsgjennomsnittet og standardfeilen
 blir dermed mindre. Dette gir i vårt tilfelle en høyere \textbf{t-verdi}
-og en lavere \textbf{p-verdi}.
+og en lavere \textbf{p-verdi} (Spiegelhalter 2020).
 
 \subsection{Shaded areas}\label{shaded-areas}
 
@@ -744,90 +897,323 @@ enda lavere vil resultatet endre seg litt. Med en signifikansverdi på
 positive, mens det på studiene med 40 i utvalgsstørrelse gir 22 falske
 positive.
 
+\section{Code-chunks fra topp til
+bunn}\label{code-chunks-fra-topp-til-bunn}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{1000000}\NormalTok{, }\AttributeTok{mean =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{sd =} \DecValTok{3}\NormalTok{)}
+
+\NormalTok{samp1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y =} \FunctionTok{sample}\NormalTok{(population, }\DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{))}
+\NormalTok{samp2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y =} \FunctionTok{sample}\NormalTok{(population, }\DecValTok{40}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{))}
+
+\NormalTok{m1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{data =}\NormalTok{ samp1)}
+\NormalTok{m2 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{data =}\NormalTok{ samp2)}
+
+\CommentTok{\# Skjul summary{-}output}
+\FunctionTok{invisible}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m1))}
+\FunctionTok{invisible}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create data frames to store the model estimates}
+\NormalTok{results\_8 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{estimate =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{se =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{pval =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{n =} \DecValTok{8}\NormalTok{)  }
+
+\NormalTok{results\_40 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{estimate =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{se =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{pval =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{n =} \DecValTok{40}\NormalTok{)}
+
+\CommentTok{\# A for loop used to sample 1000 studies, each iteration (i) will draw a new sample}
+\CommentTok{\# from the population. }
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{1000}\NormalTok{) \{}
+  
+  \CommentTok{\# Draw a sample }
+\NormalTok{  samp1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y =} \FunctionTok{sample}\NormalTok{(population, }\DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{))}
+\NormalTok{  samp2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y =} \FunctionTok{sample}\NormalTok{(population, }\DecValTok{40}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{))}
+
+  \CommentTok{\# Model the data}
+\NormalTok{  m1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{data =}\NormalTok{ samp1)}
+\NormalTok{  m2 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{data =}\NormalTok{ samp2)}
+  
+  \CommentTok{\# Extract values from the models}
+\NormalTok{  results\_8[i, }\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m1))[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
+\NormalTok{  results\_8[i, }\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m1))[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]}
+\NormalTok{  results\_8[i, }\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m1))[}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{]}
+
+\NormalTok{  results\_40[i, }\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m2))[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
+\NormalTok{  results\_40[i, }\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m2))[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]}
+\NormalTok{  results\_40[i, }\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m2))[}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{]}
+  
+  
+\NormalTok{\}}
+
+
+\CommentTok{\# Save the results in a combined data frame}
+
+\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(results\_8, results\_40)}
+
+\CommentTok{\# Calculate standard deviation of the estimate and the average of the standard error (se)}
+\NormalTok{results\_summary }\OtherTok{\textless{}{-}}\NormalTok{ results }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(n) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{sd\_estimate =} \FunctionTok{sd}\NormalTok{(estimate),}
+    \AttributeTok{avg\_se =} \FunctionTok{mean}\NormalTok{(se)}
+\NormalTok{  )}
+
+
+\NormalTok{sd\_est\_8 }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{estimate[results}\SpecialCharTok{$}\NormalTok{n }\SpecialCharTok{==} \DecValTok{8}\NormalTok{])}
+\NormalTok{avg\_se\_8 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{se[results}\SpecialCharTok{$}\NormalTok{n }\SpecialCharTok{==} \DecValTok{8}\NormalTok{])}
+
+\NormalTok{sd\_est\_40 }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{estimate[results}\SpecialCharTok{$}\NormalTok{n }\SpecialCharTok{==} \DecValTok{40}\NormalTok{])}
+\NormalTok{avg\_se\_40 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{se[results}\SpecialCharTok{$}\NormalTok{n }\SpecialCharTok{==} \DecValTok{40}\NormalTok{])}
+
+\NormalTok{rounded\_sd\_est\_8 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(sd\_est\_8, }\DecValTok{2}\NormalTok{)}
+\NormalTok{rounded\_avg\_se\_8 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(avg\_se\_8, }\DecValTok{2}\NormalTok{)}
+\NormalTok{rounded\_sd\_est\_40 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(sd\_est\_40, }\DecValTok{2}\NormalTok{)}
+\NormalTok{rounded\_avg\_se\_40 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(avg\_se\_40, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(results[results}\SpecialCharTok{$}\NormalTok{n }\SpecialCharTok{==} \DecValTok{8}\NormalTok{, ], }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pval)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \FloatTok{0.05}\NormalTok{, }\AttributeTok{fill =} \StringTok{"green"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"P{-}verdier fordeling til samplesize 8"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"P{-}verdier"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"frekvens"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{03-statistical-inference_files/figure-pdf/Kode 3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.05}
+
+\NormalTok{significant\_8 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{pval[results}\SpecialCharTok{$}\NormalTok{n }\SpecialCharTok{==} \DecValTok{8}\NormalTok{] }\SpecialCharTok{\textless{}}\NormalTok{ alpha)}
+\NormalTok{significant\_40 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{pval[results}\SpecialCharTok{$}\NormalTok{n }\SpecialCharTok{==} \DecValTok{40}\NormalTok{] }\SpecialCharTok{\textless{}}\NormalTok{ alpha)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{effect\_size }\OtherTok{\textless{}{-}} \FloatTok{1.5} \SpecialCharTok{/} \DecValTok{3}
+
+\NormalTok{power\_8 }\OtherTok{\textless{}{-}} \FunctionTok{pwr.t.test}\NormalTok{(}\AttributeTok{n =} \DecValTok{8}\NormalTok{,}
+                      \AttributeTok{d =}\NormalTok{ effect\_size,}
+                      \AttributeTok{sig.level =}\NormalTok{ alpha,}
+                      \AttributeTok{type =} \StringTok{"one.sample"}\NormalTok{)}\SpecialCharTok{$}\NormalTok{power}
+\NormalTok{rounded\_power\_8 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(power\_8, }\DecValTok{3}\NormalTok{)}
+
+
+\NormalTok{power\_40 }\OtherTok{\textless{}{-}} \FunctionTok{pwr.t.test}\NormalTok{(}\AttributeTok{n =} \DecValTok{40}\NormalTok{,}
+                       \AttributeTok{d =}\NormalTok{ effect\_size,}
+                       \AttributeTok{sig.level =}\NormalTok{ alpha,}
+                       \AttributeTok{type =} \StringTok{"one.sample"}\NormalTok{)}\SpecialCharTok{$}\NormalTok{power}
+
+\NormalTok{rounded\_power\_40 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(power\_40, }\DecValTok{3}\NormalTok{)}
+
+\NormalTok{rounded\_power\_40\_perc }\OtherTok{\textless{}{-}}\NormalTok{ rounded\_power\_40 }\SpecialCharTok{*} \DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{1000000}\NormalTok{, }\AttributeTok{mean =} \DecValTok{0}\NormalTok{, }\AttributeTok{sd =} \DecValTok{3}\NormalTok{)}
+
+
+\CommentTok{\# Create data frames to store the model estimates}
+\NormalTok{results\_8 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{estimate =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{se =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{pval =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{n =} \DecValTok{8}\NormalTok{)  }
+
+\NormalTok{results\_40 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{estimate =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{se =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{pval =} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+                      \AttributeTok{n =} \DecValTok{40}\NormalTok{)}
+
+\CommentTok{\# A for loop used to sample 1000 studies, each iteration (i) will draw a new sample}
+\CommentTok{\# from the population. }
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{1000}\NormalTok{) \{}
+  
+  \CommentTok{\# Draw a sample }
+\NormalTok{  samp1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y =} \FunctionTok{sample}\NormalTok{(population, }\DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{))}
+\NormalTok{  samp2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y =} \FunctionTok{sample}\NormalTok{(population, }\DecValTok{40}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{))}
+
+  \CommentTok{\# Model the data}
+\NormalTok{  m1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{data =}\NormalTok{ samp1)}
+\NormalTok{  m2 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{data =}\NormalTok{ samp2)}
+  
+  \CommentTok{\# Extract values from the models}
+\NormalTok{  results\_8[i, }\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m1))[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
+\NormalTok{  results\_8[i, }\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m1))[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]}
+\NormalTok{  results\_8[i, }\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m1))[}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{]}
+
+\NormalTok{  results\_40[i, }\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m2))[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
+\NormalTok{  results\_40[i, }\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m2))[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]}
+\NormalTok{  results\_40[i, }\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(}\FunctionTok{summary}\NormalTok{(m2))[}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{]}
+  
+  
+\NormalTok{\}}
+
+
+\CommentTok{\# Save the results in a combined data frame}
+
+\NormalTok{results\_null }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(results\_8, results\_40)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{false\_positive\_8 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(results\_8}\SpecialCharTok{$}\NormalTok{pval }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{)}
+\NormalTok{false\_positive\_40 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(results\_40}\SpecialCharTok{$}\NormalTok{pval }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{)}
+
+
+\NormalTok{false\_positive\_8\_alpha0}\FloatTok{.025} \OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(results\_8}\SpecialCharTok{$}\NormalTok{pval }\SpecialCharTok{\textless{}} \FloatTok{0.025}\NormalTok{)}
+\NormalTok{false\_positive\_40\_alpha0}\FloatTok{.025} \OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(results\_40}\SpecialCharTok{$}\NormalTok{pval }\SpecialCharTok{\textless{}} \FloatTok{0.025}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \bookmarksetup{startatroot}
 
 \chapter{Studiedesign}\label{studiedesign}
 
-\section{Introduksjon}\label{introduksjon-3}
+\section{Introduksjon}\label{introduksjon-2}
 
-Formålet med denne sammenligningen er å se på ulikheter rundt de
-metodiske valgene ved de ulike studiene. Felles for studiene jeg har
-valgt å se på er at de alle ser på effekten av bolklagt
-utholdenhetstrening sett mot tradisjonell utholdenhetstrening og
-effekten av dette på VO\textsubscript{2maks}. Videre blir det sett på
-styrker og svakheter ved studiedesign, statistiske analyser og
-resultater. Det vil til slutt bli gitt noen anbefalninger til fremtidige
-studier.
+Formålet med denne sammenligningen er å undersøke ulikheter i de
+metodiske valgene blant ulike studier som ser på effekten av
+blokkperiodisering av utholdenhetstrening sammenlignet med tradisjonell
+utholdenhetstrening på maksimal oksygenopptak (\(\dot{V}O_{2maks}\)).
+Videre vil jeg vurdere styrker og svakheter ved studiedesign,
+statistiske analyser og resultater. Til slutt vil jeg gi noen
+anbefalinger for fremtidige studier.
 
 \section{Metode}\label{metode-4}
 
-Det ble valgt ut fem ulike studier, som alle ser på effekten av
-blokkperiodisering av utholdenhetstrening på VO\textsubscript{2maks}.
-Studienes styrker og svakheter ble analysert, og det ble spesielt
-vektlagt studiedesign og statistiske analyser. Studiedesignenes evne til
-å måle relevante utfall ble vurdert, samt i hvor stor grad det ble tatt
-høyde for eksterne variabler som kunne påvirke resultatene.
+Fem ulike studier ble valgt ut, alle med fokus på effekten av
+blokkperiodisering av utholdenhetstrening på \(\dot{V}O_{2maks}\).
+Studienes styrker og svakheter ble analysert, med spesiell vekt på
+studiedesign og statistiske analyser. Studiedesignenes evne til å måle
+relevante utfall ble vurdert, samt i hvilken grad de tok hensyn til
+eksterne variabler som kunne påvirke resultatene.
 
 \section{Resultat}\label{resultat-4}
 
-Den første studien det ble sett på (Rønnestad, Hansen, and Ellefsen
-2014) brukte et kontrollert design med objektive målinger som
-VO\textsubscript{2maks}, anvendbarheten er kanskje ikke så god da
-utvalgsstørrelsen er såpass liten som den er og det er manglende
-kontroll for eksterne faktorer.
+Den første studien (Rønnestad, Hansen, and Ellefsen 2014) brukte et
+kontrollert design med objektive målinger som \(\dot{V}O_{2maks}\). Til
+tross for dette var utvalgsstørrelsen liten, noe som kan redusere den
+statistiske kraften og øke risikoen for type II-feil. Manglende kontroll
+for eksterne faktorer, som kosthold og annen fysisk aktivitet utenom
+studien, kan ha påvirket resultatene og dermed redusert intern
+validitet.
 
 Den andre studien (Rønnestad et al. 2014) hadde et robust eksperimentelt
 design med godt definerte kontrollgrupper og brukte gjentatte målinger
-for å spore prestasjonsendringer. Likevel var ekstern validitet en
-utfordring på grunn av spesifisiteten til utvalget, og tidsrammen for
-kort til å vurdere langsiktige effekter.
+for å spore prestasjonsendringer over tid. Likevel var ekstern validitet
+en utfordring på grunn av spesifisiteten til utvalget, som besto av
+eliteutøvere. Dette gjør det vanskelig å generalisere funnene til en
+bredere befolkning. I tillegg var tidsrammen for studien relativt kort,
+noe som begrenser muligheten til å vurdere langsiktige effekter av
+treningsintervensjonen.
 
 Studie nummer tre (Breil et al. 2010) implementerte blokkperiodisering
-og benyttet et bredt spekter av ulike prestasjonsmål. Den korte
+og benyttet et bredt spekter av prestasjonsmål. Den korte
 intervensjonsperioden og det lave antallet kvinnelige deltakere utgjorde
-imidlertid svakheter som kan ha påvirket representativiteten og
-konklusjonene.
+imidlertid svakheter som kan ha påvirket representativiteten og dermed
+generaliserbarheten av konklusjonene. Dette kan også ha ført til
+skjevheter i resultatene grunnet kjønnsspesifikke responser på
+treningen.
 
 Den fjerde studien (Rønnestad et al. 2016) benyttet avanserte
-statistiske analyser og hadde et langsiktig design, men en begrenset
-utvalgsstørrelse og fokus på eliteutøvere reduserte generaliserbarheten
-av funnene i studien.
+statistiske analyser, inkludert lineære mixed models, og hadde et
+langsiktig design. Likevel var utvalgsstørrelsen begrenset, og fokus på
+eliteutøvere reduserte generaliserbarheten av funnene til andre
+populasjoner, slik som mosjonister eller utøvere på lavere nivåer.
 
 Studie fem (Solli, Tønnessen, and Sandbakk 2019) brukte et omfattende
-design med både fysiologiske og prestasjonsbaserte utfall. Svakheten var
-spesifisiteten til deltakerutvalget, og det var behov for en bedre
-sammenheng mellom de statistiske testene og forskningsspørsmålene i
-studien.
+design med både fysiologiske og prestasjonsbaserte utfallsmål. Svakheten
+var spesifisiteten til deltakerutvalget, som besto av kvinnelige
+eliteutøvere i langrenn. Dette begrenser overførbarheten av resultatene
+til mannlige utøvere eller til andre idretter. Det var også behov for en
+bedre sammenheng mellom de statistiske testene og forskningsspørsmålene
+i studien; for eksempel kunne valg av mer avanserte statistiske metoder
+ha gitt dypere innsikt i dataene.
 
 \section{Diskusjon}\label{diskusjon-4}
 
-Studiene generelt sett har god intern validitet, grunnet robuste
-studiedesign og gode kontrollgrupper. Den eksterne validiteten derimot
-er det verre med, dette med bakgrunn i at det er små utvalgsstørrelser
-og spesifikke grupper, eksempelvis eliteutøvere som er testet. Dette
-reduserer generaliserbarheten til studiene. Studiene har også benyttet
-seg av noe ulik varighet på treningsintervensjonene som har blitt brukt
-i studiene. Dette gjør at det blir vanskeligere å trekke konlusjoner
-rundt langsiktige effekter av treningen. Generelt sett er det valgt gode
-statistiske analyser i studiene. Det kunne dog vært gjort mer detaljert
-begrunnelse for valg av statistiske tester i enkelte av studiene.
+Studiene har generelt god intern validitet på grunn av robuste
+studiedesign og bruk av kontrollgrupper, noe som styrker troverdigheten
+til de kausale sammenhengene som blir funnet. Intern validitet refererer
+til i hvilken grad studiens resultater faktisk skyldes intervensjonen og
+ikke andre faktorer.
+
+Den eksterne validiteten er imidlertid begrenset. Ekstern validitet
+handler om i hvilken grad funnene kan generaliseres til andre
+populasjoner og kontekster. Små utvalgsstørrelser øker usikkerheten i
+estimatene og reduserer statistisk kraft, noe som kan gjøre det
+vanskelig å oppdage reelle effekter. Bruk av spesifikke grupper, som
+eliteutøvere, betyr at resultatene kanskje ikke er direkte overførbare
+til den generelle befolkningen eller til utøvere på lavere nivåer. Dette
+skyldes at eliteutøvere kan ha unike fysiologiske egenskaper og
+treningsresponser.
+
+Variasjon i varigheten av treningsintervensjonene mellom studiene gjør
+det utfordrende å sammenligne resultatene og trekke konklusjoner om
+langsiktige effekter. Kortvarige intervensjoner kan mangle tilstrekkelig
+tid for å observere betydelige fysiologiske endringer, mens lengre
+studier gir bedre innsikt i vedvarende effekter av treningen.
+
+Når det gjelder statistiske analyser, har studiene generelt sett valgt
+passende metoder. Flere studier har brukt gjentatt ANOVA for å analysere
+endringer over tid innen og mellom grupper, noe som er egnet for design
+med gjentatte målinger. Andre har benyttet t-tester for sammenligning
+mellom to grupper. Det er viktig at valg av statistiske analyser er tett
+koblet til forskningsspørsmålene og studiedesignet for å sikre at
+analysene gir meningsfulle og presise svar. For eksempel bør studier med
+komplekse design og flere variabler vurdere bruk av multivariate
+analyser eller regresjonsmodeller som kan håndtere flere konfunderende
+faktorer. Manglende detaljert begrunnelse for valg av statistiske tester
+kan svekke forståelsen av hvordan resultatene støtter
+forskningshypotesene.
 
 \section{Konklusjon}\label{konklusjon}
 
-Det bør i fremtidige studier fokuseres på å øke størrelsesutvalget, og
-inkludere mer varierte populasjoner for å forbedre generaliserbarheten
-og gjøre funnene mer anvendbare for hele befolkningen. Det kan med
-fordel også brukes lengre oppfølgingstider for å vurdere langsiktige
-effekter av treningsintervensjoner. Valg av statistiske analyser bør
-være tett koblet til forskningsspørsmålene for å sikre at de gir
-meningsfulle og presise svar.
+For å forbedre generaliserbarheten av funnene, bør fremtidige studier
+fokusere på å øke utvalgsstørrelsen og inkludere mer varierte
+populasjoner. Dette er spesielt viktig hvis målet er å overføre
+resultatene til den generelle befolkningen eller til utøvere på ulike
+nivåer. Dersom studiene primært har som mål å generalisere til
+toppidrettsutøvere, bør dette tydeliggjøres i målsettingen, og metodene
+bør tilpasses deretter.
+
+Lengre oppfølgingstider kan bidra til å vurdere de langsiktige effektene
+av blokkperiodisering og gi et mer fullstendig bilde av
+treningsadaptasjonene. Valg av statistiske analyser bør være nøye
+tilpasset forskningsspørsmålene og studiedesignet. Ved å velge analyser
+som gjenspeiler kompleksiteten i dataene og tar hensyn til potensielle
+konfunderende variabler, kan studiene gi mer pålitelige og anvendbare
+resultater. Det er også viktig å begrunne valgene av statistiske tester
+og diskutere deres begrensninger for å styrke validiteten og
+reliabiliteten til funnene.
 
 \bookmarksetup{startatroot}
 
 \chapter{Analysering av eksperimenter med gjentatte
 målinger}\label{analysering-av-eksperimenter-med-gjentatte-muxe5linger}
 
-\section{Introduksjon}\label{introduksjon-4}
+\section{Introduksjon}\label{introduksjon-3}
 
 Et styrketreningsprogram kan bestå av mange ulike variabler, som i
 teorien skal påvirke adaptasjoner. Volum, intensitet, frekvens,
@@ -991,7 +1377,7 @@ Figuren viser om det er en sammenheng mellom prosentvis endring i
 muskelmasse og 1RM beinpress. 0.5 \% av endringen i 1RM beinpress kan
 forklares med endringen i muskelmasse (R = 0.005 \& p = 0.59).
 
-\begin{figure}
+\begin{figure}[H]
 
 \centering{
 
@@ -1038,8 +1424,6 @@ utrente kvinner og menn mellom 18 og 40 år.
 
 \chapter{Vitenskapsteori}\label{vitenskapsteori}
 
-\section{Induksjon}\label{induksjon}
-
 Induksjon er en prosess som blir brukt for å trekke konklusjoner basert
 på observasjoner vi har gjort (Thurén 2022). Metoden, eller prosessen
 blir gjerne brukt for å trekke generelle konklusjoner angående hvordan
@@ -1085,8 +1469,6 @@ går, siden dagen før der lignet på dagen i går, betyr det ikke at det
 vil være sånn. Selv om vi mennesker har blitt gode på å kjenne igjen
 mønstre, kan man fortsatt ikke forutse hvordan morgendagen blir. Det vet
 vi kun i morgen.
-
-\section{Falsifikasjonisme}\label{falsifikasjonisme}
 
 Hovedessensen av prinsippet om falsifikasjon, eller falsifikasjonisme
 handler om at vi i vitenskapen ikke bør prøve å finne argumenter for at
@@ -1158,52 +1540,51 @@ tror man har fått tilskuddet.
 
 \chapter{Lab-rapport}\label{lab-rapport}
 
-\section{Introduksjon}\label{introduksjon-5}
+\section{Introduksjon}\label{introduksjon-4}
 
-I forskning finnes det ulike metoder, genekspresjon analyse med
-kvantiativ fulorisens-basert sanntids polymerase kjedereaksjon (qPCR) er
-en av disse og brukes i treningsfysiologien. Målet med qPCR er å studere
-genutrykk til et målgen med bruk av biologisk materiale (Kuang. et.al,
-2018). qPCR kan bli brukt til å kunne måle treningsinduserte endringer i
-genutrykk for muskelfibertype. Forskjellen på qPCR og PCR er at ved bruk
-av qPCR kan man kvantifisere og måle mengden av DNA-sekvenser her og nå
-Kuang et al. (2018). For å kunne utføre en PCR må en ha et RNA, dette
-blir ekstrahert fra en biologisk materiale (eks. muskelvev). RNA som
-blir brukt til å kjøre en PCR går igjennom tre ulike steg. Første steget
-er at RNA-et må bli cDNA denne prosessen kalles reversert transkripsjon
-(Kuang et.al, 2018). cDNA vil bli kopiert slik at man har milliarder av
-kopier (Kuang et.al, 2018). DNA-et blir først utsatt for høy temperatur
-slik at den doble DNA tråden blir splittet til en enkeltråd
-(denaturering) (Kuang et al. 2018). Det andre steget er at temperaturen
-så senkes da vil DNA-primere kunne binde seg(annealing). Tredje og siste
-steg er at temperaturen økes slik at primere binder seg og vi får en ny
-dobbelt tråd. Denne prossessen kalles elongering (Kuang et al. 2018).
-Sykulsen vil gjenta seg og repeteres, det vil økes eksponsielt for hver
-syklus (Kuang et al. 2018). Det finnes ulike metoder for å gjennomføre
-dette en av disse metodene er SYBR green-metoden. Her brukes en
-fulorecens og DNA bindes til denne. Vi vil da kunne følge prosessen her
-og nå. Det vil bli tatt et bilde av fluorscensen for hver syklus som
-kjøres. Siden det tas et bilde etter hver syklus kan man detektere
-fluorecsencen (Kuang et al. 2018). For hver syklus som kjøres blir c-DNA
-og fluorscensen doblet og økes eksponensielt (Kuang et al. 2018). Det
-som er målet er å se hvor fort fluorecensen når en satt terskelverdi,
-dette kalles syklisk terskel (CT) (Kuang et al. 2018). Denne sykliske
-terskelen kan si noe om uttrykket til genet. Lavere CT- verdier og færre
-sykluser c-DNA har gått igjennom, er en indikasjon på hvor stort utrykk
-vi har av målgenet (Livak and Schmittgen 2001).
+Genekspresjonsanalyse med kvantitativ fluorescens-basert sanntids
+polymerasekjedereaksjon (qPCR) er en avansert forskningsmetode som ofte
+anvendes innen treningsfysiologi. Målet med qPCR er å studere genuttrykk
+for et spesifikt målgen ved bruk av biologisk materiale (Kuang et al.
+2018). qPCR er særlig nyttig for å måle treningsinduserte endringer i
+genuttrykk i muskelfibertyper. Den største forskjellen mellom qPCR og
+tradisjonell PCR er at qPCR gjør det mulig å kvantifisere og måle
+mengden av DNA-sekvenser i sanntid (Kuang et al. 2018).
+
+For å utføre qPCR kreves RNA, som ekstraheres fra biologisk materiale,
+for eksempel muskelvev. RNA-et må gjennom flere trinn før det kan brukes
+i analysen. Det første trinnet er å omdanne RNA til komplementært DNA
+(cDNA) ved hjelp av en prosess som kalles revers transkripsjon (Kuang et
+al. 2018). Deretter kopieres cDNA eksponentielt, slik at milliarder av
+kopier kan fremstilles (Kuang et al. 2018).
 
 \section{Metode}\label{metode-6}
 
-Ved start på forsøket fikk vi utdelt ferdig c-DNA fra et tidligere
-gjennomført styrkeprosjekt av labansvarlig. For å kunne kjøre en qPCR
-ble det brukt cDNA og en Master mix. Denne Master mixen besto av 50 ul
-SYBR-green, 20 ul H2O og 10 ul primer mix enten (MHC1,MHC2x eller
-MHC2a). Det ble også laget en Master mix som var en kontroll denne
-mestod av 50 ul b2m primermix, 100ul H2O og 250 ul med CYBR-green.
-Forsøket innebar også å lage to fortynningsrekker. Fortynningsrekkene
-var som følger : 1, 1/10 1/100 og 1/1000 samt ½ 1/20 1/200. Det ble
-brukt cmyc primer som ble fortynnet med H2O i 1/1 prøven var det 30ul
-prøve og 0 ul H2O
+Ved oppstart av forsøket fikk vi utdelt ferdigprodusert cDNA fra et
+tidligere gjennomført styrketreningsprosjekt, levert av labansvarlig.
+For å gjennomføre qPCR ble det brukt cDNA kombinert med en Master Mix,
+som inneholdt følgende komponenter:
+
+SYBR Green Mix: 50 µl Vann (H\(_2\)O): 20 µl Primer-mix (enten MHC1,
+MHC2x eller MHC2a): 10 µl I tillegg ble det laget en kontroll-Master Mix
+som besto av følgende:
+
+b2m Primer-mix: 50 µl Vann (H\(_2\)O): 100 µl SYBR Green Mix: 250 µl
+Fremstilling av fortynningsrekker
+
+Under forsøket ble det også utarbeidet to ulike fortynningsrekker for å
+standardisere og validere resultatene. Fortynningsrekkene var som
+følger:
+
+Fortynningsrekke 1: 1 (ufortynnet) 1/10 1/100 1/1000 Fortynningsrekke 2:
+½ 1/20 1/200 For å lage fortynningsrekkene ble c-myc-primer fortynnet
+med H\(_2\)O. I den ufortynnede prøven (1/1) ble det tilsatt 30 µl av
+prøven og 0 µl H\(_2\)O, mens de resterende fortynningene ble fremstilt
+ved proporsjonal tilsetning av vann og prøve.
+
+Dette oppsettet sikret nøyaktighet og reproduserbarhet i analysen, og
+tillot oss å undersøke genuttrykket under forskjellige
+fortynningsforhold.
 
 \begin{longtable}[]{@{}lrr@{}}
 \caption{Fortynning Tabell}\tabularnewline
@@ -1306,29 +1687,40 @@ K & b2m & b2m & NA & NA & NA & NA & NA & NA & NA \\
 L & b2m & b2m & NA & NA & NA & NA & NA & NA & NA \\
 \end{longtable}
 
-Videre ble prøvene pippetert over i brønner etter pippeteringskartet
-over. Brønene ble fylt med 8ul primer spesifikk prøve samt 2 ul med cDNA
-løsning eller kontrollløsning A- L 1 og 2. Videre ble fortynningsrekkene
-pippetert over i 5-11 A-C. Dette ble utført i et treplat for alle
-prøvene. Videre ble qPCR prøven kjørt i sanntids PCR (Applied Biosytems
-7500 fast Real-TimePCR Systems, Life Technologies AS) ved bruk av Quant
-Studio 5. Prossesen for PCR besto videre av tre ulike steg. Første
-steget er et «Hold stage» der blir tempearaturen økt med 1,99 celcius/ s
-opp til 50 grader. Her blir temperaturen konstant på 50 grader i 2
-minutter før det videre blir økt med 1,99 grader/s opp til 95 grader og
-forblir på 95 grader i 2 minutter. Det neste steget er da selve PCR
-prosessen «PCR stage», som består av 40 sykluser, der én syklus består
-av 1 sek på 95°C og at tempearaturen synker med 1,77 °C//s ned til
-temperaturen når 60 °C hvor en konstant temperatur opprettholdes i
-30sek. Det blir etter hver syklus tatt et bilde av fluorecensen. Siste
-steget kalt «Melt stage» blir temperaturen øker med 1,99 °C/s opp til vi
-når 95°C her blir temperarturen holdt konstant i 15 sekunder. Den blir
-så gradvis senket med 1,77 °C/s til en når 60 grader hvor temperaturen
-blir holdt konstant i 1minutt. Før den igjen økes med 0,15 °C/ s opp til
-95 grader igjen og blir holdt konstant i 15 sekunder. Da er
-PCR-prosessen ferdig og vi videre kunne en hente ut CT-verdier. Når
-CT-verdiene var hentet ut ble de videre databehandlet og gjort
-utregninger med hjelp av Excel, Microsoft Office.
+Prøvene ble pipettert over i brønner i henhold til et forhåndsdefinert
+pipetteringskart. Hver brønn ble fylt med 8 µl primer-spesifikk prøve og
+2 µl cDNA-løsning eller kontrolløsning (A-L, 1 og 2). Fortynningsrekkene
+ble pipettert inn i brønnene 5-11 (A-C). Alle prøvene ble satt opp i et
+treplat-format, noe som sikret nøyaktighet og reproduserbarhet i
+analysen.
+
+qPCR-analysen ble gjennomført ved hjelp av Applied Biosystems 7500 Fast
+Real-Time PCR System (Life Technologies AS) og programvaren Quant Studio
+5. Prosessen besto av tre hovedtrinn. Først ble prøvene kjørt i en «Hold
+stage» der temperaturen økte med 1,99 °C/s opp til 50 °C, hvor den ble
+holdt konstant i 2 minutter. Deretter økte temperaturen videre med 1,99
+°C/s opp til 95 °C, hvor den ble holdt i ytterligere 2 minutter.
+
+Selve PCR-prosessen, kalt «PCR stage», besto av 40 sykluser. Hver syklus
+innebar at temperaturen først ble holdt på 95 °C i 1 sekund før den
+senket seg med 1,77 °C/s til 60 °C. Denne temperaturen ble deretter
+holdt konstant i 30 sekunder. Etter hver syklus ble det tatt et bilde av
+fluorescensen for å overvåke reaksjonen i sanntid.
+
+Til slutt ble prøvene kjørt gjennom en «Melt stage». Her økte
+temperaturen med 1,99 °C/s opp til 95 °C, hvor den ble holdt i 15
+sekunder. Deretter ble temperaturen gradvis senket med 1,77 °C/s til 60
+°C, hvor den ble holdt konstant i 1 minutt. Til slutt økte temperaturen
+med 0,15 °C/s opp til 95 °C igjen, hvor den ble holdt i 15 sekunder.
+Etter dette var PCR-prosessen ferdig, og CT-verdiene ble hentet ut for
+videre analyse.
+
+\subsection{Databehandling}\label{databehandling}
+
+De innsamlede CT-verdiene ble analysert og behandlet ved hjelp av
+Microsoft Excel. Dette inkluderte utregninger og datavisualisering for å
+tolke genuttrykk og endringer i fluorescens. Hele prosessen sikret
+presise resultater og pålitelige konklusjoner.
 
 \begin{longtable}[t]{>{}l>{}l>{}r>{}r>{}r>{}r}
 \caption{Ct-verdier for de ulike prøvene}\\
@@ -1379,8 +1771,7 @@ Slope & Primer Efficiency\\
 \bottomrule
 \end{longtable}
 
-\section{Diskusjon (Andersen and Aagaard
-2000)}\label{diskusjon-andersen2000}
+\section{Diskusjon}\label{diskusjon-6}
 
 Målet med dette forsøket var å undersøke endringer i myoisintungkjedene.
 Etter en styrketreningsintevesjon på utrent forsøksperson på 12 uker,
@@ -1397,13 +1788,13 @@ har fått en stor endring fra 56\%- 95\% for MHCI, for MHC2a har det
 blitt redusert fra 43\% til 2\%, det samme gjelder for MHC2x som har
 fått en reduksjon fra 2\%-1\%.
 
-I en tidligere studie av Ellefsen et al.~(2014),(Ellefsen et al. 2014)
-hvor en styrketreningsintervensjon ble gjennomført på utrente individer
-over 12 uker, ble det observert en økning i MHC2A, en reduksjon i MHC2X,
-samt stabilitet i MHC1. I kontrast til dette viser våre resultater
-motstridende funn, med både reduksjon i MHC2A og MHC2X, samt en
-betydelig økning i MHC1. Andre studier, som (Terzis et al. 2008) Terzis
-et al. (2008) og Andersen and Aagaard (2000) også vist at utrente
+I en tidligere studie av Ellefsen et al.~(2014), hvor en
+styrketreningsintervensjon ble gjennomført på utrente individer over 12
+uker, ble det observert en økning i MHC2A, en reduksjon i MHC2X, samt
+stabilitet i MHC1 (Ellefsen et al. 2014). I kontrast til dette viser
+våre resultater motstridende funn, med både reduksjon i MHC2A og MHC2X,
+samt en betydelig økning i MHC1. Andre studier, som (Terzis et al. 2008)
+Terzis et al. (2008) og Andersen and Aagaard (2000) også vist at utrente
 personer med overvekt av MHC2X opplever en reduksjon i MHC2X og en
 økning i MHC2A ved trening, med minimal endring i MHC1. Det er kjent at
 genuttrykk ikke kan endres fra MHC1 til MHC2A eller MHC2X, noe som gjør
@@ -1500,12 +1891,6 @@ Quantitative Real-Time PCR Analysis of Gene Expression in Human Exercise
 Research.''} Edited by Ruslan Kalendar. \emph{PLOS ONE} 13 (5):
 e0196438. \url{https://doi.org/10.1371/journal.pone.0196438}.
 
-\bibitem[\citeproctext]{ref-livak2001}
-Livak, Kenneth J., and Thomas D. Schmittgen. 2001. {``Analysis of
-Relative Gene Expression Data Using Real-Time Quantitative PCR and the
-2-ΔΔCT Method.''} \emph{Methods} 25 (4): 402--8.
-\url{https://doi.org/10.1006/meth.2001.1262}.
-
 \bibitem[\citeproctext]{ref-marx2001}
 Marx, James O., Nicholas A. Ratamess, Bradley C. Nindl, Lincoln A.
 Gotshalk, Jeff S. Volek, Keiichiro Dohi, Jill A. Bush, et al. 2001.
@@ -1573,10 +1958,6 @@ Katamoto. 2013. {``Effects of Training Volume on Strength and
 Hypertrophy in Young Men.''} \emph{Journal of Strength and Conditioning
 Research} 27 (1): 8--13.
 \url{https://doi.org/10.1519/JSC.0b013e3182679215}.
-
-\bibitem[\citeproctext]{ref-RN2902}
-Spiegelhalter, D. J. 2019. \emph{The Art of Statistics : How to Learn
-from Data}. Book. First US edition. New York: Basic Books.
 
 \bibitem[\citeproctext]{ref-Spiegelhalter}
 Spiegelhalter, David. 2020. {``Introducing the Art of Statistics: How to

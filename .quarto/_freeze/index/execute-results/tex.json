@@ -1,10 +1,9 @@
 {
-  "hash": "f89d2cae73031aafc1d0dc4ae48f295e",
+  "hash": "d5ca93fd4d08b3dd107d2d2afa6349b6",
   "result": {
-    "markdown": "# Preface {.unnumbered}\n\nThis is a Quarto book.\n\nTo learn more about Quarto books visit <https://quarto.org/docs/books>.\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
-    "supporting": [
-      "index_files"
-    ],
+    "engine": "knitr",
+    "markdown": "\n\n# Forord {.unnumbered}\n\nDenne rapporten inneholder ulike arbeidskrav som er gjennomført gjennom høsten 2024. Arbeidskravene er satt sammen og danner nå mappeeksamen i Kvantitativ metode og statistikk (IDR4000).\n\nTakk til Ole for mye godt samarbeid underveis, både med kode og som selskap under ferdigstillingen av eksamen.\n\nLenke som gjør det mulig å etterprøve koder: https://github.com/Eskilstrand/Mappeeksamen.git\n\n\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

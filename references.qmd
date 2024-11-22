@@ -1,2 +1,13 @@
-# References {.unnumbered}
+---
+title: "Referanser"
+editor_options: 
+  chunk_output_type: console
+geometry:
+  - top=0.5in
+  - bottom=0.5in
+  - left=1in
+  - right=1in
+---
+
+
 

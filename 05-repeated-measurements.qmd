@@ -1,13 +1,13 @@
 ---
-crossref: 
-  fig-title: "Figur" 
-  tbl-title: "Tabell"
+title: "Analysering av eksperimenter med gjentatte målinger"
 editor_options: 
   chunk_output_type: console 
+geometry:
+  - top=0.5in
+  - bottom=0.5in
+  - left=1in
+  - right=1in
 ---
-
-# Assignment 5: Analyzing repeated measures experiments
-
 
 ## Introduksjon
 
@@ -382,6 +382,7 @@ Figuren viser om det er en sammenheng mellom prosentvis endring i muskelmasse og
 ```{r}
 #| label: fig-figur1
 #| fig-cap: Figur som viser en lineær regresjonsmodell med endring i muskelmasse som prediktor variabel for endring i 1RM beinpress. 
+#| fig-pos: "H"
 
 joined_dat |> 
 ggplot(aes(endring_lean.mass, endring_load)) + 

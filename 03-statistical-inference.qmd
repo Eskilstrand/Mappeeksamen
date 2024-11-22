@@ -1,11 +1,14 @@
 ---
-output: html_document
+title: "Å trekke slutninger fra statistiske modeller og statistisk styrke"
 editor_options: 
   chunk_output_type: console
+geometry:
+  - top=0.5in
+  - bottom=0.5in
+  - left=1in
+  - right=1in
 ---
-# Assignment 3: Drawing inference from statistical models, and statistical power {#assignment3}
 
-This assignment is set up as a statistical laboratory, we will perform simulations and your assignment is to interpret and explain the results. Create a report based on the code used in the lab and make sure you answer the specified questions (1-8). You can be as creative as you want and explore the results further. 
 
 
 ```{r}
@@ -30,7 +33,7 @@ library(pwr)
 ```
 
 
-
+## Spørsmål og svar
 
 
 ```{r}
@@ -60,14 +63,21 @@ invisible(summary(m2))
 
 
 
-## Spørsmål:
-
 ### Estimate 
-Estimate er et tall vi får, basert på utregning via en lineær modell. Tallet vi får representerer en gjetning av gjennomsnittet til variabelen "y" i vårt utvalg. **SE** er standardfeil, som sier noe om hvor stor usikkerhet det er tilknyttet estimatet vårt. Usikkerheten vi snakker om her forteller noe om hvor mye dette gjennomsnittet potensielt kan avvike fra populasjonsgjennomsnittet. **T-verdien** sier her noe om forholdet mellom estimatet vårt (**estimate**) og standardfeilen (**SE**). 
-**P-verdi** sier noe om hvor stor sannsynlighet det er for at vi observerer et resultat som er like ekstremt, eller enda mer ekstremt enn hva vi har fått i dette tilfellet. I vårt tilfelle har vi en høy **P-verdi** noe som forteller at vi ikke kan forkaste nullhypotesen, da det ikke er noen forskjell i fra null. 
+
+Et **estimat** er en verdi vi får ved å anvende en lineær modell på våre data. Dette tallet representerer vår beste gjetning av den sanne verdien til parameteren vi ønsker å estimere i populasjonen, basert på vårt utvalg. I konteksten av en regresjonsanalyse er dette ofte regresjonskoeffisienten, som estimerer sammenhengen mellom en uavhengig variabel og den avhengige variabelen *y*.
+
+**Standardfeilen** (SE) kvantifiserer usikkerheten knyttet til estimatet vårt. Den måler den forventede variasjonen i estimatet dersom vi skulle trekke mange utvalg fra populasjonen og beregne estimatet hver gang. Med andre ord er standardfeilen standardavviket til estimatets utvalgsfordeling, og indikerer hvor mye estimatet vårt potensielt kan variere fra utvalg til utvalg på grunn av tilfeldig sampling.
+
+**t-verdien** er forholdet mellom estimatet og standardfeilen ($t = \frac{{estimat}}{{SE}}$). Den indikerer hvor mange standardfeil estimatet er unna null [@Spiegelhalter]. En høy absolutt t-verdi tyder på at estimatet er signifikant forskjellig fra null.
+
+**P-verdien** angir sannsynligheten for å observere en t-verdi som er minst like ekstrem som den vi har fått, gitt at nullhypotesen er sann. Det vil si, den måler sannsynligheten for å få våre data, eller data som er mer ekstreme, dersom det faktisk ikke er noen effekt (dvs. hvis den sanne parameteren er null). En lav p-verdi indikerer at et så ekstremt resultat er lite sannsynlig under nullhypotesen, noe som gir grunnlag for å forkaste nullhypotesen [@Spiegelhalter].
+
+I vårt tilfelle har vi en høy p-verdi, noe som indikerer at vi ikke kan forkaste nullhypotesen. Dette betyr at det ikke er tilstrekkelig bevis til å konkludere med at det er en signifikant forskjell fra null.
 
 ### m1 vs m2
-Forskjellen mellom studiene kommer fra størrelsen på utvalget som er brukt i de to forskjellige. I *m1* er det brukt ett mye mindre utvalg, noe som fører til større usikkerhet rundt resultatene. I *m2* er det brukt et større utvalg, som gjør at det estimerte gjennomsnittet blir nærmere populasjonsgjennomsnittet og standardfeilen blir dermed mindre. Dette gir i vårt tilfelle en høyere **t-verdi** og en lavere **p-verdi**.
+
+Forskjellen mellom studiene kommer fra størrelsen på utvalget som er brukt i de to forskjellige. I *m1* er det brukt ett mye mindre utvalg, noe som fører til større usikkerhet rundt resultatene. I *m2* er det brukt et større utvalg, som gjør at det estimerte gjennomsnittet blir nærmere populasjonsgjennomsnittet og standardfeilen blir dermed mindre. Dette gir i vårt tilfelle en høyere **t-verdi** og en lavere **p-verdi** [@Spiegelhalter].
 
 ### Shaded areas
 Vi bruker de grå feltene for å vise de ekstreme verdiene vi har fra testen vår. Jo lenger ut i halene vi kommer, desto større sannsynlighet er det for at dette er et uvanlig resultat å se. 
@@ -143,6 +153,7 @@ rounded_avg_se_40 <- round(avg_se_40, 2)
 ```
 
 ### Standard deviation of **estimate** and avg. **se** for each study. 
+
 Standard deviation for modellen med 8 i population er `r rounded_sd_est_8`, mens det for modellen med 40 i population er `r rounded_sd_est_40`. Når det kommer til gjennomsnittlig standardfeil ligger den på `r rounded_avg_se_8` for modellen med 8 i population, mens den for modellen med 40 i population ligger på `r rounded_avg_se_40`. Grunnen til at tallene er såpass like som de er for **SD** og **avg se** er at begge beregningene er mål på variasjon. I denne sammenhengen er standardfeilen et mål på hvor mye gjennomsnittet avviker fra det sanne populasjonsgjennomsnittet. 
 
 
@@ -308,3 +319,211 @@ false_positive_40_alpha0.025 <- sum(results_40$pval < 0.025)
 ```
 
 Ved å gjøre 1000 repeterte studier, vil vi få omtrent 50 falske positive hvis vi setter signifikansnivået til 0.05. I min utregning fikk jeg da `r false_positive_8` for studiene med utvalgsstørrelse på 8 og `r false_positive_40` på studiene med utvalgsstørrelse 40. Om jeg endrer signifikansnivået og setter alpha enda lavere vil resultatet endre seg litt. Med en signifikansverdi på 0.025 vil det i studiene med utvalgsstørrelse 8 gi meg `r false_positive_8_alpha0.025` falske positive, mens det på studiene med 40 i utvalgsstørrelse gir `r false_positive_40_alpha0.025` falske positive. 
+
+
+
+## Code-chunks fra topp til bunn
+
+```{r}
+#| echo: true
+#| label: Kode 1
+
+set.seed(1)
+population <- rnorm(1000000, mean = 1.5, sd = 3)
+
+samp1 <- data.frame(y = sample(population, 8, replace = FALSE))
+samp2 <- data.frame(y = sample(population, 40, replace = FALSE))
+
+m1 <- lm(y ~ 1, data = samp1)
+m2 <- lm(y ~ 1, data = samp2)
+
+# Skjul summary-output
+invisible(summary(m1))
+invisible(summary(m2))
+
+
+```
+
+
+```{r}
+#| echo: true
+#| label: Kode 2
+
+# Create data frames to store the model estimates
+results_8 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 8)  
+
+results_40 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 40)
+
+# A for loop used to sample 1000 studies, each iteration (i) will draw a new sample
+# from the population. 
+
+for(i in 1:1000) {
+  
+  # Draw a sample 
+  samp1 <- data.frame(y = sample(population, 8, replace = FALSE))
+  samp2 <- data.frame(y = sample(population, 40, replace = FALSE))
+
+  # Model the data
+  m1 <- lm(y ~ 1, data = samp1)
+  m2 <- lm(y ~ 1, data = samp2)
+  
+  # Extract values from the models
+  results_8[i, 1] <- coef(summary(m1))[1, 1]
+  results_8[i, 2] <- coef(summary(m1))[1, 2]
+  results_8[i, 3] <- coef(summary(m1))[1, 4]
+
+  results_40[i, 1] <- coef(summary(m2))[1, 1]
+  results_40[i, 2] <- coef(summary(m2))[1, 2]
+  results_40[i, 3] <- coef(summary(m2))[1, 4]
+  
+  
+}
+
+
+# Save the results in a combined data frame
+
+results <- bind_rows(results_8, results_40)
+
+# Calculate standard deviation of the estimate and the average of the standard error (se)
+results_summary <- results |> 
+  group_by(n) |> 
+  summarise(
+    sd_estimate = sd(estimate),
+    avg_se = mean(se)
+  )
+
+
+sd_est_8 <- sd(results$estimate[results$n == 8])
+avg_se_8 <- mean(results$se[results$n == 8])
+
+sd_est_40 <- sd(results$estimate[results$n == 40])
+avg_se_40 <- mean(results$se[results$n == 40])
+
+rounded_sd_est_8 <- round(sd_est_8, 2)
+rounded_avg_se_8 <- round(avg_se_8, 2)
+rounded_sd_est_40 <- round(sd_est_40, 2)
+rounded_avg_se_40 <- round(avg_se_40, 2)
+
+```
+
+```{r}
+#| echo: true
+#| label: Kode 3
+
+ggplot(results[results$n == 8, ], aes(x = pval)) +
+  geom_histogram(binwidth = 0.05, fill = "green", alpha = 0.6) +
+  labs(title = "P-verdier fordeling til samplesize 8",
+       x = "P-verdier",
+       y = "frekvens") +
+  theme_minimal()
+
+```
+
+```{r}
+#| echo: true
+#| label: Kode 4
+
+alpha <- 0.05
+
+significant_8 <- sum(results$pval[results$n == 8] < alpha)
+significant_40 <- sum(results$pval[results$n == 40] < alpha)
+
+```
+
+```{r}
+#| echo: true
+#| label: Kode 5
+
+effect_size <- 1.5 / 3
+
+power_8 <- pwr.t.test(n = 8,
+                      d = effect_size,
+                      sig.level = alpha,
+                      type = "one.sample")$power
+rounded_power_8 <- round(power_8, 3)
+
+
+power_40 <- pwr.t.test(n = 40,
+                       d = effect_size,
+                       sig.level = alpha,
+                       type = "one.sample")$power
+
+rounded_power_40 <- round(power_40, 3)
+
+rounded_power_40_perc <- rounded_power_40 * 100
+
+
+
+```
+
+```{r}
+#| echo: true
+#| label: Kode 6
+
+set.seed(1)
+population <- rnorm(1000000, mean = 0, sd = 3)
+
+
+# Create data frames to store the model estimates
+results_8 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 8)  
+
+results_40 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 40)
+
+# A for loop used to sample 1000 studies, each iteration (i) will draw a new sample
+# from the population. 
+
+for(i in 1:1000) {
+  
+  # Draw a sample 
+  samp1 <- data.frame(y = sample(population, 8, replace = FALSE))
+  samp2 <- data.frame(y = sample(population, 40, replace = FALSE))
+
+  # Model the data
+  m1 <- lm(y ~ 1, data = samp1)
+  m2 <- lm(y ~ 1, data = samp2)
+  
+  # Extract values from the models
+  results_8[i, 1] <- coef(summary(m1))[1, 1]
+  results_8[i, 2] <- coef(summary(m1))[1, 2]
+  results_8[i, 3] <- coef(summary(m1))[1, 4]
+
+  results_40[i, 1] <- coef(summary(m2))[1, 1]
+  results_40[i, 2] <- coef(summary(m2))[1, 2]
+  results_40[i, 3] <- coef(summary(m2))[1, 4]
+  
+  
+}
+
+
+# Save the results in a combined data frame
+
+results_null <- bind_rows(results_8, results_40)
+
+
+```
+
+```{r}
+#| echo: true
+#| label: Kode 7
+
+false_positive_8 <- sum(results_8$pval < 0.05)
+false_positive_40 <- sum(results_40$pval < 0.05)
+
+
+false_positive_8_alpha0.025 <- sum(results_8$pval < 0.025)
+false_positive_40_alpha0.025 <- sum(results_40$pval < 0.025)
+
+```
+

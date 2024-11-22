@@ -2,9 +2,6 @@ project:
   type: book
 
 book:
-  title: "Mappeeksamen IDR4000"
-  author: "Eskil Strand"
-  date: "2024-09-10"
   chapters:
     - index.qmd
     - 01-reliability-tools.qmd
@@ -21,8 +18,10 @@ bibliography: resources/bib-final.bib
 format:
   pdf: 
     keep-tex: true
-    latex_engine: xelatex  # Bytt til xelatex for fontstøtte
-    mainfont: "Times New Roman"  # Angi Times New Roman som hovedskrifttype
+    latex_engine: xelatex
+    mainfont: "Times New Roman"
+    sansfont: "Times New Roman"
+    monofont: "Courier New"
     include-in-header: 
       text:  |
         \usepackage{amsmath}
@@ -33,12 +32,38 @@ format:
         \usepackage[table]{xcolor}
         \usepackage{longtable}
         \usepackage{booktabs}
+        \usepackage{graphicx}
+        \usepackage{fontspec}
+        \setmainfont{Times New Roman}
+        \setsansfont{Times New Roman}
+        \setmonofont{Courier New}
+    include-before-body:
+      text: |
+        \begin{titlepage}
+        \begin{center}
+        \vspace*{1cm}
 
+        {\Huge \textbf{Kvantitativ metode og statistikk (IDR4000)}}
+
+        \vspace{1cm}
+        {\Large Kandidatnummer: 505}
+
+        \vspace{1cm}
+        Antall ord: \textbf{12874} % Setter inn ordtellingen her
+
+        \vspace{5cm}
+        \includegraphics[width=1.6\textwidth]{logo.png}
+
+        \vfill
+        {\large 2024-11-22}
+
+        \end{center}
+        \end{titlepage}
+
+geometry: 
+  - top=0.5in
 
 execute: 
   echo: false 
   warning: false 
-  message: false 
-
-
-
+  message: false

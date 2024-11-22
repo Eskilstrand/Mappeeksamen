@@ -1,31 +1,49 @@
-# Assignment 4: Study designs
+---
+title: "Studiedesign"
+editor_options: 
+  chunk_output_type: console
+geometry:
+  - top=0.5in
+  - bottom=0.5in
+  - left=1in
+  - right=1in
+---
+
+
 
 
 ## Introduksjon
 
-Formålet med denne sammenligningen er å se på ulikheter rundt de metodiske valgene ved de ulike studiene. Felles for studiene jeg har valgt å se på er at de alle ser på effekten av bolklagt utholdenhetstrening sett mot tradisjonell utholdenhetstrening og effekten av dette på VO~2maks~. Videre blir det sett på styrker og svakheter ved studiedesign, statistiske analyser og resultater. Det vil til slutt bli gitt noen anbefalninger til fremtidige studier. 
+Formålet med denne sammenligningen er å undersøke ulikheter i de metodiske valgene blant ulike studier som ser på effekten av blokkperiodisering av utholdenhetstrening sammenlignet med tradisjonell utholdenhetstrening på maksimal oksygenopptak ($\dot{V}O_{2maks}$). Videre vil jeg vurdere styrker og svakheter ved studiedesign, statistiske analyser og resultater. Til slutt vil jeg gi noen anbefalinger for fremtidige studier.
 
 ## Metode
 
-Det ble valgt ut fem ulike studier, som alle ser på effekten av blokkperiodisering av utholdenhetstrening på VO~2maks~. Studienes styrker og svakheter ble analysert, og det ble spesielt vektlagt studiedesign og statistiske analyser. Studiedesignenes evne til å måle relevante utfall ble vurdert, samt i hvor stor grad det ble tatt høyde for eksterne variabler som kunne påvirke resultatene. 
+Fem ulike studier ble valgt ut, alle med fokus på effekten av blokkperiodisering av utholdenhetstrening på $\dot{V}O_{2maks}$. Studienes styrker og svakheter ble analysert, med spesiell vekt på studiedesign og statistiske analyser. Studiedesignenes evne til å måle relevante utfall ble vurdert, samt i hvilken grad de tok hensyn til eksterne variabler som kunne påvirke resultatene.
 
 ## Resultat
 
-Den første studien det ble sett på [@Ronnestad2014-bu] brukte et kontrollert design med objektive målinger som VO~2maks~, anvendbarheten er kanskje ikke så god da utvalgsstørrelsen er såpass liten som den er og det er manglende kontroll for eksterne faktorer.
+Den første studien [@Ronnestad2014-bu] brukte et kontrollert design med objektive målinger som $\dot{V}O_{2maks}$. Til tross for dette var utvalgsstørrelsen liten, noe som kan redusere den statistiske kraften og øke risikoen for type II-feil. Manglende kontroll for eksterne faktorer, som kosthold og annen fysisk aktivitet utenom studien, kan ha påvirket resultatene og dermed redusert intern validitet.
 
-Den andre studien [@Ronnestad2014-xg] hadde et robust eksperimentelt design med godt definerte kontrollgrupper og brukte gjentatte målinger for å spore prestasjonsendringer. Likevel var ekstern validitet en utfordring på grunn av spesifisiteten til utvalget, og tidsrammen for kort til å vurdere langsiktige effekter. 
+Den andre studien [@Ronnestad2014-xg] hadde et robust eksperimentelt design med godt definerte kontrollgrupper og brukte gjentatte målinger for å spore prestasjonsendringer over tid. Likevel var ekstern validitet en utfordring på grunn av spesifisiteten til utvalget, som besto av eliteutøvere. Dette gjør det vanskelig å generalisere funnene til en bredere befolkning. I tillegg var tidsrammen for studien relativt kort, noe som begrenser muligheten til å vurdere langsiktige effekter av treningsintervensjonen.
 
-Studie nummer tre [@Breil2010-mr] implementerte blokkperiodisering og benyttet et bredt spekter av ulike prestasjonsmål. Den korte intervensjonsperioden og det lave antallet kvinnelige deltakere utgjorde imidlertid svakheter som kan ha påvirket representativiteten og konklusjonene. 
+Studie nummer tre [@Breil2010-mr] implementerte blokkperiodisering og benyttet et bredt spekter av prestasjonsmål. Den korte intervensjonsperioden og det lave antallet kvinnelige deltakere utgjorde imidlertid svakheter som kan ha påvirket representativiteten og dermed generaliserbarheten av konklusjonene. Dette kan også ha ført til skjevheter i resultatene grunnet kjønnsspesifikke responser på treningen.
 
-Den fjerde studien [@Ronnestad2016-nq] benyttet avanserte statistiske analyser og hadde et langsiktig design, men en begrenset utvalgsstørrelse og fokus på eliteutøvere reduserte generaliserbarheten av funnene i studien. 
+Den fjerde studien [@Ronnestad2016-nq] benyttet avanserte statistiske analyser, inkludert lineære mixed models, og hadde et langsiktig design. Likevel var utvalgsstørrelsen begrenset, og fokus på eliteutøvere reduserte generaliserbarheten av funnene til andre populasjoner, slik som mosjonister eller utøvere på lavere nivåer.
 
-Studie fem [@Solli2019-ej] brukte et omfattende design med både fysiologiske og prestasjonsbaserte utfall. Svakheten var spesifisiteten til deltakerutvalget, og det var behov for en bedre sammenheng mellom de statistiske testene og forskningsspørsmålene i studien. 
+Studie fem [@Solli2019-ej] brukte et omfattende design med både fysiologiske og prestasjonsbaserte utfallsmål. Svakheten var spesifisiteten til deltakerutvalget, som besto av kvinnelige eliteutøvere i langrenn. Dette begrenser overførbarheten av resultatene til mannlige utøvere eller til andre idretter. Det var også behov for en bedre sammenheng mellom de statistiske testene og forskningsspørsmålene i studien; for eksempel kunne valg av mer avanserte statistiske metoder ha gitt dypere innsikt i dataene.
 
 ## Diskusjon
 
-Studiene generelt sett har god intern validitet, grunnet robuste studiedesign og gode kontrollgrupper. Den eksterne validiteten derimot er det verre med, dette med bakgrunn i at det er små utvalgsstørrelser og spesifikke grupper, eksempelvis eliteutøvere som er testet. Dette reduserer generaliserbarheten til studiene. Studiene har også benyttet seg av noe ulik varighet på treningsintervensjonene som har blitt brukt i studiene. Dette gjør at det blir vanskeligere å trekke konlusjoner rundt langsiktige effekter av treningen. Generelt sett er det valgt gode statistiske analyser i studiene. Det kunne dog vært gjort mer detaljert begrunnelse for valg av statistiske tester i enkelte av studiene. 
+Studiene har generelt god intern validitet på grunn av robuste studiedesign og bruk av kontrollgrupper, noe som styrker troverdigheten til de kausale sammenhengene som blir funnet. Intern validitet refererer til i hvilken grad studiens resultater faktisk skyldes intervensjonen og ikke andre faktorer.
+
+Den eksterne validiteten er imidlertid begrenset. Ekstern validitet handler om i hvilken grad funnene kan generaliseres til andre populasjoner og kontekster. Små utvalgsstørrelser øker usikkerheten i estimatene og reduserer statistisk kraft, noe som kan gjøre det vanskelig å oppdage reelle effekter. Bruk av spesifikke grupper, som eliteutøvere, betyr at resultatene kanskje ikke er direkte overførbare til den generelle befolkningen eller til utøvere på lavere nivåer. Dette skyldes at eliteutøvere kan ha unike fysiologiske egenskaper og treningsresponser.
+
+Variasjon i varigheten av treningsintervensjonene mellom studiene gjør det utfordrende å sammenligne resultatene og trekke konklusjoner om langsiktige effekter. Kortvarige intervensjoner kan mangle tilstrekkelig tid for å observere betydelige fysiologiske endringer, mens lengre studier gir bedre innsikt i vedvarende effekter av treningen.
+
+Når det gjelder statistiske analyser, har studiene generelt sett valgt passende metoder. Flere studier har brukt gjentatt ANOVA for å analysere endringer over tid innen og mellom grupper, noe som er egnet for design med gjentatte målinger. Andre har benyttet t-tester for sammenligning mellom to grupper. Det er viktig at valg av statistiske analyser er tett koblet til forskningsspørsmålene og studiedesignet for å sikre at analysene gir meningsfulle og presise svar. For eksempel bør studier med komplekse design og flere variabler vurdere bruk av multivariate analyser eller regresjonsmodeller som kan håndtere flere konfunderende faktorer. Manglende detaljert begrunnelse for valg av statistiske tester kan svekke forståelsen av hvordan resultatene støtter forskningshypotesene.
 
 ## Konklusjon
 
-Det bør i fremtidige studier fokuseres på å øke størrelsesutvalget, og inkludere mer varierte populasjoner for å forbedre generaliserbarheten og gjøre funnene mer anvendbare for hele befolkningen. Det kan med fordel også brukes lengre oppfølgingstider for å vurdere langsiktige effekter av treningsintervensjoner. Valg av statistiske analyser bør være tett koblet til forskningsspørsmålene for å sikre at de gir meningsfulle og presise svar. 
+For å forbedre generaliserbarheten av funnene, bør fremtidige studier fokusere på å øke utvalgsstørrelsen og inkludere mer varierte populasjoner. Dette er spesielt viktig hvis målet er å overføre resultatene til den generelle befolkningen eller til utøvere på ulike nivåer. Dersom studiene primært har som mål å generalisere til toppidrettsutøvere, bør dette tydeliggjøres i målsettingen, og metodene bør tilpasses deretter.
 
+Lengre oppfølgingstider kan bidra til å vurdere de langsiktige effektene av blokkperiodisering og gi et mer fullstendig bilde av treningsadaptasjonene. Valg av statistiske analyser bør være nøye tilpasset forskningsspørsmålene og studiedesignet. Ved å velge analyser som gjenspeiler kompleksiteten i dataene og tar hensyn til potensielle konfunderende variabler, kan studiene gi mer pålitelige og anvendbare resultater. Det er også viktig å begrunne valgene av statistiske tester og diskutere deres begrensninger for å styrke validiteten og reliabiliteten til funnene.

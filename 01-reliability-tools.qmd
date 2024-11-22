@@ -1,10 +1,14 @@
 ---
-output: html_document
+title: "Reliabilitetstesting"
 editor_options: 
   chunk_output_type: console
+geometry:
+  - top=0.5in
+  - bottom=0.5in
+  - left=1in
+  - right=1in
 ---
 
-# Assignment 1: Reliability and tools for reproducible data science {#assignment1}
 
 ## Introduksjon
 
@@ -44,12 +48,13 @@ df <- read_xlsx("data/o2-test.xlsx")
 ```
 ## Resultat
 
-Etter at testene er gjennomført kan vi se nærmere på hver forsøkperson sine data. Dette gir muligheten til å se på hver enkelt forsøksperson om man finner dette interessant (Table 1.1). 
+Etter at testene er gjennomført kan vi se nærmere på hver forsøkperson sine data, ved T1. T1 er valgt da denne testen hadde flest deltakere. Dette gir muligheten til å se på hver enkelt forsøksperson om man finner dette interessant (@tbl-tbl1). 
 Verdiene man kan se i tabellen, er verdier som er plottet etter endt $\dot{V}O_{2maks}$-test. 
 ```{r}
 #| code-fold: true
 #| message: false
 #| warning: false
+#| label: tbl-tbl1
 
 library(dplyr)
 library(tidyr)
@@ -237,13 +242,13 @@ cv_perct3_t4 <- 4.78
 
 Reliabiliteten mellom t1 og t2 er `r cv_perct1_t2`%, mens reliabiliteten mellom t3 og t4 er `r cv_perct3_t4`%. 
 
-### Korrelasjon mellom Vo2maks og Wattmaks per kg
+### Korrelasjon mellom **$\dot{V}O_{2maks}$** og Wattmaks per kg
 
 ```{r}
 #| code-fold: true
 #| message: false
 #| warning: false
-#| fig-cap: "Figur 1: Hvert punkt = én observasjon"
+#| fig-cap: "Hvert punkt = én observasjon"
 
 
 library(dplyr)
