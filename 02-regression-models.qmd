@@ -15,18 +15,17 @@ En regresjonsmodell er en modell som kvantifiserer forholdet mellom en eller fle
 
 En lineær regresjonsmodell er en modell der en kan estimere verdien av en avhengig variabel basert på verdien av andre kjente uavhengige variabler [@Pisica2022]. I en slik modell benyttes en rett linje for å lage en modell som beskriver dataen. Følgende funksjon benyttes for å skape det lineære plottet:
 
-y~i~ = b~0~ + b~1~x~i~ + e~i~ 
+y~i~ = b~0~ + b~1~x~i~ + e~i~
 
-der y~i~ er den avhengige variabelen som kan estimeres ved å benytte de uavhengige variablene b~1~x~i~ og b~0~. b~0~ er skjæringspunktet til grafen og b~1~ er stigningstallet til grafen. 
+der y~i~ er den avhengige variabelen som kan estimeres ved å benytte de uavhengige variablene b~1~x~i~ og b~0~. b~0~ er skjæringspunktet til grafen og b~1~ er stigningstallet til grafen.
 
 Laktatterskeltesting er en sentral metode innen prestasjonsanalyse og treningsoptimalisering, spesielt i utholdenhetsidretter. Laktatterskelen representerer den høyeste intensiteten hvor kroppen kan opprettholde balanse mellom produksjon og eliminering av laktat i blodet. Dette er en viktig parameter for å forstå hvordan kroppen responderer på økende treningsintensitet, og den gir verdifull innsikt i både fysisk kapasitet og treningsprogrammering.
 
-For å bestemme laktatterskelen benyttes typisk en trinnvis økning i treningsintensitet mens blodprøver tas for å måle laktatnivåer. Relasjonen mellom treningsintensitet og blodlaktat analyseres deretter ved hjelp av regresjonsmodeller for å estimere intensitetsnivåene ved faste laktatkonsentrasjoner, ofte 2 og 4 mmol/L. Disse tersklene gir grunnlag for å skille mellom moderat og høy intensitet i trening, noe som er avgjørende for å optimalisere treningsplaner [@RN2511; Machado2012].
-
+For å bestemme laktatterskelen benyttes typisk en trinnvis økning i treningsintensitet mens blodprøver tas for å måle laktatnivåer. Relasjonen mellom treningsintensitet og blodlaktat analyseres deretter ved hjelp av regresjonsmodeller for å estimere intensitetsnivåene ved faste laktatkonsentrasjoner, ofte 2 og 4 mmol/L. Disse tersklene gir grunnlag for å skille mellom moderat og høy intensitet i trening, noe som er avgjørende for å optimalisere treningsplaner [@RN2511, @machado2012].
 
 ## Part 1 - Lactate thresholds
-### Metode
 
+### Metode
 
 Dataene ble organisert i et mer hensiktsmessig format (tidy data) for å forenkle videre analyse og modellering. Deretter ble ulike regresjonsmodeller anvendt for å representere dataene. Nye skjæringspunkter ble tegnet opp for å illustrere treningsintensitet ved forskjellige laktatnivåer.
 
@@ -112,15 +111,13 @@ print(p)
 
 ```
 
-Vår beste prediksjon til belastningen på 2 mmol **&times;** L<sup>-1</sup> er `r watt_lac2_cubic`W, denne kommer fra tredjegradsligningen. Den predikerte belastningen fra en lineær modell gir `r lac2lin`W. For predikert terskelwatt (4 mmol **&times;** L<sup>-1</sup>) gir tredjegradsligningen `r watt_lac4_cubic`W, som er den beste prediksjonen, mens den lineære modellen gir et estimat på `r lac4lin`W. 
-
+Vår beste prediksjon til belastningen på 2 mmol **×** L<sup>-1</sup> er `r watt_lac2_cubic`W, denne kommer fra tredjegradsligningen. Den predikerte belastningen fra en lineær modell gir `r lac2lin`W. For predikert terskelwatt (4 mmol **×** L<sup>-1</sup>) gir tredjegradsligningen `r watt_lac4_cubic`W, som er den beste prediksjonen, mens den lineære modellen gir et estimat på `r lac4lin`W.
 
 ### Diskusjon
 
-Vi har valgt å se på subject 10 fra datasettet Cyclingstudy. Vi gjør om datasettet til tidydata. Dette gjør vi for å gi watt og laktat hver sine verdier. Vi plotter inn laktatverdier og wattverdier (gule punkter). Deretter tegner vi en stiplet linje som følger punktene. Vi gjør en regresjonsanalyse, først en lineær modell (blå linje), deretter en andregradsligning (grønn) og til slutt en tredjegradsligning (rosa). Disse bruker vi for å observere hvilken modell som passer best i dette tilfellet. 
+Vi har valgt å se på subject 10 fra datasettet Cyclingstudy. Vi gjør om datasettet til tidydata. Dette gjør vi for å gi watt og laktat hver sine verdier. Vi plotter inn laktatverdier og wattverdier (gule punkter). Deretter tegner vi en stiplet linje som følger punktene. Vi gjør en regresjonsanalyse, først en lineær modell (blå linje), deretter en andregradsligning (grønn) og til slutt en tredjegradsligning (rosa). Disse bruker vi for å observere hvilken modell som passer best i dette tilfellet.
 
-For å understreke hvor unøyaktig den lineære modellen er i dette tilfellet, kan man på øyemål se at laktaten på 300W viser omtrent 2.4 mmol **&times;** L<sup>-1</sup>. Den faktiske laktaten på 300W er 1.69 mmol **&times;** L<sup>-1</sup> (@fig-fig1).
-
+For å understreke hvor unøyaktig den lineære modellen er i dette tilfellet, kan man på øyemål se at laktaten på 300W viser omtrent 2.4 mmol **×** L<sup>-1</sup>. Den faktiske laktaten på 300W er 1.69 mmol **×** L<sup>-1</sup> (@fig-fig1).
 
 ## Part 2 - Predicting sizes of DNA fragments
 
@@ -133,7 +130,6 @@ For å utføre en PCR på en 2% agarosegel, ble det først tatt helblod fra en f
 Bildet fra elektroforesen ble analysert ved hjelp av ImageJ/Fiji, og videre dataanalyser ble utført i R og R Studio. PCR-reaksjoners effektivitet bestemmes av primerdesign og deres spesifisitet.
 
 ### Resultat
-
 
 ```{r}
 #| code-fold: true
@@ -237,7 +233,6 @@ kable(
 
 ```
 
-
 ### Diskusjon
 
 I denne delen av oppgaven har vi benyttet en kalibreringskurve for å predikere størrelsene på ukjente DNA-fragmenter fra en agarosegelelektroforese. Ved å bruke et kjent DNA-ladder med kjente molekylvekter, etablerte vi en lineær sammenheng mellom logaritmen av molekylvekten og migrasjonsavstanden på gelen.
@@ -252,19 +247,15 @@ Videre antar den lineære modellen en eksponentiell sammenheng mellom migrasjons
 
 Samlet sett demonstrerer denne analysen effektiviteten av å bruke gelelektroforese kombinert med kalibreringskurver for å estimere størrelsen på ukjente DNA-fragmenter. Dette er en grunnleggende teknikk i molekylærbiologi som er essensiell for en rekke applikasjoner, inkludert genotyping, kloning og diagnostikk.
 
-
-
 ## Part 3 - Interpreting a regression table
 
+### Metode
 
-### Metode 
-
-I denne analysen undersøkte vi sammenhengen mellom treningsalder (antall år med trening) og testosteronkonsentrasjon i blodet ved tidspunkt T1 (målt i ng **&times;** dl<sup>-1</sup>). Vi benyttet datasettet hypertrophy fra exscidata-pakken i R. Variablene som ble analysert var TRAINING_AGE (treningsalder) og TESTOSTERONE_T1 (testosteronnivå ved T1).
+I denne analysen undersøkte vi sammenhengen mellom treningsalder (antall år med trening) og testosteronkonsentrasjon i blodet ved tidspunkt T1 (målt i ng **×** dl<sup>-1</sup>). Vi benyttet datasettet hypertrophy fra exscidata-pakken i R. Variablene som ble analysert var TRAINING_AGE (treningsalder) og TESTOSTERONE_T1 (testosteronnivå ved T1).
 
 En enkel lineær regresjonsanalyse ble utført med testosteronnivå som avhengig variabel og treningsalder som uavhengig variabel. Regresjonsmodellen ble tilpasset ved hjelp av funksjonen lm() i R:
 
-m <- lm(TESTOSTERONE_T1 ~ TRAINING_AGE, data = dat)
-Vi hentet ut regresjonskoeffisientene, standardfeilen, t-verdien og p-verdien fra modellens sammendrag ved hjelp av summary()-funksjonen. Vi estimerte også det forventede testosteronnivået etter 10 år med trening ved å bruke regresjonsligningen.
+m \<- lm(TESTOSTERONE_T1 \~ TRAINING_AGE, data = dat) Vi hentet ut regresjonskoeffisientene, standardfeilen, t-verdien og p-verdien fra modellens sammendrag ved hjelp av summary()-funksjonen. Vi estimerte også det forventede testosteronnivået etter 10 år med trening ved å bruke regresjonsligningen.
 
 ### Resultat
 
@@ -319,21 +310,18 @@ testo10rounded <- round(testo10, 2)
 
 ```
 
-Den lineære regresjonsmodellen viste at det var en negativ sammenheng mellom treningsalder og testosteronkonsentrasjon i blodet (@fig-fig3). Regresjonskoeffisienten for treningsalder var -`r reg_koeff_tralder`ng **&times;** dl<sup>-1</sup> per år, noe som indikerer at testosteronnivået synker med gjennomsnittlig `r reg_koeff_tralder`ng **&times;** dl<sup>-1</sup> for hvert år med trening. Interceptet i modellen var `r reg_koeff_intercept`ng **&times;** dl<sup>-1</sup>, som representerer det estimerte testosteronnivået for en person uten treningserfaring.
+Den lineære regresjonsmodellen viste at det var en negativ sammenheng mellom treningsalder og testosteronkonsentrasjon i blodet (@fig-fig3). Regresjonskoeffisienten for treningsalder var -`r reg_koeff_tralder`ng **×** dl<sup>-1</sup> per år, noe som indikerer at testosteronnivået synker med gjennomsnittlig `r reg_koeff_tralder`ng **×** dl<sup>-1</sup> for hvert år med trening. Interceptet i modellen var `r reg_koeff_intercept`ng **×** dl<sup>-1</sup>, som representerer det estimerte testosteronnivået for en person uten treningserfaring.
 
 T-verdien for koeffisienten var `r tval`, og tilhørende p-verdi var `r pval`. Siden p-verdien er høyere enn signifikansnivået på 0,05, er sammenhengen ikke statistisk signifikant. Dette betyr at vi ikke har tilstrekkelig bevis til å konkludere med at det er en lineær sammenheng mellom treningsalder og testosteronnivå i denne populasjonen.
 
-Ved å bruke regresjonsligningen estimerte vi testosteronnivået etter 10 år med trening til å være `r testo10rounded`ng **&times;** dl<sup>-1</sup>. Dette ble beregnet ved å sette inn TRAINING_AGE = 10 i modellen.
-
+Ved å bruke regresjonsligningen estimerte vi testosteronnivået etter 10 år med trening til å være `r testo10rounded`ng **×** dl<sup>-1</sup>. Dette ble beregnet ved å sette inn TRAINING_AGE = 10 i modellen.
 
 Dette estimatet illustrerer den forventede nedgangen i testosteronnivå basert på modellen, men gitt den ikke-signifikante p-verdien bør resultatene tolkes med forsiktighet.
 
 ### Diskusjon
 
-
-Fra datasettet hypertrophy valgte vi å se på sammenhengen mellom testosteronkonsentrasjon i blodet (ng **&times;** dl<sup>-1</sup>) og treningsalder (antall år med trening). Den lineære modellen forteller at testosteronkonsentrasjonen i blodet synker med 20.51 ng **&times;** dl<sup>-1</sup> for hvert treningsår. Etter 10 år med trening, estimerer den lineære modellen et testosteronnivå på `r testo10rounded` ng **&times;** dl<sup>-1</sup>. 
+Fra datasettet hypertrophy valgte vi å se på sammenhengen mellom testosteronkonsentrasjon i blodet (ng **×** dl<sup>-1</sup>) og treningsalder (antall år med trening). Den lineære modellen forteller at testosteronkonsentrasjonen i blodet synker med 20.51 ng **×** dl<sup>-1</sup> for hvert treningsår. Etter 10 år med trening, estimerer den lineære modellen et testosteronnivå på `r testo10rounded` ng **×** dl<sup>-1</sup>.
 
 Analysen av dataene viser en p-verdi på `r pval`, noe som indikerer at det ikke er statistisk signifikant bevis for en sammenheng mellom treningsalder og nivået av testosteron i blodet. Siden p-verdien er høyere enn det vanlige signifikansnivået på 0,05, kan vi ikke avvise nullhypotesen, som antyder at det ikke er noen betydelig effekt eller sammenheng mellom de to variablene i dette datasettet. Dette betyr at variasjonen i testosteronnivåer ikke ser ut til å være relatert til hvor lenge individene har trent.
 
-
-I analysen av sammenhengen mellom treningsalder og testosteronnivåer i blodet ses det en t-verdi på `r tval`.  Den høye t-verdien på `r tval`, og en p-verdi på  `r pval`. Denne p-verdien er høyere enn det vanlige signifikansnivået på 0,05, noe som betyr at vi ikke har tilstrekkelig statistisk bevis for å avvise nullhypotesen. Selv om t-verdien indikerer en mulig sammenheng mellom treningsalder og testosteronnivå, er det ikke nok evidens til å konkludere med at denne sammenhengen er signifikant. Dermed kan vi konkludere med at selv om det kan være en tendens til en sammenheng mellom treningsalder og testosteronnivåer, er resultatene fra denne analysen ikke sterke nok til å si at treningsalder har en reell effekt på testosteronnivåene i blodet.
+I analysen av sammenhengen mellom treningsalder og testosteronnivåer i blodet ses det en t-verdi på `r tval`. Den høye t-verdien på `r tval`, og en p-verdi på `r pval`. Denne p-verdien er høyere enn det vanlige signifikansnivået på 0,05, noe som betyr at vi ikke har tilstrekkelig statistisk bevis for å avvise nullhypotesen. Selv om t-verdien indikerer en mulig sammenheng mellom treningsalder og testosteronnivå, er det ikke nok evidens til å konkludere med at denne sammenhengen er signifikant. Dermed kan vi konkludere med at selv om det kan være en tendens til en sammenheng mellom treningsalder og testosteronnivåer, er resultatene fra denne analysen ikke sterke nok til å si at treningsalder har en reell effekt på testosteronnivåene i blodet.

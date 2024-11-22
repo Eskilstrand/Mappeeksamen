@@ -2,7 +2,9 @@
 
 # Forord {.unnumbered}
 
-Denne rapporten inneholder ulike arbeidskrav som er gjennomført gjennom høsten 2024. Arbeidskravene er satt sammen og danner nå mappeeksamen i Kvantitativ metode og statistikk (IDR4000).
+Denne rapporten inneholder ulike arbeidskrav som er gjennomført gjennom høsten 2024.
+
+Arbeidskravene er satt sammen og danner nå mappeeksamen i Kvantitativ metode og statistikk (IDR4000).
 
 Takk til Ole for mye godt samarbeid underveis, både med kode og som selskap under ferdigstillingen av eksamen.
 
